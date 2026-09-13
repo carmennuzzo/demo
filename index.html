@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azzurra Spettacoli — Eventi e Concerti in esclusiva · Campania e Basilicata</title>
+<meta name="description" content="Azzurra Spettacoli: organizzazione e realizzazione di eventi e concerti in esclusiva in Campania e Basilicata. Oltre 50 artisti nel cast 2026.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12294a;
+  --navy-2:#1b3d68;
+  --navy-3:#285182;
+  --navy-deep:#0d1f38;
+  --ink:#eef3f9;
+  --muted:#a9bdd4;
+  --gold:#e6b04b;
+  --gold-2:#f4cd7e;
+  --white:#ffffff;
+  --line:rgba(255,255,255,0.12);
+  --line-2:rgba(255,255,255,0.20);
+  --maxw:1200px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:'Sora',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-align:center;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+img{display:block;max-width:100%;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+h1,h2,h3,.display{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.02;text-transform:uppercase;letter-spacing:0.01em;margin:0;}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}.reveal{opacity:1!important;transform:none!important;}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.reveal[data-d="1"]{transition-delay:.08s;}
+.reveal[data-d="2"]{transition-delay:.16s;}
+.reveal[data-d="3"]{transition-delay:.24s;}
+
+/* ============ NAV — centrato con logo al centro ============ */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s,box-shadow .35s,padding .3s;padding:16px 0;}
+header.nav.scrolled{background:rgba(13,31,56,0.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:8px 0;}
+.nav-in{display:flex;align-items:center;justify-content:center;gap:34px;}
+.nav-side{display:flex;align-items:center;gap:30px;flex:1;}
+.nav-side.left{justify-content:flex-end;}
+.nav-side.right{justify-content:flex-start;}
+.nav-in a.navlink{font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:500;font-size:14px;letter-spacing:.05em;color:var(--ink);opacity:.8;position:relative;padding:6px 0;transition:opacity .2s,color .2s;white-space:nowrap;}
+.nav-in a.navlink:hover,.nav-in a.navlink.active{opacity:1;color:var(--gold-2);}
+.nav-in a.navlink.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);}
+.nav-logo{flex:0 0 auto;width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--navy-3);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.35);border:2px solid var(--line-2);transition:width .3s,height .3s;}
+header.nav.scrolled .nav-logo{width:56px;height:56px;}
+.nav-logo img{width:100%;height:100%;object-fit:cover;}
+.burger{display:none;position:absolute;right:24px;top:50%;transform:translateY(-50%);flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+.burger span{width:25px;height:2px;background:var(--white);border-radius:2px;}
+.mobile{display:none;position:fixed;inset:0;z-index:99;background:var(--navy-deep);padding:110px 28px 40px;flex-direction:column;gap:6px;align-items:center;}
+.mobile.open{display:flex;}
+.mobile a{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:26px;letter-spacing:.03em;padding:12px 0;border-bottom:1px solid var(--line);width:100%;max-width:320px;}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:150px 0 90px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(120% 90% at 50% 0%, rgba(40,81,130,0.9), transparent 60%),
+  radial-gradient(80% 60% at 50% 100%, rgba(230,176,75,0.10), transparent 60%),
+  linear-gradient(180deg,#1b3d68 0%,#12294a 55%,#0d1f38 100%);}
+.hero-arc{position:absolute;z-index:0;left:50%;top:52%;transform:translate(-50%,-50%);width:min(680px,90vw);opacity:.06;pointer-events:none;}
+.hero-arc svg{width:100%;stroke:var(--white);}
+.hero-grain{position:absolute;inset:0;z-index:0;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+.hero-in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--gold-2);font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;font-weight:500;letter-spacing:0.24em;margin-bottom:26px;}
+.eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:var(--gold);}
+h1.hero-title{font-size:clamp(50px,9vw,128px);color:var(--white);max-width:16ch;}
+h1.hero-title .accent{color:var(--gold);}
+.hero-sub{margin:28px auto 38px;max-width:60ch;font-size:18px;line-height:1.65;color:var(--muted);}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:15px;letter-spacing:.04em;cursor:pointer;border:2px solid transparent;transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s;}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px);}
+.btn-line{border-color:var(--line-2);color:var(--white);}
+.btn-line:hover{border-color:var(--white);transform:translateY(-2px);}
+.btn svg{transition:transform .2s var(--ease);}
+.btn:hover svg{transform:translateX(3px);}
+.hero-strip{margin-top:70px;display:flex;gap:0;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--line);padding-top:26px;}
+.hero-strip div{padding:0 44px;border-right:1px solid var(--line);}
+.hero-strip div:last-child{border:0;}
+.hero-strip b{display:block;font-family:'Oswald',sans-serif;font-size:44px;color:var(--white);}
+.hero-strip span{font-size:12.5px;color:var(--muted);}
+
+/* entrance seq */
+.seq{opacity:0;transform:translateY(24px);animation:seqIn .85s var(--ease) forwards;}
+.seq.s1{animation-delay:.05s;}.seq.s2{animation-delay:.18s;}.seq.s3{animation-delay:.31s;}.seq.s4{animation-delay:.44s;}.seq.s5{animation-delay:.58s;}
+@keyframes seqIn{to{opacity:1;transform:none;}}
+
+/* ============ SECTIONS ============ */
+.sec{padding:120px 0;position:relative;}
+.sec-head{max-width:720px;margin:0 auto 58px;}
+.kicker{display:inline-block;color:var(--gold-2);font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:14px;font-weight:500;letter-spacing:.18em;margin-bottom:14px;}
+.sec-head h2{font-size:clamp(38px,5.5vw,68px);color:var(--white);}
+.sec-head p{margin:18px auto 0;font-size:16.5px;line-height:1.65;color:var(--muted);}
+
+/* ============ ARTISTI / CAST ============ */
+#artisti{background:linear-gradient(180deg,#12294a,#1b3d68 45%,#12294a);}
+.cast-hero{position:relative;display:flex;flex-direction:column;align-items:center;margin-bottom:52px;}
+.cast-logo-wrap{position:relative;width:132px;height:132px;margin-bottom:26px;display:flex;align-items:center;justify-content:center;}
+.cast-logo-wrap .ring{position:absolute;inset:-14px;border-radius:50%;border:1.5px dashed rgba(230,176,75,.5);animation:spin 26s linear infinite;}
+.cast-logo-wrap .ring2{position:absolute;inset:-30px;border-radius:50%;border:1px solid var(--line);}
+@keyframes spin{to{transform:rotate(360deg);}}
+.cast-logo{width:112px;height:112px;border-radius:50%;overflow:hidden;background:var(--navy-3);border:2px solid var(--line-2);box-shadow:0 12px 34px rgba(0,0,0,.4);z-index:1;}
+.cast-logo img{width:100%;height:100%;object-fit:cover;}
+.cast-badge-2026{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;background:var(--gold);color:var(--navy-deep);font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;padding:4px 14px;border-radius:100px;box-shadow:0 6px 16px rgba(0,0,0,.3);}
+
+.filterbar{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:34px;}
+.search{width:min(440px,100%);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:100px;padding:12px 22px;}
+.search input{flex:1;background:none;border:0;color:var(--ink);font-family:inherit;font-size:15px;outline:none;text-align:left;}
+.search input::placeholder{color:var(--muted);}
+.search svg{opacity:.6;flex:0 0 auto;}
+.count{font-size:13.5px;color:var(--muted);}
+
+.artist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}
+.artist-card{position:relative;border-radius:16px;overflow:hidden;background:var(--navy-2);border:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;}
+.artist-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 46px rgba(0,0,0,.42);}
+.card-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,#2b5a86,#173250 70%);}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+.artist-card:hover .card-media img{transform:scale(1.05);}
+.card-media img.no-img{display:none;}
+.card-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:50px;color:rgba(255,255,255,.16);}
+.card-media.placeholder .card-fallback{display:flex;}
+.card-media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(9,20,35,.85) 100%);}
+.card-badge{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:2;font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-deep);background:var(--gold);padding:4px 12px;border-radius:100px;}
+.card-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px;}
+.card-body h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:17px;line-height:1.1;color:var(--white);letter-spacing:.01em;}
+.card-tag{display:inline-block;margin-top:7px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);}
+.no-result{grid-column:1/-1;color:var(--muted);padding:50px 0;font-size:16px;}
+
+/* ============ SERVIZI — accordion + immagini ============ */
+#servizi{background:var(--navy);}
+.serv-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;text-align:left;}
+.acc{border-top:1px solid var(--line);}
+.acc-item{border-bottom:1px solid var(--line);}
+.acc-head{display:flex;align-items:center;gap:18px;width:100%;background:none;border:0;cursor:pointer;padding:24px 4px;text-align:left;color:var(--ink);font-family:inherit;transition:color .2s;}
+.acc-head:hover{color:var(--gold-2);}
+.acc-n{font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;color:var(--gold);flex:0 0 auto;width:34px;}
+.acc-title{flex:1;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;font-size:19px;letter-spacing:.02em;}
+.acc-ico{flex:0 0 auto;width:22px;height:22px;position:relative;transition:transform .3s var(--ease);}
+.acc-ico::before,.acc-ico::after{content:"";position:absolute;background:var(--gold);border-radius:2px;}
+.acc-ico::before{top:10px;left:0;right:0;height:2px;}
+.acc-ico::after{left:10px;top:0;bottom:0;width:2px;transition:opacity .3s;}
+.acc-item.open .acc-ico{transform:rotate(180deg);}
+.acc-item.open .acc-ico::after{opacity:0;}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.acc-panel p{margin:0 0 22px;padding-left:52px;color:var(--muted);font-size:15px;line-height:1.62;}
+.serv-media{position:sticky;top:120px;display:flex;flex-direction:column;gap:16px;}
+.serv-media .m-big{aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--line);}
+.serv-media .m-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.serv-media .m-row div{aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid var(--line);}
+.serv-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+.serv-media .m-big:hover img,.serv-media .m-row div:hover img{transform:scale(1.05);}
+.serv-cap{margin-top:2px;font-size:13px;color:var(--muted);}
+
+/* ============ CHI SIAMO ============ */
+#chi-siamo{background:linear-gradient(180deg,#12294a,#1b3d68);}
+.chi{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;text-align:left;}
+.chi .kicker{color:var(--gold-2);}
+.chi h2{font-size:clamp(40px,5vw,64px);color:var(--white);text-align:left;}
+.chi p{font-size:16.5px;line-height:1.75;color:var(--ink);opacity:.92;margin:18px 0 0;}
+.chi .tag{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:26px;color:var(--gold);margin-top:26px;letter-spacing:.03em;}
+.chi-photo{position:relative;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:1px solid var(--line-2);}
+.chi-photo img{width:100%;height:100%;object-fit:cover;}
+.chi-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(9,20,35,.4));}
+
+/* ============ CHI CI HA SCELTO ============ */
+#scelto{background:var(--navy);}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;}
+.gal-item{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--navy-2);}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.gal-item:hover img{transform:scale(1.06);}
+.gal-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(9,20,35,.6));opacity:0;transition:opacity .3s;}
+.gal-item:hover::after{opacity:1;}
+.gal-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;color:var(--white);font-size:13.5px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;}
+.gal-item:hover .gal-cap{opacity:1;transform:none;}
+.g-wide{grid-column:span 2;}
+.g-tall{grid-row:span 2;}
+@media(max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}.g-tall{grid-row:span 1;}}
+@media(max-width:560px){.gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:130px;}}
+
+/* ============ EVENTI ============ */
+#eventi{background:linear-gradient(180deg,#12294a,#1b3d68 50%,#12294a);}
+.ev-panel{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line-2);background:linear-gradient(120deg,#1f4676,#12294a);padding:64px;}
+.ev-panel::after{content:"";position:absolute;right:-40px;top:-40px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(230,176,75,.2),transparent 65%);}
+.ev-panel .l{position:relative;z-index:1;max-width:620px;margin:0 auto;}
+.ev-panel h3{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,44px);color:var(--white);}
+.ev-panel p{color:var(--muted);font-size:16px;line-height:1.6;margin:16px auto 0;}
+.ev-soon{display:inline-block;margin-top:26px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--gold-2);border:1px solid var(--line-2);border-radius:100px;padding:10px 22px;}
+
+/* ============ CONTATTI — form ============ */
+#contatti{background:linear-gradient(180deg,#12294a,#0d1f38);}
+.form-card{max-width:680px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;padding:48px;text-align:left;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.08em;color:var(--gold-2);margin-bottom:8px;}
+.field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:13px 16px;color:var(--ink);font-family:inherit;font-size:15px;outline:none;transition:border-color .2s,background .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09);}
+.field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a9bdd4' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 16px center;}
+.field textarea{resize:vertical;min-height:110px;}
+.form-submit{text-align:center;margin-top:8px;}
+.form-note{text-align:center;color:var(--muted);font-size:13px;margin-top:16px;}
+.form-msg{display:none;text-align:center;margin-top:18px;padding:14px;border-radius:12px;background:rgba(230,176,75,.14);border:1px solid rgba(230,176,75,.4);color:var(--gold-2);font-size:14.5px;}
+
+/* ============ FOOTER ============ */
+footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);text-align:left;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;padding-bottom:40px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;flex-direction:column;gap:14px;}
+.foot-logo{width:58px;height:58px;border-radius:50%;overflow:hidden;background:var(--navy-3);border:2px solid var(--line-2);}
+.foot-logo img{width:100%;height:100%;object-fit:cover;}
+.foot-name{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--white);font-size:19px;}
+.foot-pay{color:var(--gold-2);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;margin-top:2px;}
+.foot-about{color:var(--muted);font-size:14px;line-height:1.6;max-width:38ch;}
+.foot-col h4{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:var(--gold-2);margin:0 0 16px;}
+.foot-col ul li{margin-bottom:11px;}
+.foot-col a,.foot-col address{color:var(--muted);font-size:14px;line-height:1.55;font-style:normal;transition:color .2s;}
+.foot-col a:hover{color:var(--white);}
+.foot-col .lbl{display:block;color:var(--white);font-weight:500;}
+.socials{display:flex;gap:12px;margin-top:6px;}
+.socials a{width:42px;height:42px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--navy-2);transition:transform .2s,background .2s,color .2s;}
+.socials a:hover{transform:translateY(-3px);background:var(--gold);color:var(--navy-deep);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;color:var(--muted);font-size:12.5px;}
+.foot-bottom a{color:var(--gold-2);}
+@media(max-width:760px){
+  footer{text-align:center;}
+  .foot-grid{grid-template-columns:1fr;gap:32px;}
+  .foot-brand{align-items:center;}
+  .socials{justify-content:center;}
+  .foot-bottom{justify-content:center;text-align:center;}
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .nav-side{display:none;}
+  .nav-in{justify-content:center;}
+  .burger{display:flex;}
+  .serv-layout{grid-template-columns:1fr;}
+  .serv-media{position:static;order:-1;}
+  .chi{grid-template-columns:1fr;gap:44px;}
+  .chi h2{text-align:center;}
+  .chi-photo{order:-1;max-width:320px;margin:0 auto;}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px;}
+  .hero{padding-top:120px;}
+  .hero-strip div{padding:0 22px;}
+  .hero-strip b{font-size:34px;}
+  .artist-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .form-row{grid-template-columns:1fr;}
+  .form-card{padding:32px 22px;}
+  .ev-panel{padding:40px 24px;}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <div class="nav-side left">
+      <a href="#home" class="navlink">Home</a>
+      <a href="#artisti" class="navlink">Artisti</a>
+      <a href="#servizi" class="navlink">Servizi</a>
+    </div>
+    <a href="#home" class="nav-logo" aria-label="Azzurra Spettacoli"><img src="assets/logo.png" alt="Azzurra Spettacoli"></a>
+    <div class="nav-side right">
+      <a href="#chi-siamo" class="navlink">Chi siamo</a>
+      <a href="#scelto" class="navlink">Chi ci ha scelto</a>
+      <a href="#contatti" class="navlink">Contatti</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile" id="mobile">
+  <a href="#home">Home</a>
+  <a href="#artisti">Artisti</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#scelto">Chi ci ha scelto</a>
+  <a href="#eventi">Eventi</a>
+  <a href="#contatti">Contatti</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-arc" aria-hidden="true">
+    <svg viewBox="0 0 400 460" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M40 430 L200 30 L360 430"/><path d="M92 430 L210 130 L305 430"/><path d="M120 360 Q200 300 285 360"/>
+    </svg>
+  </div>
+  <div class="wrap hero-in">
+    <span class="eyebrow seq s1">Esclusiva Campania &amp; Basilicata · 2026</span>
+    <h1 class="hero-title seq s2">Il live che accende<br>il <span class="accent">territorio</span></h1>
+    <p class="hero-sub seq s3">Da oltre 20 anni Azzurra Spettacoli organizza e realizza eventi e concerti dal vivo con un cast in esclusiva di oltre 50 artisti. Grande musica italiana, format d'intrattenimento e serate di piazza, dal palco alla comunicazione.</p>
+    <div class="hero-cta seq s4">
+      <a href="#artisti" class="btn btn-gold">Il cast 2026 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#contatti" class="btn btn-line">Organizza un evento</a>
+    </div>
+    <div class="hero-strip seq s5">
+      <div><b>20+</b><span>anni nel settore</span></div>
+      <div><b>56+</b><span>artisti in esclusiva</span></div>
+      <div><b>2</b><span>regioni servite</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="artisti">
+  <div class="wrap">
+    <div class="cast-hero reveal">
+      <div class="cast-logo-wrap">
+        <span class="ring2"></span><span class="ring"></span>
+        <span class="cast-logo"><img src="assets/logo.png" alt="Azzurra Spettacoli"></span>
+      </div>
+      <div class="sec-head" style="margin-bottom:0;">
+        <span class="kicker">Band &amp; Live Show</span>
+        <h2>Cast 2026</h2>
+        <p>Il roster in esclusiva per la stagione 2026. Cerca un artista o scorri la lineup completa.</p>
+      </div>
+    </div>
+
+    <div class="filterbar reveal">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="artistSearch" placeholder="Cerca un artista…" aria-label="Cerca un artista">
+      </label>
+      <span class="count" id="artistCount"></span>
+    </div>
+
+    <div class="artist-grid" id="artistGrid">
+      <article class="artist-card" data-name="alessio">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/alessio.jpg" alt="Alessio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">A</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Alessio</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="andrea sannino">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/andrea-sannino.jpg" alt="Andrea Sannino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">AS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Andrea Sannino</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="après la classe">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/apres-la-classe.jpg" alt="Après la Classe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">AL</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Après la Classe</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="beat 90's">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/beat-90s.jpg" alt="Beat 90's" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">B9</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Beat 90's</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="bianca atzei">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/bianca-atzei.jpg" alt="Bianca Atzei" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">BA</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Bianca Atzei</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="chiara galiazzo">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/chiara-galiazzo.jpg" alt="Chiara Galiazzo" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">CG</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Chiara Galiazzo</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="ciro rigione">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ciro-rigione.jpg" alt="Ciro Rigione" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">CR</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ciro Rigione</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="collage">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/collage.jpg" alt="Collage" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">C</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Collage</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="danilo sacco">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/danilo-sacco.jpg" alt="Danilo Sacco" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">DS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Danilo Sacco</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="dolcenere">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/dolcenere.jpg" alt="Dolcenere" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">D</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Dolcenere</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="eugenio finardi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/eugenio-finardi.jpg" alt="Eugenio Finardi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">EF</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Eugenio Finardi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="fausto leali">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/fausto-leali.jpg" alt="Fausto Leali" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">FL</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Fausto Leali</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="filippo graziani">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/filippo-graziani.jpg" alt="Filippo Graziani" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">FG</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Filippo Graziani</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="fiordaliso">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/fiordaliso.jpg" alt="Fiordaliso" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">F</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Fiordaliso</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="franco ricciardi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/franco-ricciardi.jpg" alt="Franco Ricciardi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">FR</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Franco Ricciardi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="gabriele esposito">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/gabriele-esposito.jpg" alt="Gabriele Esposito" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">GE</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Gabriele Esposito</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="gianluca capozzi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/gianluca-capozzi.jpg" alt="Gianluca Capozzi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">GC</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Gianluca Capozzi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="gianni fiorellino">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/gianni-fiorellino.jpg" alt="Gianni Fiorellino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">GF</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Gianni Fiorellino</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="gigi finizio">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/gigi-finizio.jpg" alt="Gigi Finizio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">GF</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Gigi Finizio</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="gigi soriani">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/gigi-soriani.jpg" alt="Gigi Soriani" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">GS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Gigi Soriani</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="il giardino dei semplici">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/il-giardino-dei-semplici.jpg" alt="Il Giardino dei Semplici" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">IG</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Il Giardino dei Semplici</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="irene grandi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/irene-grandi.jpg" alt="Irene Grandi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">IG</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Irene Grandi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="ivan granatino">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ivan-granatino.jpg" alt="Ivan Granatino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">IG</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ivan Granatino</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="ivana spagna">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ivana-spagna.jpg" alt="Ivana Spagna" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">IS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ivana Spagna</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="lda e aka7even">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/lda-e-aka7even.jpg" alt="LDA e Aka7even" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">LE</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>LDA e Aka7even</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="luca sepe">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/luca-sepe.jpg" alt="Luca Sepe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">LS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Luca Sepe</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="luisa corna">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/luisa-corna.jpg" alt="Luisa Corna" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">LC</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Luisa Corna</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="marco carta">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/marco-carta.jpg" alt="Marco Carta" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">MC</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Marco Carta</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="maria nazionale">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/maria-nazionale.jpg" alt="Maria Nazionale" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">MN</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Maria Nazionale</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="marsica">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/marsica.jpg" alt="Marsica" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">M</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Marsica</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="mattia bazar">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/mattia-bazar.jpg" alt="Mattia Bazar" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">MB</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Mattia Bazar</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="mavi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/mavi.jpg" alt="Mavi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">M</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Mavi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="neomelodic night">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/neomelodic-night.jpg" alt="Neomelodic Night" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">NN</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Neomelodic Night</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="nicola siciliano">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/nicola-siciliano.jpg" alt="Nicola Siciliano" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">NS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Nicola Siciliano</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="nina zilli">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/nina-zilli.jpg" alt="Nina Zilli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">NZ</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Nina Zilli</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="nostalgia anni 90">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/nostalgia-anni-90.jpg" alt="Nostalgia Anni 90" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">NA</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Nostalgia Anni 90</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="orietta berti">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/orietta-berti.jpg" alt="Orietta Berti" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">OB</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Orietta Berti</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="paolo belli">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/paolo-belli.jpg" alt="Paolo Belli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">PB</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Paolo Belli</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="patrizio">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/patrizio.jpg" alt="Patrizio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">P</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Patrizio</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="raoul & swing orchestra">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/raoul-swing-orchestra.jpg" alt="Raoul & Swing Orchestra" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Raoul & Swing Orchestra</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="ricchi e poveri">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ricchi-e-poveri.jpg" alt="Ricchi e Poveri" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RE</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ricchi e Poveri</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="rico femiano">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/rico-femiano.jpg" alt="Rico Femiano" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RF</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Rico Femiano</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="rita pavone">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/rita-pavone.jpg" alt="Rita Pavone" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RP</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Rita Pavone</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="ritorno bambino di luca sepe">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ritorno-bambino-di-luca-sepe.jpg" alt="Ritorno Bambino di Luca Sepe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RB</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ritorno Bambino di Luca Sepe</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="roberto vecchioni">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/roberto-vecchioni.jpg" alt="Roberto Vecchioni" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RV</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Roberto Vecchioni</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="ron">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/ron.jpg" alt="Ron" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">R</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Ron</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="rosario miraggio">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/rosario-miraggio.jpg" alt="Rosario Miraggio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">RM</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Rosario Miraggio</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="shade">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/shade.jpg" alt="Shade" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">S</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Shade</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="silvia mezzanotte">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/silvia-mezzanotte.jpg" alt="Silvia Mezzanotte" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">SM</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Silvia Mezzanotte</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="simone cristicchi">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/simone-cristicchi.jpg" alt="Simone Cristicchi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">SC</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Simone Cristicchi</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="sud sound system">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/sud-sound-system.jpg" alt="Sud Sound System" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">SS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Sud Sound System</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="super hit 80's">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/super-hit-80s.jpg" alt="Super Hit 80's" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">SH</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Super Hit 80's</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <article class="artist-card" data-name="tiromancino">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/tiromancino.jpg" alt="Tiromancino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">T</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Tiromancino</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="tony tammaro">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/tony-tammaro.jpg" alt="Tony Tammaro" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">TT</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Tony Tammaro</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="veronica simioli">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/veronica-simioli.jpg" alt="Veronica Simioli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">VS</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Veronica Simioli</h3>
+    
+        </div>
+      </article>
+      <article class="artist-card" data-name="we can dance con dino piacenti">
+        <div class="card-media">
+          <img loading="lazy" src="artisti/we-can-dance-con-dino-piacenti.jpg" alt="We Can Dance con Dino Piacenti" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
+          <span class="card-fallback" aria-hidden="true">WC</span>
+          <span class="card-badge">Esclusiva 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>We Can Dance con Dino Piacenti</h3>
+          <span class="card-tag">Live Show</span>
+        </div>
+      </article>
+      <p class="no-result" id="noResult" style="display:none;">Nessun artista trovato.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="servizi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Cosa facciamo</span>
+      <h2>Servizi</h2>
+      <p>La logistica completa di eventi di medie e grandi dimensioni: dalla progettazione alla rendicontazione.</p>
+    </div>
+    <div class="serv-layout">
+      <div class="acc reveal" id="acc">
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">01</span><span class="acc-title">Relazione progetto eventi</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Cartelloni artistici e progetti redatti secondo i formulari delle leggi regionali, per accedere ai finanziamenti su eventi culturali e rassegne turistiche. Sempre con occhio all'occupazione locale: giovani e fornitori del territorio.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">02</span><span class="acc-title">Pubbliche relazioni</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Curiamo i rapporti con gli enti — comuni, soprintendenze, pubblica sicurezza, SIAE — e le procedure regionali per i finanziamenti a eventi culturali e di promozione turistica.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">03</span><span class="acc-title">Piano mezzi</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Redazione e coordinamento del piano mezzi di allestimento, su un crono-programma costruito sull'esperienza maturata nel settore.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">04</span><span class="acc-title">Piano di comunicazione</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Marketing, grafica e promozione: testate locali e nazionali, siti istituzionali, affissioni, pannelli 3×6 e visibilità negli aeroporti.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">05</span><span class="acc-title">Direzione artistica</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Cast di artisti in esclusiva, artisti di strada, cori, orchestre, classico napoletano, jazz, gospel, cabaret e teatro. Spettacoli di luci e suoni su facciate storiche ed eventi a tema d'epoca.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">06</span><span class="acc-title">Piano di accoglienza</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Accoglienza per meeting, gala ed eventi fino a 500 presenze, con coordinamento della vigilanza insieme alle autorità di pubblica sicurezza.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">07</span><span class="acc-title">Monitoraggio e rendicontazione</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Relazione di monitoraggio secondo le procedure regionali e gestione dell'iter di rendicontazione delle spese sostenute.</p></div>
+        </div>
+      </div>
+      <div class="serv-media reveal" data-d="1">
+        <div class="m-big"><img loading="lazy" src="gallery/truck-hero.jpg" alt="Truck camerini Azzurra Spettacoli"></div>
+        <div class="m-row">
+          <div><img loading="lazy" src="gallery/stage-90.jpg" alt="Palco in piazza"></div>
+          <div><img loading="lazy" src="gallery/truck-piazza.jpg" alt="Allestimento in piazza"></div>
+        </div>
+        <span class="serv-cap">Truck camerini, palchi e allestimenti dai nostri eventi.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="chi-siamo">
+  <div class="wrap chi">
+    <div class="reveal">
+      <span class="kicker">Chi siamo</span>
+      <h2>Per gente<br>felice</h2>
+      <p>Con oltre 20 anni di esperienza nel settore, Azzurra Spettacoli è un'agenzia di spettacolo che cura la logistica dell'organizzazione e realizzazione di eventi di medie e grandi dimensioni, con esclusiva in Campania e Basilicata.</p>
+      <p>Siamo specializzati nella gestione di briefing di lavoro, serate di gala, eventi promozionali e appuntamenti di interesse culturale. Lavoriamo al fianco di comuni, pro loco, enti e privati, seguendo ogni fase dello spettacolo dal vivo — dalla progettazione alla rendicontazione.</p>
+      <div class="tag">"Per gente felice."</div>
+    </div>
+    <div class="chi-photo reveal" data-d="1">
+      <img src="gallery/studio.jpg" alt="Gli spazi di Azzurra Spettacoli">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="scelto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Sul campo</span>
+      <h2>Chi ci ha scelto</h2>
+      <p>Piazze, feste patronali ed enti che hanno portato Azzurra Spettacoli sul proprio palco.</p>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item g-wide g-tall"><img loading="lazy" src="gallery/truck-hero.jpg" alt="Truck camerini con red carpet"><span class="gal-cap">Truck camerini · red carpet</span></div>
+      <div class="gal-item"><img loading="lazy" src="gallery/stage-90.jpg" alt="Palco Nostalgia 90"><span class="gal-cap">Nostalgia 90 · Lo Show</span></div>
+      <div class="gal-item"><img loading="lazy" src="gallery/truck-piazza.jpg" alt="Allestimento in piazza"><span class="gal-cap">Allestimento in piazza</span></div>
+      <div class="gal-item g-wide"><img loading="lazy" src="gallery/truck-side.jpg" alt="Truck camerini fiancata"><span class="gal-cap">Truck camerini</span></div>
+      <div class="gal-item"><img loading="lazy" src="gallery/truck-carpet.jpg" alt="Backstage red carpet"><span class="gal-cap">Backstage · red carpet</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="eventi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Calendario</span>
+      <h2>Prossimi eventi</h2>
+      <p>Il cartellone 2026 è in aggiornamento.</p>
+    </div>
+    <div class="ev-panel reveal">
+      <div class="l">
+        <h3>Il calendario sta arrivando</h3>
+        <p>Stiamo preparando il calendario degli eventi con date, luoghi e artisti. Torna presto per scoprire dove sarà Azzurra Spettacoli.</p>
+        <span class="ev-soon">Prossimamente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contatti">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Parliamone</span>
+      <h2>Contatti</h2>
+      <p>Raccontaci il tuo evento: ti ricontattiamo con la proposta di cast più adatta.</p>
+    </div>
+    <form class="form-card reveal" id="contactForm" onsubmit="return handleSubmit(event)">
+      <div class="form-row">
+        <div class="field"><label for="nome">Nome e cognome</label><input id="nome" name="nome" type="text" required placeholder="Il tuo nome"></div>
+        <div class="field"><label for="ente">Ente / Organizzazione</label><input id="ente" name="ente" type="text" placeholder="Comune, pro loco, azienda…"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="nome@email.it"></div>
+        <div class="field"><label for="tel">Telefono</label><input id="tel" name="tel" type="tel" placeholder="Facoltativo"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="tipo">Tipo di evento</label>
+          <select id="tipo" name="tipo">
+            <option>Concerto / serata musicale</option>
+            <option>Festa patronale</option>
+            <option>Evento culturale</option>
+            <option>Serata di gala</option>
+            <option>Evento promozionale / aziendale</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="field"><label for="data">Data indicativa</label><input id="data" name="data" type="text" placeholder="Es. estate 2026"></div>
+      </div>
+      <div class="field"><label for="luogo">Luogo</label><input id="luogo" name="luogo" type="text" placeholder="Comune / provincia"></div>
+      <div class="field"><label for="msg">Messaggio</label><textarea id="msg" name="msg" placeholder="Raccontaci la tua idea, il pubblico previsto, eventuali artisti…"></textarea></div>
+      <div class="form-submit"><button type="submit" class="btn btn-gold">Invia richiesta</button></div>
+      <div class="form-note">Compilando il form aprirai una mail precompilata verso Azzurra Spettacoli.</div>
+      <div class="form-msg" id="formMsg">Grazie! Si aprirà il tuo client di posta con la richiesta precompilata.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo"><img src="assets/logo.png" alt="Azzurra Spettacoli"></div>
+        <div>
+          <div class="foot-name">Azzurra Spettacoli</div>
+          <div class="foot-pay">Per gente felice</div>
+        </div>
+        <p class="foot-about">Da oltre 20 anni nel settore dello spettacolo dal vivo: organizzazione e realizzazione di eventi e concerti in esclusiva in Campania e Basilicata.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/AzzurraSpettacoli" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 8.5H13V7c0-.7.5-1 .9-1H15.5V3.2L13.4 3.2C10.9 3.2 10 5 10 6.8v1.7H8v2.9h2V21h3v-9.6h2.2l.3-2.9z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/azzurraspettacoli/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg>
+          </a>
+          <a href="mailto:info@azzurraspettacoli.net" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <ul>
+          <li><address><span class="lbl">Sede</span>Via Federico Pezzella, 43<br>81055 Santa Maria Capua Vetere (CE)</address></li>
+          <li><a href="tel:+390823845930"><span class="lbl">Telefono</span>+39 0823 845930</a></li>
+          <li><a href="mailto:info@azzurraspettacoli.net"><span class="lbl">Email</span>info@azzurraspettacoli.net</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="#artisti">Cast 2026</a></li>
+          <li><a href="#servizi">Servizi</a></li>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#scelto">Chi ci ha scelto</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span id="year"></span>
+      <span>Sito creato da Carmen Nuzzo</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent='© '+new Date().getFullYear()+' Azzurra Spettacoli. Tutti i diritti riservati.';
+
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40);});
+
+var burger=document.getElementById('burger'),mobile=document.getElementById('mobile');
+burger.addEventListener('click',function(){mobile.classList.toggle('open');});
+mobile.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobile.classList.remove('open');});});
+
+var navlinks=document.querySelectorAll('.navlink');
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){navlinks.forEach(function(l){l.classList.remove('active');});var c=document.querySelector('.navlink[href="#'+e.target.id+'"]');if(c)c.classList.add('active');}});},{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('section[id]').forEach(function(s){obs.observe(s);});
+
+var rObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rObs.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){rObs.observe(el);});
+
+/* accordion */
+document.querySelectorAll('.acc-head').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.parentElement;
+    var panel=item.querySelector('.acc-panel');
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.acc-panel').style.maxHeight=null;});
+    if(!isOpen){item.classList.add('open');panel.style.maxHeight=panel.scrollHeight+'px';}
+  });
+});
+/* open first by default */
+(function(){var first=document.querySelector('.acc-item');if(first){first.classList.add('open');first.querySelector('.acc-panel').style.maxHeight=first.querySelector('.acc-panel').scrollHeight+'px';}})();
+
+/* artist search */
+var grid=document.getElementById('artistGrid');
+var cards=[].slice.call(grid.querySelectorAll('.artist-card'));
+var input=document.getElementById('artistSearch');
+var countEl=document.getElementById('artistCount');
+var noRes=document.getElementById('noResult');
+function updateCount(n){countEl.textContent=n+(n===1?' artista':' artisti');}
+updateCount(cards.length);
+input.addEventListener('input',function(){
+  var q=this.value.trim().toLowerCase();var shown=0;
+  cards.forEach(function(c){var m=c.dataset.name.indexOf(q)!==-1;c.style.display=m?'':'none';if(m)shown++;});
+  noRes.style.display=shown?'none':'block';updateCount(shown);
+});
+
+/* contact form -> mailto */
+function handleSubmit(e){
+  e.preventDefault();
+  var f=e.target;
+  var body=
+    'Nome: '+f.nome.value+'%0D%0A'+
+    'Ente: '+f.ente.value+'%0D%0A'+
+    'Email: '+f.email.value+'%0D%0A'+
+    'Telefono: '+f.tel.value+'%0D%0A'+
+    'Tipo evento: '+f.tipo.value+'%0D%0A'+
+    'Data: '+f.data.value+'%0D%0A'+
+    'Luogo: '+f.luogo.value+'%0D%0A%0D%0A'+
+    f.msg.value;
+  var subject='Richiesta evento - '+f.nome.value;
+  window.location.href='mailto:info@azzurraspettacoli.net?subject='+encodeURIComponent(subject)+'&body='+body;
+  document.getElementById('formMsg').style.display='block';
+  return false;
+}
+</script>
+</body>
+</html>
