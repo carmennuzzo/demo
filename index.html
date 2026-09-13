@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azzurra Spettacoli — Eventi e Concerti in esclusiva · Campania e Basilicata</title>
+<meta name="description" content="Azzurra Spettacoli: da oltre 20 anni organizzazione e realizzazione di eventi e concerti in esclusiva in Campania e Basilicata. Oltre 50 artisti nel cast 2026.">
+<link rel="icon" type="image/png" href="assets/mark-a.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   FONT PRINCIPALE — ETNEA
+   Etnea è un font commerciale: non può essere caricato da Google Fonts.
+   Quando avrai i file del font, mettili in assets/fonts/ e togli i
+   commenti qui sotto: il sito passerà automaticamente a Etnea.
+   Nel frattempo viene usato Outfit, molto simile nel disegno.
+
+@font-face{
+  font-family:'Etnea';
+  src:url('assets/fonts/Etnea-Regular.woff2') format('woff2');
+  font-weight:400; font-display:swap;
+}
+@font-face{
+  font-family:'Etnea';
+  src:url('assets/fonts/Etnea-Bold.woff2') format('woff2');
+  font-weight:700; font-display:swap;
+}
+@font-face{
+  font-family:'Etnea';
+  src:url('assets/fonts/Etnea-Black.woff2') format('woff2');
+  font-weight:900; font-display:swap;
+}
+=================================================================== */
+
+:root{
+  --navy:#12294a;
+  --navy-2:#1b3d68;
+  --navy-3:#285182;
+  --navy-deep:#0b1c33;
+  --white:#ffffff;
+  --ink:#eef3f9;
+  --muted:#a9bdd4;
+  --yellow:#f3ad27;
+  --yellow-2:#ffc75a;
+  --line:rgba(255,255,255,0.12);
+  --line-2:rgba(255,255,255,0.22);
+  --maxw:1220px;
+  --ease:cubic-bezier(.22,.68,.24,1);
+  --font:'Etnea','Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:var(--font);font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-align:center;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+h1,h2,h3{font-weight:800;line-height:1.04;text-transform:uppercase;letter-spacing:-0.01em;margin:0;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none!important;transition:none!important;}
+  .reveal,.reveal-line>span{opacity:1!important;transform:none!important;}
+}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.reveal[data-d="1"]{transition-delay:.1s;}
+.reveal[data-d="2"]{transition-delay:.2s;}
+.reveal[data-d="3"]{transition-delay:.3s;}
+.reveal[data-d="4"]{transition-delay:.4s;}
+/* testo che entra riga per riga */
+.reveal-line{display:block;overflow:hidden;}
+.reveal-line>span{display:block;transform:translateY(105%);opacity:0;transition:transform 1s var(--ease),opacity 1s var(--ease);}
+.reveal-line.in>span{transform:none;opacity:1;}
+.reveal-line:nth-child(2)>span{transition-delay:.1s;}
+.reveal-line:nth-child(3)>span{transition-delay:.2s;}
+
+/* ===================== NAV ===================== */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:200;padding:14px 0;transition:background .4s,box-shadow .4s,padding .4s;}
+header.nav.scrolled{background:rgba(11,28,51,.93);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:6px 0;}
+.nav-in{display:flex;align-items:center;justify-content:center;gap:36px;position:relative;}
+.nav-side{display:flex;align-items:center;gap:28px;flex:1;}
+.nav-side.left{justify-content:flex-end;}
+.nav-side.right{justify-content:flex-start;}
+.navlink{font-size:13.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);opacity:.78;position:relative;padding:6px 0;transition:opacity .25s,color .25s;white-space:nowrap;}
+.navlink:hover,.navlink.active{opacity:1;color:var(--yellow);}
+.navlink::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--yellow);transition:right .35s var(--ease);}
+.navlink:hover::after,.navlink.active::after{right:0;}
+
+/* logo lockup: A + testo */
+.brand{flex:0 0 auto;display:flex;align-items:center;gap:11px;padding:4px 0;}
+.brand-a{width:46px;height:46px;flex:0 0 auto;position:relative;transition:width .4s var(--ease),height .4s var(--ease);}
+header.nav.scrolled .brand-a{width:38px;height:38px;}
+.brand-a img{width:100%;height:100%;object-fit:contain;}
+.brand-a .glow{position:absolute;inset:-30%;background:radial-gradient(circle,rgba(243,173,39,.4),transparent 65%);opacity:0;transition:opacity .45s;pointer-events:none;}
+.brand:hover .brand-a .glow{opacity:1;}
+.brand:hover .brand-a img{animation:aPop .6s var(--ease);}
+@keyframes aPop{0%{transform:translateY(0)}35%{transform:translateY(-5px) scale(1.06)}100%{transform:translateY(0)}}
+.brand-txt{text-align:left;line-height:1;overflow:hidden;}
+.brand-txt .l1{display:block;font-weight:800;font-size:16px;letter-spacing:.13em;color:var(--white);}
+.brand-txt .l2{display:block;font-weight:800;font-size:16px;letter-spacing:.13em;color:var(--white);margin-top:1px;}
+.brand-txt .l3{display:block;font-weight:600;font-size:7.5px;letter-spacing:.3em;color:var(--yellow);margin-top:3px;}
+.brand-txt span span{display:block;animation:lockIn .9s var(--ease) backwards;}
+.brand-txt .l1 span{animation-delay:.15s;}
+.brand-txt .l2 span{animation-delay:.28s;}
+.brand-txt .l3 span{animation-delay:.42s;}
+@keyframes lockIn{from{transform:translateY(105%);opacity:0}to{transform:none;opacity:1}}
+.brand-a img{animation:aDrop 1s var(--ease) backwards;}
+@keyframes aDrop{from{transform:translateY(-14px) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
+
+.burger{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;}
+.burger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s,opacity .3s;}
+.burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.x span:nth-child(2){opacity:0;}
+.burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile{position:fixed;inset:0;z-index:150;background:var(--navy-deep);padding:104px 26px 40px;flex-direction:column;align-items:center;gap:2px;display:none;}
+.mobile.open{display:flex;}
+.mobile a{font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:15px 0;width:100%;max-width:340px;border-bottom:1px solid var(--line);opacity:0;animation:mIn .5s var(--ease) forwards;}
+.mobile.open a:nth-child(1){animation-delay:.05s}.mobile.open a:nth-child(2){animation-delay:.1s}
+.mobile.open a:nth-child(3){animation-delay:.15s}.mobile.open a:nth-child(4){animation-delay:.2s}
+.mobile.open a:nth-child(5){animation-delay:.25s}.mobile.open a:nth-child(6){animation-delay:.3s}
+.mobile.open a:nth-child(7){animation-delay:.35s}
+@keyframes mIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ===================== HERO ===================== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:132px 0 72px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(115% 85% at 50% -5%,rgba(40,81,130,.95),transparent 62%),
+  radial-gradient(75% 55% at 50% 105%,rgba(243,173,39,.13),transparent 62%),
+  linear-gradient(180deg,#1b3d68 0%,#12294a 55%,#0b1c33 100%);}
+.hero-arc{position:absolute;z-index:0;left:50%;top:54%;transform:translate(-50%,-50%);width:min(620px,86vw);opacity:.07;pointer-events:none;}
+.hero-arc img{width:100%;animation:float 9s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.hero-grain{position:absolute;inset:0;z-index:0;opacity:.045;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+.hero-in{position:relative;z-index:2;}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--yellow);font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;margin-bottom:24px;}
+.eyebrow::before,.eyebrow::after{content:"";width:26px;height:1px;background:var(--yellow);opacity:.7;}
+h1.hero-title{font-size:clamp(46px,8.4vw,116px);font-weight:900;color:var(--white);letter-spacing:-0.02em;}
+h1.hero-title .accent{color:var(--yellow);}
+.hero-sub{margin:26px auto 36px;max-width:62ch;font-size:17.5px;line-height:1.65;color:var(--muted);font-weight:400;text-transform:none;}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-weight:700;font-size:13.5px;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border:2px solid transparent;transition:transform .25s var(--ease),background .25s,border-color .25s,color .25s,box-shadow .25s;}
+.btn-yellow{background:var(--yellow);color:var(--navy-deep);}
+.btn-yellow:hover{background:var(--yellow-2);transform:translateY(-3px);box-shadow:0 12px 30px rgba(243,173,39,.28);}
+.btn-line{border-color:var(--line-2);color:var(--white);}
+.btn-line:hover{border-color:var(--white);transform:translateY(-3px);}
+.btn svg{transition:transform .25s var(--ease);}
+.btn:hover svg{transform:translateX(4px);}
+.hero-strip{margin-top:62px;display:flex;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--line);padding-top:26px;}
+.hero-strip div{padding:0 42px;border-right:1px solid var(--line);}
+.hero-strip div:last-child{border:0;}
+.hero-strip b{display:block;font-size:42px;font-weight:900;color:var(--white);letter-spacing:-.02em;}
+.hero-strip span{font-size:12px;color:var(--muted);letter-spacing:.04em;}
+.seq{opacity:0;transform:translateY(24px);animation:seqIn .9s var(--ease) forwards;}
+.seq.s1{animation-delay:.1s}.seq.s2{animation-delay:.24s}.seq.s3{animation-delay:.4s}
+.seq.s4{animation-delay:.54s}.seq.s5{animation-delay:.68s}
+@keyframes seqIn{to{opacity:1;transform:none}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;width:24px;height:38px;border:2px solid var(--line-2);border-radius:14px;display:flex;justify-content:center;padding-top:7px;}
+.scroll-hint i{width:3px;height:7px;border-radius:2px;background:var(--yellow);animation:sh 1.8s ease-in-out infinite;}
+@keyframes sh{0%{opacity:0;transform:translateY(0)}40%{opacity:1}80%,100%{opacity:0;transform:translateY(12px)}}
+
+/* ===================== SECTIONS ===================== */
+.sec{padding:104px 0;position:relative;}
+.sec-tight{padding:86px 0;}
+.sec-head{max-width:720px;margin:0 auto 48px;}
+.kicker{display:inline-block;color:var(--yellow);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;}
+.sec-head h2{font-size:clamp(34px,5vw,62px);font-weight:900;color:var(--white);letter-spacing:-.02em;}
+.sec-head p{margin:16px auto 0;font-size:16px;line-height:1.65;color:var(--muted);text-transform:none;font-weight:400;}
+/* transizione morbida tra sezioni */
+.fade-edge{position:absolute;left:0;right:0;height:120px;pointer-events:none;z-index:1;}
+.fade-edge.top{top:0;background:linear-gradient(180deg,var(--navy),transparent);}
+.fade-edge.bot{bottom:0;background:linear-gradient(0deg,var(--navy),transparent);}
+
+/* ===================== ARTISTI ===================== */
+#artisti{background:linear-gradient(180deg,#12294a,#1b3d68 45%,#12294a);}
+.cast-logo-wrap{position:relative;width:124px;height:124px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;}
+.cast-logo-wrap .ring{position:absolute;inset:-12px;border-radius:50%;border:1.5px dashed rgba(243,173,39,.55);animation:spin 30s linear infinite;}
+.cast-logo-wrap .ring2{position:absolute;inset:-26px;border-radius:50%;border:1px solid var(--line);}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cast-logo{width:100px;height:100px;display:flex;align-items:center;justify-content:center;}
+.cast-logo img{width:74%;animation:float 7s ease-in-out infinite;}
+.cast-badge{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--navy-deep);font-weight:800;font-size:11px;letter-spacing:.16em;padding:5px 15px;border-radius:100px;}
+
+.searchbar{display:flex;justify-content:center;margin-bottom:30px;}
+.search{width:min(420px,100%);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:100px;padding:12px 22px;transition:border-color .25s,background .25s;}
+.search:focus-within{border-color:var(--yellow);background:rgba(255,255,255,.09);}
+.search input{flex:1;background:none;border:0;color:var(--ink);font-family:inherit;font-size:15px;outline:none;text-align:left;}
+.search input::placeholder{color:var(--muted);}
+.search svg{opacity:.6;flex:0 0 auto;}
+
+.artist-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+.artist-card{position:relative;border:0;padding:0;background:var(--navy-2);border-radius:16px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;text-align:left;}
+.artist-card:hover{transform:translateY(-7px);border-color:var(--yellow);box-shadow:0 22px 48px rgba(0,0,0,.45);}
+.artist-card.hidden{display:none;}
+.artist-card.revealing{animation:cardIn .55s var(--ease) backwards;}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.card-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,#2b5a86,#173250 72%);}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.artist-card:hover .card-media img{transform:scale(1.07);}
+.card-media img.no-img{display:none;}
+.card-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:46px;font-weight:900;color:rgba(255,255,255,.16);}
+.card-media.placeholder .card-fallback{display:flex;}
+.card-media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 42%,rgba(9,20,35,.88) 100%);}
+.card-badge{position:absolute;top:11px;left:50%;transform:translateX(-50%);z-index:2;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--navy-deep);background:var(--yellow);padding:4px 11px;border-radius:100px;}
+.card-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:15px;}
+.card-body h3{font-size:15.5px;font-weight:700;line-height:1.14;color:var(--white);letter-spacing:0;}
+.card-role{display:block;margin-top:5px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);}
+.more-wrap{margin-top:36px;}
+.no-result{grid-column:1/-1;color:var(--muted);padding:44px 0;font-size:16px;}
+
+/* ===== modal artista ===== */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px;}
+.modal.open{display:flex;}
+.modal-bg{position:absolute;inset:0;background:rgba(6,16,30,.82);backdrop-filter:blur(8px);animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-card{position:relative;z-index:2;width:min(860px,100%);max-height:88vh;overflow-y:auto;background:linear-gradient(160deg,#1b3d68,#12294a);border:1px solid var(--line-2);border-radius:24px;text-align:left;animation:modalIn .45s var(--ease);}
+@keyframes modalIn{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:16px;right:16px;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:rgba(11,28,51,.7);color:var(--white);cursor:pointer;font-size:20px;line-height:1;transition:background .25s,transform .25s;}
+.modal-close:hover{background:var(--yellow);color:var(--navy-deep);transform:rotate(90deg);}
+.modal-top{display:grid;grid-template-columns:210px 1fr;gap:26px;padding:30px;}
+.modal-photo{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,#2b5a86,#173250 72%);position:relative;}
+.modal-photo img{width:100%;height:100%;object-fit:cover;}
+.modal-photo img.no-img{display:none;}
+.modal-photo .fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:52px;font-weight:900;color:rgba(255,255,255,.16);}
+.modal-photo.placeholder .fb{display:flex;}
+.modal-role{color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+.modal-card h3{font-size:clamp(26px,4vw,40px);font-weight:900;color:var(--white);margin:8px 0 4px;letter-spacing:-.02em;}
+.modal-excl{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-deep);background:var(--yellow);padding:4px 12px;border-radius:100px;margin-bottom:14px;}
+.modal-bio{color:var(--ink);opacity:.9;font-size:15.5px;line-height:1.7;}
+.modal-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.mlink{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:100px;border:1px solid var(--line-2);font-size:12.5px;font-weight:600;letter-spacing:.04em;transition:background .25s,border-color .25s,transform .25s,color .25s;}
+.mlink:hover{background:var(--white);color:var(--navy-deep);border-color:var(--white);transform:translateY(-2px);}
+.mlink.sp:hover{background:#1DB954;border-color:#1DB954;color:#fff;}
+.modal-cta{border-top:1px solid var(--line);padding:24px 30px 30px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;background:rgba(11,28,51,.35);}
+.modal-cta p{margin:0;font-size:14.5px;color:var(--muted);max-width:430px;line-height:1.55;}
+.modal-cta strong{color:var(--white);}
+
+/* ===================== SERVIZI ===================== */
+#servizi{background:var(--navy);}
+.serv-layout{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;text-align:left;}
+.acc{border-top:1px solid var(--line);}
+.acc-item{border-bottom:1px solid var(--line);}
+.acc-head{display:flex;align-items:center;gap:16px;width:100%;background:none;border:0;cursor:pointer;padding:22px 4px;text-align:left;color:var(--ink);transition:color .25s;}
+.acc-head:hover{color:var(--yellow);}
+.acc-n{font-size:15px;font-weight:800;color:var(--yellow);flex:0 0 auto;width:30px;letter-spacing:.04em;}
+.acc-title{flex:1;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.02em;}
+.acc-ico{flex:0 0 auto;width:20px;height:20px;position:relative;transition:transform .4s var(--ease);}
+.acc-ico::before,.acc-ico::after{content:"";position:absolute;background:var(--yellow);border-radius:2px;}
+.acc-ico::before{top:9px;left:0;right:0;height:2px;}
+.acc-ico::after{left:9px;top:0;bottom:0;width:2px;transition:opacity .3s;}
+.acc-item.open .acc-ico{transform:rotate(180deg);}
+.acc-item.open .acc-ico::after{opacity:0;}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .45s var(--ease);}
+.acc-panel p{margin:0 0 20px;padding-left:46px;color:var(--muted);font-size:14.5px;line-height:1.65;}
+.serv-media{position:sticky;top:110px;display:flex;flex-direction:column;gap:14px;}
+.serv-media .m-big{aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--line);}
+.serv-media .m-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.serv-media .m-row div{aspect-ratio:1/1;border-radius:15px;overflow:hidden;border:1px solid var(--line);}
+.serv-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.serv-media .m-big:hover img,.serv-media .m-row div:hover img{transform:scale(1.06);}
+.serv-cap{font-size:12.5px;color:var(--muted);}
+
+/* ===================== CHI SIAMO — colonne parallax ===================== */
+#chi-siamo{background:var(--navy-deep);position:relative;padding:0;overflow:hidden;min-height:100svh;display:flex;align-items:center;}
+.px-cols{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 16px;opacity:.4;}
+.px-col{overflow:hidden;position:relative;}
+.px-track{display:flex;flex-direction:column;gap:16px;will-change:transform;}
+.px-track img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;}
+#chi-siamo .scrim{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(60% 55% at 50% 50%,rgba(11,28,51,.96),rgba(11,28,51,.82) 55%,rgba(11,28,51,.72) 100%),
+  linear-gradient(180deg,var(--navy) 0%,transparent 18%,transparent 82%,var(--navy) 100%);}
+.chi-in{position:relative;z-index:2;width:100%;padding:120px 0;}
+.chi-in h2{font-size:clamp(38px,6.4vw,84px);font-weight:900;color:var(--white);letter-spacing:-.025em;}
+.chi-in h2 .y{color:var(--yellow);}
+.chi-in p{max-width:58ch;margin:22px auto 0;font-size:16.5px;line-height:1.75;color:var(--ink);opacity:.9;text-transform:none;}
+.chi-quote{margin-top:30px;font-size:clamp(20px,2.6vw,30px);font-weight:800;color:var(--yellow);text-transform:uppercase;letter-spacing:.02em;}
+
+/* ===================== CLIENTI / MAPPA ===================== */
+#clienti{background:linear-gradient(180deg,#12294a,#1b3d68 50%,#12294a);}
+.map-wrap{position:relative;max-width:1000px;margin:0 auto;}
+.map-svg{width:100%;height:auto;overflow:visible;}
+.map-svg .region path{fill:#1f4e80;stroke:#7fb2e0;stroke-width:2;vector-effect:non-scaling-stroke;
+  opacity:0;transform-origin:center;transition:opacity 1s var(--ease),fill .5s;}
+.map-wrap.in .map-svg .region-campania path{opacity:1;transition-delay:.1s;}
+.map-wrap.in .map-svg .region-basilicata path{opacity:1;transition-delay:.35s;}
+.map-svg .region:hover path{fill:#2a639b;}
+.dot{cursor:pointer;}
+.dot circle.core{fill:var(--yellow);opacity:0;transform-origin:center;}
+.map-wrap.in .dot circle.core{animation:dotIn .55s var(--ease) forwards;}
+@keyframes dotIn{0%{opacity:0;transform:scale(0)}60%{transform:scale(1.5)}100%{opacity:1;transform:scale(1)}}
+.dot circle.halo{fill:none;stroke:var(--yellow);stroke-width:2;opacity:0;transform-origin:center;}
+.map-wrap.in .dot circle.halo{animation:halo 2.6s ease-out infinite;}
+@keyframes halo{0%{opacity:.7;transform:scale(.4)}70%{opacity:0;transform:scale(3.2)}100%{opacity:0;transform:scale(3.2)}}
+.dot:hover circle.core{fill:var(--white);}
+.map-label{position:absolute;pointer-events:none;background:var(--white);color:var(--navy-deep);font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:100px;white-space:nowrap;opacity:0;transform:translate(-50%,-165%);transition:opacity .22s;box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.map-label.show{opacity:1;}
+.map-label small{display:block;font-weight:500;opacity:.6;font-size:10.5px;letter-spacing:.05em;}
+.map-legend{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:34px;}
+.map-legend div{display:flex;align-items:baseline;gap:9px;}
+.map-legend b{font-size:38px;font-weight:900;color:var(--yellow);letter-spacing:-.02em;}
+.map-legend span{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ===================== EVENTI ===================== */
+#eventi{background:var(--navy);}
+.ev-panel{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line-2);background:linear-gradient(125deg,#1f4676,#12294a);padding:60px;}
+.ev-panel::after{content:"";position:absolute;right:-50px;top:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(243,173,39,.2),transparent 66%);}
+.ev-panel .l{position:relative;z-index:1;max-width:620px;margin:0 auto;}
+.ev-panel h3{font-size:clamp(26px,3.6vw,42px);font-weight:900;color:var(--white);letter-spacing:-.02em;}
+.ev-panel p{color:var(--muted);font-size:15.5px;line-height:1.6;margin:14px auto 0;text-transform:none;font-weight:400;}
+.ev-soon{display:inline-block;margin-top:24px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);border:1px solid var(--line-2);border-radius:100px;padding:10px 22px;}
+
+/* ===================== CONTATTI ===================== */
+#contatti{background:linear-gradient(180deg,#12294a,#0b1c33);}
+.form-card{max-width:680px;margin:0 auto;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:22px;padding:44px;text-align:left;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:7px;}
+.field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--ink);font-family:inherit;font-size:15px;outline:none;transition:border-color .25s,background .25s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--yellow);background:rgba(255,255,255,.09);}
+.field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a9bdd4' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 15px center;}
+.field textarea{resize:vertical;min-height:105px;}
+.form-submit{text-align:center;margin-top:6px;}
+.form-note{text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px;}
+
+/* ===================== FOOTER ===================== */
+footer{background:#081525;padding:60px 0 28px;border-top:1px solid var(--line);text-align:left;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;padding-bottom:38px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;flex-direction:column;gap:14px;}
+.foot-lock{display:flex;align-items:center;gap:11px;}
+.foot-lock img{width:44px;}
+.foot-lock .t .a{font-weight:800;font-size:15px;letter-spacing:.13em;color:var(--white);line-height:1.1;display:block;}
+.foot-lock .t .b{font-weight:600;font-size:7.5px;letter-spacing:.3em;color:var(--yellow);display:block;margin-top:3px;}
+.foot-about{color:var(--muted);font-size:13.5px;line-height:1.65;max-width:38ch;}
+.foot-col h4{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin:0 0 15px;}
+.foot-col li{margin-bottom:10px;}
+.foot-col a,.foot-col address{color:var(--muted);font-size:13.5px;line-height:1.55;font-style:normal;transition:color .25s;}
+.foot-col a:hover{color:var(--white);}
+.foot-col .lbl{display:block;color:var(--white);font-weight:600;}
+.socials{display:flex;gap:11px;margin-top:4px;}
+.socials a{width:42px;height:42px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--navy-2);transition:transform .25s,background .25s,color .25s;}
+.socials a:hover{transform:translateY(-3px);background:var(--yellow);color:var(--navy-deep);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-top:22px;color:var(--muted);font-size:12.5px;}
+.foot-bottom a{color:var(--yellow);}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:1000px){
+  .artist-grid{grid-template-columns:repeat(3,1fr);}
+  .px-cols{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:900px){
+  .nav-side{display:none;}
+  .burger{display:flex;}
+  .serv-layout{grid-template-columns:1fr;gap:34px;}
+  .serv-media{position:static;order:-1;}
+  .modal-top{grid-template-columns:1fr;}
+  .modal-photo{max-width:220px;}
+  .foot-grid{grid-template-columns:1fr;gap:30px;}
+  footer{text-align:center;}
+  .foot-brand{align-items:center;}
+  .foot-about{max-width:100%;}
+  .socials{justify-content:center;}
+  .foot-bottom{justify-content:center;text-align:center;}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px;}
+  .sec{padding:78px 0;}
+  .hero{padding-top:110px;}
+  .hero-strip div{padding:0 20px;}
+  .hero-strip b{font-size:32px;}
+  .artist-grid{grid-template-columns:repeat(2,1fr);gap:13px;}
+  .px-cols{grid-template-columns:repeat(2,1fr);}
+  .form-card{padding:30px 20px;}
+  .form-row{grid-template-columns:1fr;}
+  .ev-panel{padding:38px 22px;}
+  .map-legend{gap:20px;}
+  .map-legend b{font-size:30px;}
+  .modal-card{max-height:92vh;}
+  .modal-top{padding:24px;}
+  .modal-cta{padding:20px 24px 24px;}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <div class="nav-side left">
+      <a href="#home" class="navlink">Home</a>
+      <a href="#artisti" class="navlink">Artisti</a>
+      <a href="#servizi" class="navlink">Servizi</a>
+    </div>
+
+    <a href="#home" class="brand" aria-label="Azzurra Spettacoli">
+      <span class="brand-a"><span class="glow"></span><img src="assets/mark-a.png" alt=""></span>
+      <span class="brand-txt">
+        <span class="l1"><span>AZZURRA</span></span>
+        <span class="l2"><span>SPETTACOLI</span></span>
+        <span class="l3"><span>PER GENTE FELICE</span></span>
+      </span>
+    </a>
+
+    <div class="nav-side right">
+      <a href="#chi-siamo" class="navlink">Chi siamo</a>
+      <a href="#clienti" class="navlink">Chi ci ha scelto</a>
+      <a href="#contatti" class="navlink">Contatti</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile" id="mobile">
+  <a href="#home">Home</a>
+  <a href="#artisti">Artisti</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#clienti">Chi ci ha scelto</a>
+  <a href="#eventi">Eventi</a>
+  <a href="#contatti">Contatti</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-arc" aria-hidden="true"><img src="assets/mark-a.png" alt=""></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow seq s1">Esclusiva Campania &amp; Basilicata · 2026</span>
+    <h1 class="hero-title seq s2">Il live che accende<br>il <span class="accent">territorio</span></h1>
+    <p class="hero-sub seq s3">Da oltre 20 anni Azzurra Spettacoli organizza e realizza eventi e concerti dal vivo con un cast in esclusiva di oltre 50 artisti. Grande musica italiana, format d'intrattenimento e serate di piazza, dal palco alla comunicazione.</p>
+    <div class="hero-cta seq s4">
+      <a href="#artisti" class="btn btn-yellow">Il cast 2026 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#contatti" class="btn btn-line">Organizza un evento</a>
+    </div>
+    <div class="hero-strip seq s5">
+      <div><b class="cnt" data-to="20" data-suffix="+">0</b><span>anni nel settore</span></div>
+      <div><b class="cnt" data-to="56" data-suffix="+">0</b><span>artisti in esclusiva</span></div>
+      <div><b class="cnt" data-to="2">0</b><span>regioni servite</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><i></i></div>
+</section>
+
+<!-- ================= ARTISTI ================= -->
+<section class="sec" id="artisti">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="cast-logo-wrap">
+        <span class="ring2"></span><span class="ring"></span>
+        <span class="cast-logo"><img src="assets/mark-a.png" alt="Azzurra Spettacoli"></span>
+        <span class="cast-badge">2026</span>
+      </div>
+      <div class="sec-head" style="margin-bottom:34px;">
+        <span class="kicker">Band &amp; Live Show</span>
+        <h2>Cast 2026</h2>
+        <p>Il roster in esclusiva per la stagione 2026. Clicca su un artista per scoprire di più.</p>
+      </div>
+    </div>
+
+    <div class="searchbar reveal">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="artistSearch" placeholder="Cerca un artista…" aria-label="Cerca un artista">
+      </label>
+    </div>
+
+    <div class="artist-grid" id="artistGrid"></div>
+    <p class="no-result" id="noResult" style="display:none;">Nessun artista trovato.</p>
+
+    <div class="more-wrap reveal">
+      <button class="btn btn-yellow" id="moreBtn">Scopri gli artisti
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIZI ================= -->
+<section class="sec" id="servizi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Cosa facciamo</span>
+      <h2>Servizi</h2>
+      <p>La logistica completa di eventi di medie e grandi dimensioni: dalla progettazione alla rendicontazione.</p>
+    </div>
+    <div class="serv-layout">
+      <div class="acc reveal">
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">01</span><span class="acc-title">Relazione progetto eventi</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Cartelloni artistici e progetti redatti secondo i formulari regionali, per accedere ai finanziamenti su eventi culturali e rassegne turistiche. Sempre con attenzione a giovani e fornitori del territorio.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">02</span><span class="acc-title">Pubbliche relazioni</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Curiamo i rapporti con gli enti — comuni, soprintendenze, pubblica sicurezza, SIAE — e le procedure regionali per i finanziamenti.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">03</span><span class="acc-title">Piano mezzi</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Redazione e coordinamento del piano mezzi di allestimento, su un crono-programma costruito sull'esperienza maturata nel settore.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">04</span><span class="acc-title">Piano di comunicazione</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Marketing, grafica e promozione: testate locali e nazionali, siti istituzionali, affissioni, pannelli 3×6 e visibilità negli aeroporti.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">05</span><span class="acc-title">Direzione artistica</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Cast di artisti in esclusiva, artisti di strada, cori, orchestre, classico napoletano, jazz, gospel, cabaret e teatro. Spettacoli di luci e suoni su facciate storiche ed eventi a tema d'epoca.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">06</span><span class="acc-title">Piano di accoglienza</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Accoglienza per meeting, gala ed eventi fino a 500 presenze, con coordinamento della vigilanza insieme alle autorità di pubblica sicurezza.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head"><span class="acc-n">07</span><span class="acc-title">Monitoraggio e rendicontazione</span><span class="acc-ico"></span></button>
+          <div class="acc-panel"><p>Relazione di monitoraggio secondo le procedure regionali e gestione dell'iter di rendicontazione delle spese sostenute.</p></div>
+        </div>
+      </div>
+      <div class="serv-media reveal" data-d="1">
+        <div class="m-big"><img loading="lazy" src="gallery/truck-hero.jpg" alt="Truck camerini Azzurra Spettacoli"></div>
+        <div class="m-row">
+          <div><img loading="lazy" src="gallery/stage-90.jpg" alt="Palco in piazza"></div>
+          <div><img loading="lazy" src="gallery/truck-piazza.jpg" alt="Allestimento in piazza"></div>
+        </div>
+        <span class="serv-cap">Truck camerini, palchi e allestimenti dai nostri eventi.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHI SIAMO ================= -->
+<section id="chi-siamo">
+  <div class="px-cols" aria-hidden="true">
+    <div class="px-col"><div class="px-track" data-speed="-0.06"></div></div>
+    <div class="px-col"><div class="px-track" data-speed="0.09"></div></div>
+    <div class="px-col"><div class="px-track" data-speed="-0.11"></div></div>
+    <div class="px-col"><div class="px-track" data-speed="0.07"></div></div>
+  </div>
+  <div class="scrim"></div>
+  <div class="wrap chi-in">
+    <span class="kicker reveal">Chi siamo</span>
+    <h2>
+      <span class="reveal-line"><span>Per gente</span></span>
+      <span class="reveal-line"><span class="y">felice</span></span>
+    </h2>
+    <p class="reveal" data-d="1">Azzurra Spettacoli è un'agenzia di spettacolo che da oltre vent'anni cura la logistica dell'organizzazione e realizzazione di eventi di medie e grandi dimensioni, con esclusiva in Campania e Basilicata.</p>
+    <p class="reveal" data-d="2">Briefing di lavoro, serate di gala, eventi promozionali e appuntamenti culturali: lavoriamo al fianco di comuni, pro loco, enti e privati seguendo ogni fase dello spettacolo dal vivo, dalla progettazione alla rendicontazione.</p>
+    <div class="chi-quote reveal" data-d="3">"Per gente felice."</div>
+  </div>
+</section>
+
+<!-- ================= CLIENTI / MAPPA ================= -->
+<section class="sec" id="clienti">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Sul territorio</span>
+      <h2>Chi ci ha scelto</h2>
+      <p>I comuni di Campania e Basilicata che hanno portato Azzurra Spettacoli sul proprio palco.</p>
+    </div>
+    <div class="map-wrap" id="mapWrap">
+      <svg id="mapSvg" class="map-svg" viewBox="0 0 1461.5 1000.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mappa di Campania e Basilicata"><g class="region region-campania" transform="translate(-0.4,-0.4) scale(0.5,0.5)"> <g transform="translate(552.4,617.3)"> <path d="m 279.8,215 -1.7,-4.5 -3.7,-6.5 -2.6,-2.4 -2.7,-6 -2.9,-3.1 -2.9,-5.8 -2.3,-2.7 -4.2,-3.5 -2.9,-5.6 -3.1,-4 -8.7,-2.4 -6.1,0.8 -2.7,-1.5 4,-2.1 2.7,-1.8 3.1,-2.1 2.6,-4.5 2.4,-6.5 1.8,-4.4 -1.1,-6.5 -1.6,-1.9 -0.3,-1.3 4.5,-1.5 8.6,-2.6 2.1,-1 3.5,-0.2 2.3,2.3 2.6,-0.3 1.9,-1.6 1.5,0 2.9,1.8 1.9,0.6 1.5,2.4 2.1,0.2 2.1,-1.3 6.6,-1.5 5,-0.8 4.8,-1.1 10,0 4.5,1.1 1.5,3.7 3.2,1.1 4.4,1.8 8.4,0.2 5.5,-1.3 0.5,-1.8 -0.3,-1.3 -2.9,-6 -1.1,-3.2 -1.3,-1.8 -2.7,0.5 -2.7,2.1 -18.1,0 -10.5,0.8 c 0,0 -4,2.3 -4.2,2.3 -0.2,0 -3.8,0.8 -3.9,0.7 l -2.7,-4.6 1.6,-3.2 2.6,-1 -2.3,-1.9 -2.6,-2.6 -1.3,-3.2 -1.9,-5.2 -10.6,0.6 -9.7,-1.3 -7.7,-2.6 -2.9,-6.1 0,-11.3 -1.9,-7.1 -1.6,-8.4 -1.3,-1.6 -1.6,-6.8 -0.3,-11.3 1.3,-5.5 2.6,-4.8 -1.6,-6.1 -2.3,-10.3 -4.2,-2.3 -2.3,-8.7 -4.4,-6.5 -5.2,-5.1 -8.8,0.3 -3.7,-1.1 -1,-1.5 -5.8,-0.1 -3.8,-1.3 -2.1,-1.5 -2.5,1.4 -3.1,3 -0.7,1.2 0.3,4.5 -0.6,4.7 0,5 2.3,1.7 1.2,6.4 -0.3,4.4 -1.7,2.9 -6.7,3.8 -0.3,2.3 -2.9,3.2 -2.9,-2.3 -4.4,-3.2 -5.2,-2 -5.5,-1.7 -6.1,0 -5.5,0 -3.2,2 -3.8,2.3 -0.6,2.9 -3.5,9 -6.4,2 -5.2,-0.3 -6.7,-3.5 -8.7,1.5 -6.1,0.9 -6.4,1.5 -4.4,2.6 -9.3,0.6 -5.5,-2 -4.7,-0.9 -5,-1.5 -2.6,-1.7 0.6,-1.2 3.8,-2.6 2.6,-3.5 1.5,-2.6 0.6,-3.5 -3.2,-2.6 -3.2,-1.7 -7.6,-1.2 -8.5,-0.6 -6.4,1.5 -3.8,0.9 -6.4,2.9 -5.5,0 -6.7,0 -9.3,0.6 -1.7,1.5 -2.3,0.9 -2.9,-1.2 -1.2,-1.2 -6.7,-0.6 -3.8,1.7 -6.1,0.3 -5,0 -7,-2 -5,-0.9 -7.6,0 -3.8,2.3 -2.9,1.2 -1.5,2.9 -1.7,4.4 -0.3,5.2 -0.3,5 0.6,2.9 4.4,2.6 0.6,3.2 0,7 -0.6,6.7 -2.9,6.1 -1.7,6.4 -5.2,0.9 -4.7,-1.5 -3.5,-1.2 -5.8,0 -3.5,1.2 -5.2,4.4 2.3,3.2 2,1.7 3.8,0.9 0,2 -2.3,0.3 -3.5,3.8 -1.5,2.9 -3.8,1.7 -3.5,-3.5 -2.3,-2.3 -3.2,-2 -3.2,-4.7 -4.1,-4.1 -2.6,0 -1.7,3.5 -0.9,4.7 -3.2,4.1 -9.6,1.2 -3.8,1.2 -3.2,0 -2.6,-1.5 -3.2,-1.7 -5,-2 -6.7,-0.6 -7.3,2.9 -2,2 -2.3,-1.2 -0.9,-1.5 -4.7,0 -1.7,4.1 -0.9,4.1 -0.6,2.9 -3.8,0.3 0,-6.7 0.9,-6.7 -2.6,-0.6 -0.6,2.9 -3.5,2 -5.8,2.6 -2.6,3.2 -1.7,1.7 -0.9,3.2 -3.5,0.6 -7.6,-1.5 -2.9,-3.2 -4.4,-0.6 -0.9,-1.7 2.3,-2 2.9,-1.7 2.6,-3.8 10.5,-0.9 -0.6,-7.3 -2.3,-5.8 -1.5,-5 -2.6,-6.1 -2.6,-6.1 -4.1,0 -2,2.6 -5.2,0 -6.4,1.2 -7.9,0.9 -3.2,0 -1.7,4.4 -2,4.7 -0.6,2 -3.2,8.2 -4.7,3.2 -5.2,2 -1.5,1.2 -8.2,2 -12.8,-1.5 -9.6,0.3 -9.3,0.9 -0.6,1.2 -0.3,2.9 2,3.2 -2.6,3.2 -5,2 -4.4,1.5 -4.1,0 -3.2,-1.2 -2,-2.6 -3.2,-0.9 -0.6,1.2 -2.8,1.7 -0.7,6.7 0,10.8 6.4,3.5 2.9,4.1 1.7,2.9 1.7,2.3 0.6,2.9 -1.7,1.7 -1.5,3.8 0,2.3 3.5,4.1 0.6,3.2 3.2,3.8 0.9,4.1 1.7,3.5 0.6,1.7 2.3,1.5 0.3,1.7 -2.1,3.1 1.9,9 5.4,12 2.5,11.6 1.2,5.4 1.2,8.7 2.9,5.8 0.4,10.8 1.2,14.9 -0.8,10.4 0,8.3 -0.4,10.8 -1.2,5.4 -0.8,3.7 -0.8,6.2 0,4.6 0.8,5 6.6,2.5 7.5,1.7 2.9,1.2 1.7,0.4 5.4,-2.1 11.6,-0.8 2.5,0.8 1.2,2.5 2.5,2.5 0.8,2.5 0.4,2.5 5,0.4 1.7,-2.5 0,-4.6 -1.2,-4.1 -3.7,0 -2.5,-1.7 -4.1,-0.8 -1.2,-3.3 6.2,0 0.4,-4.1 -1.2,-6.2 0,-8.3 -2.9,-2.9 -2.5,-2.5 -2.1,-1.7 -1.2,-2.1 -5.4,-2.1 -2.1,0 -0.4,-4.1 0,-3.7 2.9,-1.2 2.9,-3.3 1.7,-1.2 0.8,-1.7 c 0,0 2.5,-2.1 4.1,-2.5 1.7,-0.4 3.7,-1.7 3.7,-1.7 l 3.7,0 1.7,-2.1 7,1.2 4.6,0 4.6,0.4 2.9,2.1 3.7,2.1 3.3,5 6.2,1.7 6.2,0.4 9.9,-0.4 3.3,2.5 8.3,0 4.1,0.8 6.2,6.2 4.1,5 4.1,5.4 0,4.1 -5.8,-0.4 -4.6,0 -3.3,0 -1.2,5 0,4.6 3.7,0 5.4,-2.1 0,-2.9 3.3,-1.7 2.5,0 7,0 1.7,2.5 2.9,2.1 0.4,2.5 2.1,2.5 3.3,-1.2 2.1,-4.6 7,-4.6 4.1,-4.1 0.8,-3.7 -1.2,-2.9 0,-7.5 3.3,-3.3 4.1,-8.3 2.9,-7 4.1,-2.5 3.3,-2.9 3.3,-0.4 3.7,-2.1 0.4,-2.9 2.5,1.2 3.3,2.1 4.6,-0.4 3.7,-2.9 1.7,-4.6 5,-4.1 2.1,-3.3 5,-2.1 5,-0.4 3.3,-2.9 4.6,0.8 5.8,3.3 6.2,3.7 6.6,2.5 6.6,3.3 6.2,2.5 3.3,2.5 3.7,3.3 2.5,3.7 2.1,4.1 4.6,0.8 8.7,3.7 0.4,3.7 3.3,2.5 -0.4,1.2 -2.1,1.7 0,2.5 2.9,2.9 4.1,0.4 5.4,7 0.4,3.3 4.1,1.7 7.9,2.5 1.2,2.9 3.3,2.1 3.7,5 1.7,0.4 4.6,2.9 1.7,3.3 4.6,2.5 2.9,5 4.1,1.7 3.3,1.7 2.1,3.3 2.1,3.3 0,2.9 7,1.2 3.3,1.2 5.4,0.8 0.4,3.7 4.6,2.1 9.5,1.7 4.6,-1.7 5.4,-4.1 7,-1.7 5.4,0.8 2.9,3.3 3.7,2.5 2.5,3.7 4.1,5.4 8.3,5 1.2,4.6 4.6,6.2 0.8,5 6.2,11.2 0.4,5.8 1.2,2.5 1.2,3.3 0,3.7 0,3.7 0,2.5 -2.5,1.2 -0.8,2.5 -2.9,5 -2.1,0 0.4,-5 -1.7,1.7 c 0,0 4.1,0 0,0 -4.1,0 -6.6,2.9 -6.6,2.9 l -6.6,5.4 -9.1,1.7 -3.7,4.1 -3.3,1.2 -0.8,4.6 -2.9,5.4 -0.8,4.6 -3.3,5.8 -0.1,4 -2.2,1.5 -7.5,3.7 -1.1,2.7 -5.8,0.8 -8.1,1.3 -1.6,2.1 3,2.6 2.5,4.1 c 0,0 0.9,-0.9 0.2,2.3 -0.7,3.2 -0.7,3.2 -0.7,3.2 0,0 -1.8,4.4 -2.9,7.6 -1,3.2 -1,3.2 -1,3.2 l -3,0.9 -1.8,1.9 -6.7,3 -0.6,2.3 -3.2,1.8 -1.4,1.7 -9.1,2.2 -1.8,1.6 c 0,0 -3.3,1.7 -6.6,-0.6 -3.3,-2.3 -3.3,-2.3 -3.3,-2.3 0,0 -1.1,1.7 -3.3,-0.8 -2.2,-2.5 -0.8,-0.7 -2.2,-2.5 -1.4,-1.8 -1.4,-1.8 -1.4,-1.8 0,0 -2.7,-1.7 -3.7,0.1 -0.9,1.8 -0.9,1.9 -0.9,1.9 0,0 -1.9,-2.9 -2.2,1.4 -0.2,4.2 1,0.2 -0.3,4.2 -1.4,4 -1.4,4 -1.4,4 l -3.1,-0.9 -1.1,-2.7 -1.7,1.4 -1.7,2.6 c 0,0 -2.2,0.9 -0.2,3.1 1.9,2.2 1.9,2.2 1.9,2.2 l 4,3 0.1,1.3 -2.1,1.5 -2.1,5.1 -2.3,2.3 -0.3,3.3 c 0,0 0.1,-1.8 -1.6,2.3 -1.7,4.1 -1.7,4.1 -1.7,4.1 l -1.4,3.7 c 0,0 -0.1,2.1 -1.7,5.4 -1.6,3.3 -0.7,-2.7 -1.6,3.3 -0.9,6 0.2,4.4 -0.9,6 -1.1,1.6 -0.6,-1.4 -1.1,1.6 -0.6,3 -0.5,-0.9 -0.6,3 -0.1,3.9 -0.1,3.9 -0.1,3.9 l 1.1,5.8 0.3,2.5 1.3,7.5 0.3,1.1 2.6,0.3 4.2,-4.1 6.2,-3.2 6,-6.8 6.3,-2.4 4.6,-2.1 6.2,-4.8 6.5,-2.3 c 0,0 0.8,-2.5 2.3,-2.4 1.5,0.1 1.5,0.1 1.5,0.1 l 0.8,2.9 c 0,0 0.2,1.5 1.5,1.4 1.3,-0.1 1.3,-0.1 1.3,-0.1 l 2.2,-2.9 0.1,-2.4 6,-2.6 3.3,-3.8 5.5,-2.1 6.2,-1.9 2.6,-1 c 0,0 2.6,-4.6 6,-6.8 3.4,-2.3 2.9,-0.9 3.4,-2.3 0.6,-1.4 0.6,-1.4 0.6,-1.4 l 1.4,-2.6 1.8,-1.6 0.6,-1.5 4.8,-0.6 3,-1.8 4.6,-1.1 3.5,-0.2 2.7,-4.2 1.8,-2.2 3.2,-1.8 2.1,-0.7 0.8,2.5 0.5,-1.7 2.1,-0.5 2.6,-0.2 0,0.1 3.4,-0.8 4.9,-0.1 5.1,-0.7 -2.3,-2.5 -2.1,-3.2 -1.4,-2.5 -0.3,-4.7 1.6,-2 2.7,-4.8 2.7,-1.1 4.2,-1.9 2.5,-4.4 1.9,-7 2.4,-1.9 3.2,-1.5 5.4,0 4.7,2.7 2.9,-1.9 4.5,-0.8 4.7,1.5 3.1,5.8 0.6,0.8 -0.6,2.2 c 0,0 -1.5,3.6 -1.5,4 0,0.3 0.8,6.6 0.8,6.6 l 3.9,1.7 2.7,5.7 6.1,3.1 2.2,0.7 1,-1 2.3,-2.6 2.5,-1.5 6.5,0 3.9,1.5 2.8,0.8 2.7,-0.6 2.8,-3.1 3.1,-2.7 1.1,-4.5 1,-1 1.6,3.7 2.5,1.1 2.7,3.1 3.6,1.3 5.4,-1 3.3,-3.3 3,-5.6 1,-3.5 -0.9,-4.4 -6.5,-1.9 -3,-2.6 -1.5,-3.8 1.5,-3.3 1,-3.1 -1,-2 -6,-6.2 -5.8,-5.6 -2.9,-6.1 -1.7,-2.3 0,-4.7 1.9,-0.3 2.4,1.4 3.5,1 2.6,-1.1 3.8,-2.7 1,-4 3.1,-2.5 1.4,-2.6 2.3,-6.9 0.4,-5.1 6.1,-2.9 1.4,-3.6 -0.2,-4 -4.1,-1.6 -6.1,-2.8 -1.3,-1.1 0.1,-6.1 1.8,-4.8 1.2,-1 -3.1,-1.5 -6.4,-1 -1.5,-2.7 -2.7,-5.9 -1.6,-4.3 -2.9,-1.5 -1.2,-5.9 -1.9,-4.2 -2.2,0.1 -2.3,0.9 -1.4,0.6 -1.4,-0.2 -3.1,-3.4 -3.1,-2.9 -3,-3.1 -1.8,-0.6 -1.3,0.6 -2.8,3.3 -1.5,1 -7.5,1.9 -1.5,1.3 -5.2,-0.7 -3.1,-2.3 -11.4,-1.1 -0.3,-4.4 0.9,-2.2 5.7,-2.7 -0.2,-2.7 -3,-6.1 -1.3,-12.1 -1.4,-6 -3.5,-3.1 -1,-1.9 0.6,-3.1 3.9,-1 8.6,-3.3 9.4,-2.6 12.7,-1.9 2.2,-4.3 1.3,-4.7 1.8,-4.3 2.9,-2.7 1.2,-1 2.7,-0.5 2.1,1.1 12.1,3.4 3.1,1 1.5,-0.7 0.2,-2.4 -0.4,-6.1 -1.3,-2.9 -1.4,-1.8 0,-3.9 4.4,-1.5 c 0,0 4.2,-2.7 5.3,-3.1 1.1,-0.5 4.2,-0.9 4.2,-0.9 l 1.5,-4.3 -0.7,-13.2 -1.5,-2.7 -2.9,-3 -5.9,-2.6 -6,-3.4 -6.1,-2.7 -3.5,-3.1 -0.3,-3.9 0.7,-2.4 3.3,-5.8 0.8,-6 2,-1.7 12.1,-1.3 2.4,-1.9 5.8,0 3.7,1.9 1.2,1.2 3.4,0.3 z m -145.4,344.5 2.3,-1.6 3.9,-1.7 2.1,4.3 -5.7,1.2 -2.5,1.7 -3.3,-3 3.2,-0.9 z m -220,38.1 13.6,0 15.7,0 4.3,5 7.2,1.4 7.2,-1.4 5,-5.7 6.4,-2.9 4.3,2.9 2.9,4.3 -4.3,3.6 -0.7,4.3 -2.9,4.3 -2.1,7.2 -3.6,-1.4 -5.7,-4.3 -7.2,2.1 -5.7,0.7 0,1.4 -0.7,4.3 -3.6,0 -5,2.9 -9.3,2.1 -2.1,0.7 -6.4,0 -5,0 -4.3,-5 -1.4,-7.2 0,-7.9 3.6,-11.4 z m -188.6,-252.7 0,3.2 c 0,0 -2,0.9 4.7,0.6 6.7,-0.3 6.7,-0.3 6.7,-0.3 l 6.4,0.9 0,4.7 -0.9,1.7 -8.5,1.5 -2,2.9 -1.2,2.6 -4.7,0 -1.7,5 -2.6,8.2 c 0,0 -1.7,3.5 0.3,3.5 2,0 2,0 2,0 l 3.8,2.3 0.6,3.5 -0.6,2.6 -4.1,0 -2,-3.8 -3.8,-1.7 -2,-4.4 -5.8,0.6 -2.6,1.5 0,5.8 -2,1.2 -4.7,-2 c 0,0 -0.9,-0.9 -1.2,-2.9 -0.3,-2 -0.3,-2 -0.3,-2 l 0.9,-5.2 3.5,-2 4.1,0 3.2,-1.7 c 0,0 0.9,5.8 2.3,-2 1.5,-7.9 1.7,-7.9 1.7,-7.9 l 2.3,-3.8 0.3,-10.5 4.1,-1.2 3.8,-2.6 0,2 z m -98.3,32.4 10.4,0.3 11.4,1.9 4.7,0.8 8,2.7 6.7,3.3 4,10.7 0,6 2,6 2.2,5.6 -0.1,4 3.5,2.9 -1.7,0.9 -1.2,3.2 -7.9,1.5 0,2.9 1.5,1.2 0.9,3.5 -2.6,2.9 -2.9,-1.7 -2.6,-3.5 -4.7,-1.5 -8.2,1.5 -3.5,2.3 -1.5,2.6 -1.2,2.3 -1.5,2.6 -4.4,0.9 -7,-0.6 -6.7,-2.9 -3.8,-2.9 -2,0.9 -0.6,1.7 -7,2.3 -1.5,1.5 -2.9,0.6 -1.7,-2.3 -2,-1.2 -3.2,0.3 -5.2,3.2 -2.9,2.9 -2,-1.2 -11.4,-7 -4.1,-0.6 -1.5,-5.8 -4.7,-2 -0.9,-2.3 3.2,-3.2 5.8,-1.2 0.9,-7.3 -1.7,-5 -2,-7.9 2,-7.3 3.8,-5 2.6,-7 2,-3.2 -0.6,-2.6 -5.8,-2 -2.3,-3.8 -0.9,-2.3 2.9,-2.6 3.8,-0.6 2.9,-2.6 2,-0.3 0.3,3.2 1.7,4.1 1.5,1.5 2,-4.4 4.4,-0.3 3.8,1.2 0.6,5.2 5.2,0 4.4,1.7 3.8,2.6 4.1,2 4.1,-2 5.2,-1.4 z"/> <path d="m 614.3,945.3 2.2,0.2 0.4,4.7 -2.4,1.6 -0.9,-2.9 0.7,-3.5 z m -445.4,-434.5 -2.6,-2.6 -2.1,-3.2 -1.4,-2.5 -0.3,-4.7 1.6,-2 2.7,-4.8 2.7,-1.1 4.2,-1.9 2.5,-4.4 1.9,-7 2.4,-1.9 3.2,-1.5 5.4,0 4.7,2.7 2.9,-1.9 4.5,-0.8 4.7,1.5 3.1,5.8 0.6,0.8 -0.6,2.2 c 0,0 -1.5,3.6 -1.5,4 0,0.3 0.8,6.6 0.8,6.6 l 3.9,1.7 2.7,5.7 6.1,3.1 2.2,0.7 1,-1 2.3,-2.6 2.5,-1.5 6.5,0 3.9,1.5 2.8,0.8 2.7,-0.6 2.8,-3.1 3.1,-2.7 1.1,-4.5 1,-1 1.6,3.7 2.5,1.1 2.7,3.1 3.6,1.3 5.4,-1 3.3,-3.3 3,-5.6 1,-3.5 -0.9,-4.4 -6.5,-1.9 -3,-2.6 -1.5,-3.8 1.5,-3.3 1,-3.1 -1,-2 -6,-6.2 -5.8,-5.6 -2.9,-6.1 -1.7,-2.3 0,-4.7 1.9,-0.3 2.4,1.4 3.5,1 2.6,-1.1 3.8,-2.7 1,-4 3.1,-2.5 1.4,-2.6 2.3,-6.9 0.4,-5.1 6.1,-2.9 1.4,-3.6 -0.2,-4 -4.1,-1.6 -6.1,-2.8 -1.3,-1.1 0.1,-6.1 1.8,-4.8 1.2,-1 -3.1,-1.5 -6.4,-1 -1.5,-2.7 -2.7,-5.9 -1.6,-4.3 -2.9,-1.5 -1.2,-5.9 -1.9,-4.2 -2.2,0.1 -2.3,0.9 -1.4,0.6 -1.4,-0.2 -3.1,-3.4 -3.1,-2.9 -3,-3.1 -1.8,-0.6 -1.3,0.6 -2.8,3.3 -1.5,1 -7.5,1.9 -1.5,1.3 -5.2,-0.7 -3.1,-2.3 -11.4,-1.1 -0.3,-4.4 0.9,-2.2 5.7,-2.7 -0.2,-2.7 -3,-6.1 -1.3,-12.1 -1.4,-6 -3.5,-3.1 -1,-1.9 0.6,-3.1 3.9,-1 8.6,-3.3 9.4,-2.6 12.7,-1.9 2.2,-4.3 1.3,-4.7 1.8,-4.3 2.9,-2.7 1.2,-1 2.7,-0.5 2.1,1.1 12.1,3.4 3.1,1 1.5,-0.7 0.2,-2.4 -0.4,-6.1 -1.3,-2.9 -1.4,-1.8 0,-3.9 4.4,-1.5 c 0,0 4.2,-2.7 5.3,-3.1 1.1,-0.5 4.2,-0.9 4.2,-0.9 l 1.5,-4.3 -0.7,-13.2 -1.5,-2.7 -2.9,-3 -5.9,-2.6 -6,-3.4 -6.1,-2.7 -3.5,-3.1 -0.3,-3.9 0.7,-2.4 3.3,-5.8 0.8,-6 2,-1.7 12.1,-1.3 2.4,-1.9 5.8,0 3.7,1.9 1.2,1.2 3.8,0.4 5.2,-0.1 13.3,1.7 12.3,6 5.9,3 8.9,3.2 3.5,1.4 1.1,8.5 7.3,1.7 2.2,2 10.1,0.6 1.8,-1.6 -2.1,-0.7 -0.6,-7.1 0.9,-1.7 3.4,-6.5 5.3,-5.8 3.3,-4.8 5.5,1.3 6.3,3 1.7,1.3 1.2,-1 8.4,-1.9 16,-1.6 4.3,-1.4 1.3,4.7 6.4,6 1,7.1 -4.5,1.9 -3.1,0.7 -2.1,1.3 2.8,4.3 2.4,2.3 3,9.2 6,6.1 c 0,0 4.5,1.6 9,1.6 4.4,0 5.7,-1.3 6.5,-1.3 0.9,0 6.4,-1.9 7.2,-1.9 0.8,0 10.8,1.8 10.8,1.8 l 11.6,3.3 2.7,1 1,-1.4 4.8,-2.8 2.8,-2.7 2.3,-1.8 9.4,0.3 1.3,3.9 c 0,0 2.3,2.5 2.4,3 0.1,0.4 6.4,3.5 6.4,3.5 l 6,2.4 1.2,1.4 4.4,-1 4.3,-2.9 2.8,-2.3 2.3,-3.5 c 0,0 5.4,-1.7 6,-1.7 0.6,0 6.1,1.1 6.1,1.1 l 8.3,2.3 2.1,2.3 3,-2.2 4.1,-2.2 12.2,-5.7 2.9,-3 6.3,-3.5 12,-2.8 2,-2.2 2.5,0.1 0.1,12.4 3.8,1.7 6.9,2.9 12.1,5.9 c 0,0 2.2,4.5 2.2,5.1 0,0.6 1.8,0.8 2.7,0.8 0.9,0 3.3,-3.5 3.3,-3.5 l 16.1,-0.6 1.7,3.1 9.1,0 4,-2 4.2,-4.1 3.2,0.4 2.1,2.5 1.7,7.5 c 0,0 11.5,2.9 12.3,2.9 0.8,0 4.5,1.2 4.5,1.2 l 0,3 4.4,0.2 3.1,-4.3 2,-4.4 4.4,-1 3.1,-2.2 5.4,1.4 12.2,6.1 18,2.8 17.2,3.1 10,3.1 20.4,2.9 21.3,3.1 4.1,1.6 2.5,4.9 2.4,8.4 2.4,12 3.4,6.3 4.7,2 0.8,9.5 3.3,6.7 6.4,5.8 5.8,2.7 2.1,4.4 2.7,0 c 0,0 1.6,-2.4 2.3,-2.7 0.8,-0.2 2.2,-1.4 2.2,-1.4 l 14.7,-3 6.7,-2.2 2.1,-3.9 c 0,0 5.8,-2.8 6.7,-3 0.9,-0.2 17.6,-2.9 17.6,-2.9 l 5.5,-1.4 2,1.8 3,0.8 4.7,-1.1 3.8,-2.3 -0.8,-3.8 -3,-5.8 -4.2,-7 -0.3,-1.3 2.2,-1.8 1.3,-7.1 -1.9,-7.1 -1.8,-4.5 -3.5,-2.7 0.2,-22.2 1.8,-6.5 6,-12 2.4,-5.1 3.7,-0.9 6.1,-3.1 3,-2.8 6.2,-6.2 c 0,0 5.5,-1.7 6,-2.1 0.4,-0.4 2.7,-16.4 2.7,-16.4 l 2.8,-20.3 3.2,-6.3 3,-6.2 2.4,-4.1 c 0,0 14.6,0 15.4,0 0.8,0 9.1,1.3 9.1,1.3 l 5.3,4.7 7.9,-0.1 2.5,2 9.8,1 1.6,4.3 4.1,2.4 1.9,4 6,5.8 3.1,3 4.3,1.3 4.7,-1.2 2.7,-1.7 1.3,1.9 2.4,1.3 0.7,5.9 -4.2,1.3 -6.1,6.5 -1.6,2.2 0.6,1.9 3.8,1.6 5.7,2.3 3.5,-2.1 2.7,-2.1 4.2,0.6 1.3,4 -4.1,1.2 -1.4,5.5 -1.6,6.4 1.6,8.5 6.3,6.3 1.7,2.1 2.1,1.6 -0.7,1.3 -3.4,0.9 -2.2,4.1 -1.9,0.8 -1.5,10.8 -1.6,1.1 1.4,6.8 0.5,12.8 3.2,1.6 1,16.7 4.2,2.1 2.8,3.1 14.8,3.3 3.2,2.9 3.9,2 1.1,3.8 7,6 5.9,6.1 3,5.8 6.2,3.1 9.1,3.1 11.8,5.8 1.7,4.2 7.2,2 c 0,0 5.7,3.3 6,3.3 0.3,0 5.6,0.9 5.6,0.9 l 6.3,-1.1 2.4,-1.7 1.7,0.7 1.6,2.4 1.6,0.6 1,8.2 10.4,0 0.3,-2.8 1.2,0.9 2.2,2.1 -1.3,4.5 -2.8,11.4 -6.6,7 c 0,0 -4.4,1.6 -5.1,2.5 -0.7,0.9 -3.8,3.4 -3.8,3.4 l -5.3,2.7 -7.2,1.8 -2,13.3 -3.4,6 -3,2.8 -3.1,9.2 -1.3,3.3 -2.9,3.4 0.9,1.5 1.6,1.6 7.6,1.8 6.3,3 2.9,6.3 5.9,5.8 1.6,0.7 1.5,-0.8 4.9,-1.7 4.4,2 2,3.4 1.9,1.6 1.4,1.8 11.5,0.4 1.9,-2.3 1.8,0.8 3.9,1.2 2.7,5.1 1.9,2.5 2.9,1.3 -0.6,0.8 -3.3,2.1 0.9,3.2 4.2,1.8 4.3,1.5 3.1,-3.1 7.1,1.3 3.2,3.3 0.9,1.3 -0.9,1.7 -2.9,3.1 -3,6 -1.4,2.7 1.2,3.4 3.1,6 3.3,3.2 2.9,5.7 0.8,2.6 -1.6,2.6 0.4,3.8 6.3,3.1 1.6,1.6 -1.8,4.5 -2.9,5.7 -1.2,3.2 1,3 3.2,3.1 6,3.2 2.8,2.7 0.8,1.4 -0.8,1.4 -6.2,5.9 -4.3,2.1 -0.3,2 -2.6,0.7 -0.3,1.9 2,2.6 3.1,3.1 2.8,8.8 6.2,6 5.9,3.1 15,2.9 5.7,3 3.4,3.4 2.7,11.8 2.8,6 6.4,6.2 3.1,5.9 0.6,2.3 -2.6,1.5 0.2,1.3 4.6,0.9 6,2.8 3.1,3.1 12.1,6.2 12.2,2.7 5.4,6 4.5,1.9 1.7,4.2 5.1,1.8 0.2,2 6.3,2.2 6.3,12 2.6,2.9 3.1,6.2 3.7,1.2 2.5,-1.3 3.3,-3.1 c 0,0 3.1,-1.6 3.5,-1.6 0.4,0 4,0.7 4,0.7 l 1.2,3.8 8.9,3.2 12.1,6.2 6,5.6 3.3,3.4 1.4,5.6 -1.7,9.1 -1.9,8.2 1.7,9.7 3.3,18.3 6.1,5.9 2.8,3.3 4.3,1.6 1.6,4.2 6,6 2.9,8.9 6.1,5.9 3.1,3.1 4.5,1.5 0.6,2.3 3.6,2 2.4,1.2 3.7,-0.9 4.3,-1.3 4.9,1 8.7,2.9 12.1,6.3 9,2.9 4.2,1.6 2.1,4.6 2,3.9 4,2.1 1.5,2.2 2.4,2.3 0.5,3.3 -4.2,1 -2.7,2.6 0.3,10.5 2,4.9 2.9,3.1 0.9,2.1 -0.7,0.9 -6,6.4 -2.8,2.5 -4.3,1.9 -1.2,5.9 2.4,7.5 2.8,5.5 3.2,3.4 0.9,2.7 -1.2,3.2 -1.4,3.4 -13.5,2.5 -9,3 -2.8,6.2 -6.3,6 -5.7,5.9 -17.9,3.1 -1.6,10.9 -1.4,7.4 -6.1,2.9 -6.1,3.1 -3.1,2.9 -0.7,2.4 1,3.7 3.1,6.1 0.9,2.7 -4,3 -3,2.9 -4.9,2.3 0,1.4 -2.4,1.3 1.1,7.1 3,6.4 3.2,2.8 1.4,7.2 3,0.8 0,5.1 -3.1,1.8 -1.6,8.9 -0.9,4.9 1.2,7.3 0.3,3.8 -0.5,2.4 -2.9,6.2 -2.9,5.6 -3.2,3.2 -2.9,8.9 -3.1,6.1 -2.8,5.7 -6.1,6 -9.3,3.2 -8.9,0.4 -2.7,2.7 -2.5,1.2 2.3,1.3 6.3,0.4 5.5,2.9 6.4,3.1 2.9,6 3,8.9 1.1,2.7 -0.9,1.8 -3.2,1.5 -4,1.3 -2,4.5 -6.2,3 -8.9,3.1 -4.5,4.1 -3,0.3 -1.4,-1.6 -6,-6.2 -5.7,-5.3 -3.4,-3.4 -0.7,-4 0.7,-5 2.7,-2.7 2.7,-4 -2.7,-2.4 -2.2,-2.3 -2.2,-1.8 -2.4,0 -0.7,4.5 -2,2.4 -0.9,1.6 -4.2,0.9 -2.4,-4.5 -3.2,-0.5 -18.6,-2.8 -15.6,-1.2 -10.4,1.6 -12,2.9 -6.7,3.5 -17.7,2.4 -8.4,2.2 -3.1,4 -7.3,2.4 -1.8,2.4 -3.1,6.4 -6.2,6.7 -3.5,5.8 -3.3,8.9 0.4,7.5 -2.4,0.7 -2.4,-3.3 -4.2,1.1 -5.8,2.7 -6.2,3.8 -3.8,1.6 -2.9,7.3 -5.1,5.8 -3.3,6.2 -5.5,5.3 -7.1,12.4 -2.7,3.5 -2.4,11.7 -6.2,5.5 -2,0.7 -1.1,0 c 0,0 -1.3,-1.8 -2.2,-2 -0.9,-0.2 -4.2,-2.7 -4.2,-2.7 l -9.5,-1.8 -10.2,-2.9 -9.1,-2.2 -11.7,1.8 -5.5,3.1 -2.2,2 -2.2,-0.7 -6.4,-4 -11.1,-6.2 -6.9,-6.4 -1.8,-4 -1.3,-0.9 -0.4,-1.3 -3.1,-1.6 -1.1,-3.8 -3.5,-3.8 -2.2,-3.1 -1.8,-1.3 -1.6,-2.9 -10.2,0.4 -2,1.6 -7.1,3.1 -2,2 -1.6,2.4 -2.2,0.9 -1.8,2.2 -21.1,-0.4 -2.2,-2 2,-8.4 2.9,-1.3 1.6,2.2 5.8,0.9 2,-2 3.8,-1.8 0,-10.6 -2.4,-1.6 -2,-7.3 -2.7,-11.1 -5.3,-11.3 -4.4,-7.5 -8.2,-8.2 -2,-4.7 -4.9,-1.6 -5.1,-2.7 -9.3,-3.3 -6,-6.2 -5.5,-2.4 -6,-5.5 -4,-7.3 -5.1,-5.1 -6.7,-6.9 -2.2,-3.1 -4.2,-1.8 -3.3,-2 -22.2,-1.3 -7.1,-7.1 -2,-5.1 -6.4,-6.7 -6.4,-5.3 -6,-6.7 -2.9,-5.3 -4.7,-2.2 -0.9,-2.2 -3.3,-1.3 -3.5,-6.9 -5.3,-2 -2.4,-3.3 -7.1,-3.1 -9.5,-1.6 -5.1,1.3 -6.2,3.3 -10.4,0.4 -7.3,1.8 -6.7,6.4 -2.7,3.5 -7.1,1.1 -4.9,-1.6 -3.8,-3.3 -4.7,-1.3 -4.4,-0.2 -1.6,3.1 -4,0 -2.4,-0.9 -4.2,-2 -1.6,-4.4 -6.9,-3.3 -2.4,-2.9 -1.1,-7.5 -5.8,-1.8 -2.4,-5.8 -2.4,-5.5 -2.9,-3.5 -3.5,-5.1 -7.5,-2.2 -0.7,-5.8 -2.2,-1.8 -1.1,-2.7 -4.4,-1.6 -0.9,-2.7 -21.5,-1.6 -7.1,-6.4 -2.7,-1.3 -5.8,-4.9 -9.8,-1.6 -6.7,0 -0.7,6.2 -6.7,-1.3 -11.5,-5.8 -3.5,-2.9 -6.9,-3.8 -2.2,-9.1 -1.1,-1.3 -0.9,-5.5 1.3,-1.8 3.3,-3.1 6.7,-2.7 4.9,-6.4 7.1,-2.4 3.8,-1.1 2,-4.9 2.9,-4.2 3.3,-8.9 0.7,-18.8 0,-13.1 -3.8,-12.2 -3.3,-3.8 -1.1,-3.5 0.7,-4.7 2.2,-16 7.5,-0.7 1.1,-2 4.4,-1.1 4,-2.4 5.8,-0.2 1.1,-2.9 2,-0.7 2.4,-7.5 2.7,-1.8 1.6,-2.2 3.3,-4 1.1,1.8 -2.4,3.3 1.6,0.9 2.2,-1.1 5.5,-2.9 3.3,-1.1 2.4,-3.8 1.6,-21.5 -0.7,-13.3 -2,-1.3 -2.2,-10.4 -1.6,-2.2 -0.9,-4.2 -1.6,-0.7 -2.7,-3.8 -4.9,-15.1 -6.2,-11.5 -6,-12.2 -2.9,-6.2 -3.5,-2.9 -2.7,-6.2 -2.9,-2.7 -3.3,-6.9 -3.1,-2.4 -1.6,-4.4 -2.4,-0.7 -1.8,-4.4 -2.9,-2.2 -5.5,-12.4 -3.3,-2.9 -2.2,-6.2 -4,-2.9 -2.7,-8.9 -3.1,-7.1 -2.4,-3.3 -2.7,-1.1 -1.3,-3.8 -2.9,-8.9 -2.7,-5.5 -3.5,-8.9 -5.5,-12 -2,-5.5 -4.4,-4 -6,-12.4 -3.3,-2.7 -2.9,-5.8 c 0,0 -1.1,-2.9 -2,-3.1 -0.9,-0.2 -3.5,-8.4 -3.5,-8.4 l -6.2,-7.5 -2.4,-5.3 -3.3,-2.2 -2.7,-6 -6,-7.1 -3.1,-5.3 -6.9,-5.8 -2.7,-4 -2.7,-5.3 -6.2,-3.1 -2.7,-5.3 c 0,0 -5.3,-2.7 -6.4,-6.7 -1.1,-4 -5.8,-5.5 -5.8,-5.5 l -6.2,-6.9 -6.2,-5.5 -3.1,-2.9 -1.3,-3.8 -4.9,-3.1 -5.3,-6.2 -6.7,-2 -5.3,-6.2 -6.4,-6.7 -12,-6 -2.4,-2.2 -12,-5.5 -7.5,-3.1 -4.7,2.4 0,3.3 2.9,1.6 -1.8,1.8 -3.8,-1.3 -2.2,-3.5 -0.9,-2.7 -3.3,0.4 -2.7,6.7 -0.4,6 -2.7,0 -1.3,-3.8 -3.5,-0.4 -1.3,2.4 -5.3,1.8 -9.3,2.4 -3.3,10.2 -3.1,5.3 -3.8,3.1 -2,6.4 -3.8,4 -2.2,7.8 -3.3,6.2 -6.7,1.1 -14.2,-1.3 c 0,0 -5.3,-2.4 -6.2,-3.1 -0.9,-0.7 -2.9,-2.9 -2.9,-2.9 l -9.1,-3.8 -5.8,-2.7 -13.3,-1.1 -10.4,1.1 -3.8,3.3 -2.2,6 -4.2,3.3 -1.3,4 -6.4,1.3 -6.9,6 -6.2,3.1 -5.8,5.8 -2.4,3.1 -3.3,9.5 -2.4,3.8 -2.2,0.7 -2.9,-6.2 -10.9,1.6 -8.6,3.1 -8.6,2.9 -6.2,2.9 -3.1,1.3 -5.3,-0.7 -4.4,-3.1 -2.7,-6.2 -3.1,-3.1 -11.3,-6.4 -11.7,-1.6 -9.3,2.2 -5.8,5.8 -4.4,3.1 z"/> <path d="m 349.7,-17.6 1.4,-4.9 1.7,-4 0.9,-1.3 2.2,1.4 3.2,6 3,2.9 3.1,3.4 3.4,5.9 0.8,1.3 -1.1,1.4 -1.5,2.1 1.5,1 2.6,3.2 3.4,2.6 1,1.7 -1,1.4 -3.1,9.2 -3.1,8.8 -3.4,6.3 -2.7,2.9 -3,5.9 -0.8,4.1 -1.6,2.9 -3.5,-1 -6.6,-3 -2.4,-1.5 -1.8,-15.7 1.9,-15.5 1.1,-6.8 0,-2.9 -1.6,-1.7 -2.9,-3.9 -0.6,-4.1 1.1,-1.4 1.4,-1.8 4.3,-1.7 1.7,-2.1 0.9,-1 z m -69.5,232.3 -2,-4.3 -3.7,-6.5 -2.6,-2.4 -2.7,-6 -2.9,-3.1 -2.9,-5.8 -2.3,-2.7 -4.2,-3.5 -2.9,-5.6 -3.1,-4 -8.7,-2.4 -6.1,0.8 -2.7,-1.5 4,-2.1 2.7,-1.8 3.1,-2.1 2.6,-4.5 2.4,-6.5 1.8,-4.4 -1.1,-6.5 -1.6,-1.9 -0.3,-1.3 4.5,-1.5 8.6,-2.6 2.1,-1 3.5,-0.2 2.3,2.3 2.6,-0.3 1.9,-1.6 1.5,0 2.9,1.8 1.9,0.6 1.5,2.4 2.1,0.2 2.1,-1.3 6.6,-1.5 5,-0.8 4.8,-1.1 10,0 4.5,1.1 1.5,3.7 3.2,1.1 4.4,1.8 8.4,0.2 5.5,-1.3 0.5,-1.8 -0.3,-1.3 -2.9,-6 -1.1,-3.2 -1.3,-1.8 -2.7,0.5 -2.7,2.1 -18.1,0 -10.5,0.8 c 0,0 -4,2.3 -4.2,2.3 -0.2,0 -3.8,0.8 -3.9,0.7 l -2.7,-4.6 1.6,-3.2 2.6,-1 -2.3,-1.9 -2.6,-2.6 -1.3,-3.2 -1.9,-5.2 -10.6,0.6 -9.7,-1.3 -7.7,-2.6 -2.9,-6.1 0,-11.3 -1.9,-7.1 -1.6,-8.4 -1.3,-1.6 -1.6,-6.8 -0.3,-11.3 1.3,-5.5 2.6,-4.8 -1.6,-6.1 -2.3,-10.3 -4.2,-2.3 -2.3,-8.7 -4.4,-6.5 -5.1,-5.2 2.3,-6.8 3,-5.9 3,-2.9 6.1,-3.1 3.2,-5.8 2.9,-1.3 3.2,-16.8 3,-3.1 0,-1.7 -0.5,-1.3 -0.9,-1.3 -0.1,-5.2 3.2,-1.1 2.6,2.6 1.5,0.8 0.8,6.5 0.6,-0.5 1.8,-2.9 8.4,0.9 9.7,3.3 8.3,2.6 6.4,3.4 0.6,0.7 2.1,0.6 3.3,-4.3 6.2,-3.2 2.6,-3.5 2.7,-1 2.2,-5.5 2.3,-0.9 1.1,-2.1 12.8,1.4 8.6,1.1 4.6,-0.7 1.4,-3 9.1,-1 3.2,-5.6 1,-1 1.9,0.8 6.2,5.7 5.7,6.4 6,5.5 1.6,7.5 2.1,10.8 5.9,12.3 3.1,6.2 6,2.4 5.5,6.2 3.9,1.4 2.3,-1.4 9,-1.5 2.9,-1.4 6.2,-3 0.7,-1.1 -0.5,-2.1 -3.1,-2.7 -3.4,-3.5 0,-3 3.1,-11.6 1.8,-11.2 -1.7,-9.9 -1,-1.9 0.1,-5.4 5.2,-0.5 1.8,1.7 9.1,3.4 1.8,0.7 1.8,0 0.9,-8 -2.6,-2.4 -0.1,-1.6 1.5,-0.8 2.2,-1.8 7.4,-1 1.4,2.5 0.6,6.3 1.7,5.5 -1.1,4.1 -2.4,1.7 1.5,3.2 3.3,3.5 1,0.7 2.1,-0.7 1.3,-2.2 1.5,1 0.3,1 11.6,3 4.1,1.1 2.1,-1 5.9,-6.3 6.3,-6.3 0.6,-3.8 2.9,-1 2.4,1.8 5.1,1.6 3.8,-1.3 1.8,-8.2 1.4,-2.2 1.1,-2.3 0.6,-3.4 7.5,-2.1 5,-2.6 3.4,-3 6.6,-3.1 6.7,-1.7 4.9,-1.1 5.9,-3.1 3.3,-3.3 3.5,-0.9 1.1,-9.2 1.5,-0.6 2.5,-4.6 6.4,-1.6 7.9,1.9 2.3,0.9 2.3,0 2.3,-6.7 8.8,-2.7 9.2,-3.3 6,-3 5.9,-5.9 3.2,-3.3 2.9,-5.7 5.7,-5.8 5.5,-6.5 4.2,-3.1 5.7,-2.6 0.6,-2.3 -0.9,-1 -2.5,-5.7 -3,-5.9 -1.6,-1.5 -1.7,0.9 -1.4,1.4 -1.5,-0.8 -1.6,-2.5 -2.4,-2.1 -0.8,-3 -1.7,-2.1 -1.3,-4 0.2,-5.7 3.3,-0.9 1.7,-0.6 -0.7,-3.4 -3.3,-1.1 -12.6,-0.8 -7.1,0 -7.6,1.9 -0.7,2.3 -1.8,1.4 -3.8,0.2 -0.8,-4.4 1.7,-11.8 1.3,-10.4 -0.3,-4.9 -2.7,-3.1 0.8,-1.4 4.2,-4.2 5.6,-2.9 2.7,-3.1 1.3,-2.1 1.7,-5.5 3.5,-1.3 2.9,-4.7 3.3,-1.1 2.4,-3.1 2.3,-1.3 2.1,-2.3 3.8,-1 0.8,-10 0.8,-2.1 -0.8,-1.5 -2.6,-15.1 -5.7,-5.5 -3.4,-3.7 -3.7,-0.9 -2.4,-3.5 -0.9,-0.3 -1.8,-18.8 -2.5,-8.7 c 0,0 -1.6,-2.1 -1.6,-2.9 0,-0.8 -0.5,-11.3 -0.5,-11.3 l 2.5,-1.5 1.4,-4 16.9,-1.1 5.2,1.8 2.7,3.9 6.3,2.6 3.1,1.5 5.9,-0.2 1.9,-3 11.2,-0.2 4.2,1.9 3.5,2.7 2.4,0.7 c 0,0 3.1,0.3 3.1,-0.2 0,-0.6 2.7,-3.1 2.7,-3.1 l 3.5,-6.6 3.7,-1.4 1,-2.5 0.6,1.7 0.6,2.5 2.6,5.9 2.9,2.5 4.1,1.7 2.3,4.4 0.9,0.9 2.1,-0.5 3.5,-2.9 c 0,0 1.1,-3 2.9,-3.1 1.7,-0.1 6.5,-3.3 6.5,-3.3 l 5.9,-0.9 7,0.2 1.1,1.8 4.2,0.2 1.1,2.5 1.6,0.3 3.3,-0.7 2.1,-3.1 3.1,-3.4 6.3,-2.7 5.7,-6 3.1,-6 2.6,-6.3 1,-2.9 1.1,-3.9 0.9,-2.1 13.3,-2 7.6,-0.9 6.9,-3.1 6.9,-1.9 11.3,0.6 1.6,6.3 0.6,4.1 6.6,1.6 3.8,-1.9 0.8,-1.4 0.6,0.7 3.2,6.8 3.1,6.2 7.2,1.1 1.9,-0.7 2.9,-3.3 1.7,-4.5 9.9,-0.9 4.3,1.2 0.5,1.9 2.5,0.9 2.3,1.8 2.9,1 3,4.5 1.5,3.9 4.5,2.1 6,6.3 4.5,4.5 1.6,4.2 1.6,2 2.9,1.7 0.3,1.3 -3.4,0.2 -7.8,0.9 -6,2.7 -14.7,3.1 -2,2.9 -0.5,9.9 2.4,5.3 5.8,12.1 3.1,6 5.8,6 2,2.7 -0.1,3.1 -2.9,1.6 -4.9,1.6 -6.1,2.9 -3.3,3.3 c 0,0 -5.8,3.1 -5.8,2.8 0,-0.3 -5.9,5.7 -5.9,5.7 l -5.8,6.1 -1.6,4.9 -1.6,7.2 -3.1,2.7 -5.6,3.1 -1.4,2.8 c 0,0 -1.3,8.5 -0.9,9.3 0.3,0.8 1.4,3.9 1.4,3.9 l 2.4,1.8 -0.1,7.2 4.3,2.1 12,6 7.4,1.1 4.6,1.8 6,6.1 3.2,6.1 6.2,6 2.7,5.6 5.9,3 1.5,8.7 0.7,2.5 1.9,2 0.9,0.4 2,-2.4 2,0.7 6.5,3.3 2.4,3.1 4.5,1.9 0.9,1.8 6.7,0.8 1.9,2.4 4.9,-0.2 2.2,-1 6.1,-5.6 5.8,-6.3 1.3,-1 1.6,1 2,4.8 10.5,1.1 4.7,1.3 8.9,0 7.2,0.9 2.8,4.2 3.9,1.6 0.5,2 4.5,2.1 3.6,1.8 4,-0.6 1.5,-4.2 6,-3.3 6.2,-5.9 5.9,-5.9 3.1,-9.1 2.6,-1.1 6.3,1.1 5.8,6 2.2,4.3 4.2,2 11.6,2.8 6.1,6 6,6 3.1,3 5.8,3.1 3.4,1 8.7,-1.1 6.3,-3.3 6.4,-1.4 3.4,0.5 1,5.8 2.2,0.7 7.7,3.3 8.6,3.3 9.7,3.1 17.6,6 2.3,1.2 9.1,0 5.3,0.5 1.5,1.5 5.9,11.9 1.7,7.6 6.2,0.7 1.3,4 3.5,2.7 1.3,2.5 -1.3,6.3 -2.8,2.8 1.9,6 2.1,4.8 6.4,0.9 1.2,7.1 2.9,5.8 1.4,6.9 0,5.1 -2.7,1.9 -0.4,10.8 3.2,2.1 -0.4,16.8 -2.5,0.2 -1.7,4.3 -3,2.8 -5.3,12 -6.5,3.2 -3.1,6.1 -1.4,2.4 1.2,2 1.7,4.8 -1.4,2.5 -1.9,5.1 -1.1,7.2 -2.7,6.4 -2.4,1 -0.1,1 2.9,1.9 -1.3,3.8 -3.4,2.3 -1.1,10.9 -6.4,2.4 -9.6,2.8 -6.1,3.2 -3,3.4 -4.7,1.8 0,2.1 -10.2,2 -12.1,5.8 -3,3.1 -1.2,3 1.6,6 2.7,9 4.5,1 0.1,1.3 -2.8,1.2 -4.7,2.9 -2.8,4.2 -10.2,0 -2.1,-4.7 -2.8,-2.9 -9.4,-3.1 -9.8,-2.5 -20.9,-0.2 c 0,0 -6.5,1.9 -6.5,2.4 0,0.6 -1.1,4.2 -1.1,4.2 l -3.3,2.2 -5.2,1.1 -4.1,-1.3 -3.2,-3.1 -5.7,-3 c 0,0 -0.1,-4.1 -1.1,-4.1 -1,0 -10.3,1 -10.3,1 l -11.1,2.7 1.6,9.8 1.6,4.3 2.5,2.7 3.3,-1.9 13.7,0.8 1.6,10.5 1.1,10.4 1.7,7.5 -1.3,13.6 -3.3,1.4 -2.7,-1.2 -6.5,-2 -8.3,0.4 -3.9,1.6 -7.8,2.5 -4.2,1.8 -1.3,2.8 -7.9,0.2 -5.3,-4.7 c 0,0 -8.3,-1.3 -9.1,-1.3 -0.8,0 -15.4,0 -15.4,0 l -2.4,4.1 -3,6.2 -3.2,6.3 -2.8,20.3 c 0,0 -2.2,16 -2.7,16.4 -0.4,0.4 -6,2.1 -6,2.1 l -6.2,6.2 -3,2.8 -6.1,3.1 -3.7,0.9 -2.4,5.1 -6,12 -1.8,6.5 -0.2,22.2 3.5,2.7 1.8,4.5 1.9,7.1 -1.3,7.1 -2.2,1.8 0.3,1.3 4.2,7 3,5.8 0.8,3.8 -3.8,2.3 -4.7,1.1 -3,-0.8 -2,-1.8 -5.5,1.4 c 0,0 -16.7,2.7 -17.6,2.9 -0.9,0.2 -6.7,3 -6.7,3 l -2.1,3.9 -6.7,2.2 -14.7,3 c 0,0 -1.4,1.2 -2.2,1.4 -0.8,0.2 -2.3,2.7 -2.3,2.7 l -2.7,0 -2.1,-4.4 -5.8,-2.7 -6.4,-5.8 -3.3,-6.7 -0.8,-9.5 -4.7,-2 -3.4,-6.3 -2.4,-12 -2.4,-8.4 -2.5,-4.9 -4.1,-1.6 -21.3,-3.1 -20.4,-2.9 -10,-3.1 -17.2,-3.1 -18,-2.8 -12.2,-6.1 -5.4,-1.4 -3.1,2.2 -4.4,1 -2,4.4 -3.1,4.3 -4.4,-0.2 0,-3 c 0,0 -3.8,-1.2 -4.5,-1.2 -0.8,0 -12.3,-2.9 -12.3,-2.9 l -1.7,-7.5 -2.1,-2.5 -3.2,-0.4 -4.2,4.1 -4,2 -9.1,0 -1.7,-3.1 -16.1,0.6 c 0,0 -2.4,3.5 -3.3,3.5 -0.9,0 -2.7,-0.2 -2.7,-0.8 0,-0.6 -2.2,-5.1 -2.2,-5.1 l -12.1,-5.9 -6.9,-2.9 -3.8,-1.7 -0.1,-12.4 -2.5,-0.1 -2,2.2 -12,2.8 -6.3,3.5 -2.9,3 -12.2,5.7 -4.1,2.2 -3,2.2 -2.1,-2.3 -8.3,-2.3 c 0,0 -5.5,-1.1 -6.1,-1.1 -0.6,0 -6,1.7 -6,1.7 l -2.3,3.5 -2.8,2.3 -4.3,2.9 -4.4,1 -1.2,-1.4 -6,-2.4 c 0,0 -6.3,-3.1 -6.4,-3.5 -0.1,-0.4 -2.4,-3 -2.4,-3 l -1.3,-3.9 -9.4,-0.3 -2.3,1.8 -2.8,2.7 -4.8,2.8 -1,1.4 -2.7,-1 -11.6,-3.3 c 0,0 -10,-1.8 -10.8,-1.8 -0.8,0 -6.3,1.9 -7.2,1.9 -0.9,0 -2.1,1.3 -6.5,1.3 -4.4,0 -9,-1.6 -9,-1.6 l -6,-6.1 -3,-9.2 -2.4,-2.3 -2.8,-4.3 2.1,-1.3 3.1,-0.7 4.5,-1.9 -1,-7.1 -6.4,-6 -1.3,-4.7 -4.3,1.4 -16,1.6 -8.4,1.9 -1.2,1 -1.7,-1.3 -6.3,-3 -5.5,-1.3 -3.3,4.8 -5.3,5.8 -3.4,6.5 -0.9,1.7 0.6,7.1 2.1,0.7 -1.8,1.6 -10.1,-0.6 -2.2,-2 -7.3,-1.7 -1.1,-8.5 -3.5,-1.4 -8.9,-3.2 -5.9,-3 -12.3,-6 -13.3,-1.7 -5.3,-0.2 z"/> <path d="m 765.8,-369.8 -5.5,-1.7 -5.2,-2.9 -1.5,-3.3 1.7,-2.7 0,-2.7 -2.7,-4.9 -2.1,-0.6 -0.8,-1.9 -3.9,-1.9 -4,-3.4 -0.6,-6.5 3.4,-3 -0.8,-5.5 -2.5,-1.7 -7.1,-0.5 -9.6,-3.4 -2.6,-3.2 -5.7,-2.9 -20.4,-2.4 -6.3,-3.9 -3.1,-2.5 -3.2,-6.3 -2.4,-9.5 -1.1,-8.3 -1.9,-4.2 -4.1,-2.1 -2.5,-13.7 -1.7,-2.1 0.9,-0.7 1,-0.7 2.3,-2.9 3.3,-0.8 3.5,-1.6 1.6,-2.1 1.5,-0.3 2.3,-4.9 3.3,-6.4 5.5,-2.9 9,-2.6 1.1,-4.4 -1,-1.7 -0.9,-4.4 c 0,0 -4.6,-1.1 -5,-1.3 -0.5,-0.1 -2.2,-4.7 -2.2,-4.7 l -1.9,-1.4 -0.3,-5.4 1.5,-4.3 4.1,-6.8 3.7,-1.3 0.6,-1.8 5,-1 0.3,-3.9 -1.5,-2.9 -3.1,-6.2 -0.7,-3.7 -0.8,-0.2 -0.9,1.1 -4.2,1.1 -11,0 -6.7,-1.5 -5,-1.4 -2.6,-1.4 -1.4,-2.6 -6.5,-3.4 -12.3,-2.2 -0.1,-2.2 -3.1,-1.8 0.3,-10.5 -0.8,0 -3.5,2.9 -3.9,1.5 -1.4,1.1 -1.7,-0.9 -2.7,-11.9 -3.3,-9.2 -3.2,-5.9 -2.6,-3.1 -3.2,-2.8 -2.6,-3.1 -7.8,-2.1 -7.5,2.2 c 0,0 -6.4,3 -6.4,3.2 0,0.2 -2.9,2.8 -2.9,2.8 l -2.9,5.8 -3,3.2 -2.3,5.1 -3.4,0.8 -6.2,3.1 -6.1,2.7 -6.1,3.1 -2.8,3.2 -3.2,2.9 -8.7,3.1 -6.3,3.1 -11.9,2.9 -14.8,3.1 -9.1,3.1 -9,2.7 -1.6,4 -4.3,1.9 c 0,0 -3.2,5.7 -3.3,6 -0.1,0.3 -1.8,7 -1.8,7 l -2,0.7 -1.5,2.6 -1.3,0.5 -1.9,2.7 -1.8,1 -4,2.1 -9.2,0 -9.3,-1.5 -12.1,-6.1 -5.8,-2.7 -3.5,-3.4 -5.8,-2.9 -2.9,-3 -2.3,-4.4 -3.5,-1.7 -9.4,-2.9 -9.2,-1.3 -1.6,1.9 -1.3,0.8 -0.9,1.4 -4.8,3 -2.7,3.1 -1.7,6.8 2.9,1.3 c 0,0 -0.2,5.2 -0.2,5.5 0,0.3 -1,4.7 -1,4.7 l -3,5.8 -3.1,11.8 -4.1,1.2 -1.7,4.9 -6.4,2.9 -2.7,3.1 -6.7,2.9 -8.5,3 -9.2,2.9 -3.5,1.1 -5.5,-1.1 -8.7,-2.9 -2.8,-6 -2.7,-1.1 -3.7,1.1 -11.7,2.8 -5.8,2.6 -3.6,3.7 -2.8,5.6 c 0,0 -3,5.4 -3,5.9 0,0.5 -1.3,4.7 -1.3,4.7 l -0.7,-0.3 -2.6,-2.8 -1.3,-1.3 -4.7,-1.5 -4.2,1.4 c 0,0 -6,5.8 -6.2,6.1 -0.1,0.3 -6.2,5.7 -6.2,5.7 l -1.7,3.8 -2,1.3 -1.6,9 -3.6,1.2 c 0,0 -2.9,5.4 -2.9,5.6 0,0.2 -3.2,3.1 -3.2,3.1 l -6.3,3.1 -5.5,3.1 -2.1,0.9 -1,-0.7 -6.2,-3.3 -3.3,-0.2 -6.4,-1.5 0,-1.9 1.8,-1.6 0.5,-7.8 c 0,0 -3,-1.4 -3.3,-1.5 -0.3,-0.2 -1.1,-3.2 -1.1,-3.2 l -6,-6 -5.9,-3.1 -4,-0.7 -2.1,0.9 -2.8,5.9 -3.1,3.1 -3.1,5.8 -2.9,0.9 -8.9,-0.7 -12.3,-2.9 -3,-1.4 -9,1.1 -6,3.3 -5.4,1.3 -3.5,2.1 -1.6,2.3 -1.3,3.1 -6.3,1.5 -2.3,-1.8 -6.1,-2.6 -1.6,-1.5 -2.9,0.3 -1.5,4.2 -1,3.4 -2.1,1.6 -1.6,0.6 -2.1,-3.9 -4,0.2 -1.6,1.1 -5.6,2.4 -3.7,6.5 -2.4,6.3 -3.4,5.5 -2.7,9.2 -1.8,5.6 0.3,6.1 1.6,-2.6 10.2,-1 2.1,1.1 2.9,1.3 2.4,-1.5 5.3,-1.9 3.5,2.3 3.7,2.6 2.4,8.9 3.9,6.3 0.6,3.1 -1.8,5.3 -0.8,2.6 1.3,1.8 2.7,5.5 3.2,2.7 6.5,2.6 1,8.4 -1.6,3.1 -3.4,1 -14.7,2.7 -11.3,6 -5.6,2.7 -6.6,7.1 -3.7,6.3 -2.3,5 -1,3.9 1.1,1.8 -0.8,2.4 -2.7,10.6 -4.5,1 -1.5,4.4 -3.5,6 0,1.8 0.6,0.8 3.5,3.7 0.2,1.3 -0.3,1.5 -2.9,6 -1.6,8.6 0,15.2 1.5,4.2 6.5,-1 9.2,-1.5 1.5,10.6 1.1,3.2 3.9,2.4 1.3,3.2 2.9,9 0.8,4.7 5.8,1.8 5.5,5.6 3.7,4 -0.3,2.3 -1.1,5.3 1.6,3.4 1.5,3.9 3.5,-0.6 1.9,-2.4 1.1,0.5 -0.8,5.6 -1,1.5 -4,6 -3.1,9.4 -3.4,3.9 -14.8,0.2 -2.3,3.2 -1.6,0.3 -2.1,4.4 -1.9,19.5 -3.1,-0.2 -3.1,-1.3 -2.9,-2.7 -6.8,-2.9 -8.2,-2.4 -2.6,-4.4 -3.5,-2.4 -9.4,-1.8 -1.5,-1.9 -2.1,-1.3 -0.6,-1.5 -2.6,-1.1 -0.8,-4.8 -3.5,-0.8 -3.9,1.3 -12.4,3.1 -3.1,2.9 -3.1,2.9 -0.8,2.1 1.1,6.6 2.6,6.1 6.6,3.5 5,3.9 2.7,-0.2 4,-2.1 9.2,1.3 3.9,1.8 2.4,2.6 1,2.3 2.4,2.3 2.4,6 0.1,8.5 -2.2,1.1 0.7,1.2 8,1.8 14.4,2.5 5.2,2.3 13.2,3.4 2.3,9.4 0,5.5 -1.1,6.2 c 0,0 0,5.9 0,7.5 0,1.6 0.9,4.6 0.9,4.6 l 3.2,6.4 1.1,2.3 -1.6,1.8 -2.5,1.8 -3.7,2.5 -5.2,2.5 -2.7,3 -3.9,2.1 -2.5,4.6 -1.4,1.6 1.1,1.6 3.4,2.7 10.7,2.7 16.7,2.5 4.6,1.1 3,-2.3 1.8,3.2 2.5,5.2 5.5,-0.2 12.6,-3.2 1.8,-11 1.8,0 2.7,1.6 2.7,3.7 7.8,0 1.1,-4.1 2.7,-2.1 6.2,-3.4 3.7,-1.6 2.5,2.1 1.1,6.6 4.1,0.9 2.5,3.2 -2.3,3.4 -2.3,4.6 1.6,8 3.2,3.2 3.7,6.6 2.7,2.5 3.1,5.8 5.1,1.1 0.8,-1.2 3.1,-3 2.5,-1.4 2.1,1.5 3.8,1.3 5.8,0.1 1,1.5 3.7,1.1 8.8,-0.5 2.4,-6.7 3,-5.9 3,-2.9 6.1,-3.1 3.2,-5.8 2.9,-1.3 3.2,-16.8 3,-3.1 0,-1.7 -0.5,-1.3 -0.9,-1.3 -0.1,-5.2 3.2,-1.1 2.6,2.6 1.5,0.8 0.8,6.5 0.6,-0.5 1.8,-2.9 8.4,0.9 9.7,3.3 8.3,2.6 6.4,3.4 0.6,0.7 2.1,0.6 3.3,-4.3 6.2,-3.2 2.6,-3.5 2.7,-1 2.2,-5.5 2.3,-0.9 1.1,-2.1 12.8,1.4 8.6,1.1 4.6,-0.7 1.4,-3 9.1,-1 3.2,-5.6 1,-1 1.9,0.8 6.2,5.7 5.7,6.4 6,5.5 1.6,7.5 2.1,10.8 5.9,12.3 3.1,6.2 6,2.4 5.5,6.2 3.9,1.4 2.3,-1.4 9,-1.5 2.9,-1.4 6.2,-3 0.7,-1.1 -0.5,-2.1 -3.1,-2.7 -3.4,-3.5 0,-3 3.1,-11.6 1.8,-11.2 -1.7,-9.9 -1,-1.9 0.1,-5.4 5.2,-0.5 1.8,1.7 9.1,3.4 1.8,0.7 1.8,0 0.9,-8 -2.6,-2.4 -0.1,-1.6 1.5,-0.8 2.2,-1.8 7.4,-1 1.4,2.5 0.6,6.3 1.7,5.5 -1.1,4.1 -2.4,1.7 1.5,3.2 3.3,3.5 1,0.7 2.1,-0.7 1.3,-2.2 1.5,1 0.3,1 11.6,3 4.1,1.1 2.1,-1 5.9,-6.3 6.3,-6.3 0.6,-3.8 2.9,-1 2.4,1.8 5.1,1.6 3.8,-1.3 1.8,-8.2 1.4,-2.2 1.1,-2.3 0.6,-3.4 7.5,-2.1 5,-2.6 3.4,-3 6.6,-3.1 6.7,-1.7 4.9,-1.1 5.9,-3.1 3.3,-3.3 3.5,-0.9 1.1,-9.2 1.5,-0.6 2.5,-4.6 6.4,-1.6 7.9,1.9 2.3,0.9 2.3,0 2.3,-6.7 8.8,-2.7 9.2,-3.3 6,-3 5.9,-5.9 3.2,-3.3 2.9,-5.7 5.7,-5.8 5.5,-6.5 4.2,-3.1 5.7,-2.6 0.6,-2.3 -0.9,-1 -2.5,-5.7 -3,-5.9 -1.6,-1.5 -1.7,0.9 -1.4,1.4 -1.5,-0.8 -1.6,-2.5 -2.4,-2.1 -0.8,-3 -1.7,-2.1 -1.3,-4 0.2,-5.7 3.3,-0.9 1.7,-0.6 -0.7,-3.4 -3.3,-1.1 -12.6,-0.8 -7.1,0 -7.6,1.9 -0.7,2.3 -1.8,1.4 -3.8,0.2 -0.8,-4.4 1.7,-11.8 1.3,-10.4 -0.3,-4.9 -2.7,-3.1 0.8,-1.4 4.2,-4.2 5.6,-2.9 2.7,-3.1 1.3,-2.1 1.7,-5.5 3.5,-1.3 2.9,-4.7 3.3,-1.1 2.4,-3.1 2.3,-1.3 2.1,-2.3 3.8,-1 0.8,-10 0.8,-2.1 -0.8,-1.5 -2.6,-15.1 -5.7,-5.5 -3.4,-3.7 -3.7,-0.9 -2.4,-3.5 -0.9,-0.3 -1.8,-18.8 -2.5,-8.7 c 0,0 -1.6,-2.1 -1.6,-2.9 0,-0.8 -0.5,-11.3 -0.5,-11.3 l 2.5,-1.5 1.4,-4 16.9,-1.1 5.2,1.8 2.7,3.9 6.3,2.6 3.1,1.5 5.9,-0.2 1.9,-3 11.2,-0.2 4.2,1.9 3.5,2.7 2.4,0.7 c 0,0 3.1,0.3 3.1,-0.2 0,-0.6 2.7,-3.1 2.7,-3.1 l 3.5,-6.6 3.7,-1.4 1,-2.5 0.6,1.7 0.6,2.5 2.6,5.9 2.9,2.5 4.1,1.7 2.3,4.4 0.9,0.9 2.1,-0.5 3.5,-2.9 c 0,0 1.1,-3 2.9,-3.1 1.7,-0.1 6.5,-3.3 6.5,-3.3 l 5.9,-0.9 7,0.2 1.1,1.8 4.2,0.2 1.1,2.5 1.6,0.3 3.3,-0.7 2.1,-3.1 3.1,-3.4 6.3,-2.7 5.7,-6 3.1,-6 2.6,-6.3 1,-2.9 0.9,-4.1 z m -416.1,352.2 1.4,-4.9 1.7,-4 0.9,-1.3 2.2,1.4 3.2,6 3,2.9 3.1,3.4 3.4,5.9 0.8,1.3 -1.1,1.4 -1.5,2.1 1.5,1 2.6,3.2 3.4,2.6 1,1.7 -1,1.4 -3.1,9.2 -3.1,8.8 -3.4,6.3 -2.7,2.9 -3,5.9 -0.8,4.1 -1.6,2.9 -3.5,-1 -6.6,-3 -2.4,-1.5 -1.8,-15.7 1.9,-15.5 1.1,-6.8 0,-2.9 -1.6,-1.7 -2.9,-3.9 -0.6,-4.1 1.1,-1.4 1.4,-1.8 4.3,-1.7 1.7,-2.1 0.9,-1 z"/> <path d="m 199,4.8 0.4,4.4 -0.6,4.7 0,5 2.3,1.7 1.2,6.4 -0.3,4.4 -1.7,2.9 -6.7,3.8 -0.3,2.3 -2.9,3.2 -2.9,-2.3 -4.4,-3.2 -5.2,-2 -5.5,-1.7 -6.1,0 -5.5,0 -3.2,2 -3.8,2.3 -0.6,2.9 -3.5,9 -6.4,2 -5.2,-0.3 -6.7,-3.5 -8.7,1.5 -6.1,0.9 -6.4,1.5 -4.4,2.6 -9.3,0.6 -5.5,-2 -4.7,-0.9 -5,-1.5 -2.6,-1.7 0.6,-1.2 3.8,-2.6 2.6,-3.5 1.5,-2.6 0.6,-3.5 -3.2,-2.6 -3.2,-1.7 -7.6,-1.2 -8.5,-0.6 -6.4,1.5 -3.8,0.9 -6.4,2.9 -5.5,0 -6.7,0 -9.3,0.6 -1.7,1.5 -2.3,0.9 -2.9,-1.2 -1.2,-1.2 -6.7,-0.6 -3.8,1.7 -6.1,0.3 -5,0 -7,-2 -5,-0.9 -7.6,0 -3.8,2.3 -2.9,1.2 -1.5,2.9 -1.7,4.4 -0.3,5.2 -0.3,5 0.6,2.9 4.4,2.6 0.6,3.2 0,7 -0.6,6.7 -2.9,6.1 -1.7,6.4 -5.2,0.9 -4.7,-1.5 -3.5,-1.2 -5.8,0 -3.5,1.2 -5.2,4.4 2.3,3.2 2,1.7 3.8,0.9 0,2 -2.3,0.3 -3.5,3.8 -1.5,2.9 -3.8,1.7 -3.5,-3.5 -2.3,-2.3 -3.2,-2 -3.2,-4.7 -4.1,-4.1 -2.6,0 -1.7,3.5 -0.9,4.7 -3.2,4.1 -9.6,1.2 -3.8,1.2 -3.2,0 -2.6,-1.5 -3.2,-1.7 -5,-2 -6.7,-0.6 -7.3,2.9 -2,2 -2.3,-1.2 -0.9,-1.5 -4.7,0 -1.7,4.1 -0.9,4.1 -0.6,2.9 -3.8,0.3 0,-6.7 0.9,-6.7 -2.6,-0.6 -0.6,2.9 -3.5,2 -5.8,2.6 -2.6,3.2 -1.7,1.7 -0.9,3.2 -3.5,0.6 -7.6,-1.5 -2.9,-3.2 -4.4,-0.6 -0.9,-1.7 2.3,-2 2.9,-1.7 2.6,-3.8 10.5,-0.9 -0.6,-7.3 -2.3,-5.8 -1.5,-5 -2.6,-6.1 -2.6,-6.1 -4.1,0 -2,2.6 -5.2,0 -6.4,1.2 -7.9,0.9 -3.2,0 -1.7,4.4 -2,4.7 -0.6,2 -3.2,8.2 -4.7,3.2 -5.2,2 -1.5,1.2 -8.2,2 -12.8,-1.5 -9.6,0.3 -9.3,0.9 -0.6,1.2 -0.3,2.9 2,3.2 -2.6,3.2 -5,2 -4.4,1.5 -4.1,0 -3.2,-1.2 -2,-2.6 -3.2,-0.9 -0.6,1.2 -2.8,1.7 -0.7,6.7 0,10.8 6.4,3.5 2.9,4.1 1.7,2.9 1.7,2.3 0.6,2.9 -1.7,1.7 -1.5,3.8 0,2.3 3.5,4.1 0.6,3.2 3.2,3.8 0.9,4.1 1.7,3.5 0.6,1.7 2.3,1.5 0.3,1.7 -2,2.6 -2.8,-2.5 -2.1,-3.7 -3,-5 -4.1,-8.1 -4.2,-6.4 -2,-6.1 -3,-5.8 -3.1,-5.6 -6.2,-8.6 -2.3,-7.8 -3.4,-2.5 -2.3,-5.5 -3,-6.6 -3,-3 -3.4,-4.6 -8.7,-8.9 -2.5,-6.2 -3.2,-3.7 -7.3,-3.4 -1.8,-3 -3,-5.7 -8,-7.5 -5,-4.1 -2.3,-5.9 -3.4,-3.7 -5.7,-3 -3.9,-1.8 -1.8,-7.1 -3.7,-2.5 -3.2,-5.7 -2.3,-3.7 -4.8,-2.7 -2.1,-3.4 -3,-11.9 -5,-11.9 -3.9,-5.7 -2.5,-12.3 -3,-9.4 -6.6,-11.6 -3,-9.1 -2.7,-4.1 -2.5,-4.6 -2.1,-4.3 -2.3,-1.6 -1.6,-2.3 -6.4,-6.8 -3.4,-5.9 -3,-3 -1.6,-4.6 -4.3,-1.8 -2.7,-6.6 -3.7,-2.7 -2.5,-6.2 -3.2,-2.7 -1.6,-3.2 -4.3,-2.5 -5.7,-12.1 -3,-2.5 -6.4,-12.3 -5.5,-5.7 -3.9,-6.2 -11.4,-11.6 -8.7,-9.6 -9.8,-9.4 -9.6,-9.1 -5.5,-2.5 -5.2,-5.9 -5.9,-5.7 -6.4,-3.4 -1.6,-3.7 2.1,-2.7 2.7,-8.7 1.4,-3.9 0.7,-8.7 11.9,-0.7 5.2,0 1.1,-2.7 7.1,-2.1 4.8,-0.9 3.4,1.1 6.6,2.3 6.2,-1.8 2.3,-3.2 5.7,-3 3.9,-3.4 5.7,-11.4 1.4,-1.6 -0.9,-1.8 -9.8,-8.4 -3,-7.3 -1.1,-5.5 3,-1.4 2.5,-3.2 1.1,0.5 2.3,1.6 1.6,-0.2 3,-3.2 2.7,-3.4 6.2,-5.5 3.9,-1.4 5.2,1.4 2.5,1.6 6.4,-1.6 7.1,-0.7 8,-2.3 3,-6.2 3.7,-11.6 0,-4.1 -0.5,-5.2 -2.7,-5.9 -4.6,-1.8 -2.3,-3.4 -1.6,-3.7 -1.8,-2.7 -3.4,-2.7 -1.6,-3.7 -1.8,-4.1 1.4,-2.7 1.8,-1.1 -1.6,-7.5 -5,-2.3 -2.1,-6.4 -0.7,-13 2.5,-10.7 1.6,-9.6 1.8,-1.4 2.1,-4.6 3.9,-1.1 -0.9,-7.5 -6.4,-2.7 -1.6,-5.5 1.8,-3.7 0,-2.7 -9.1,-3.7 -3,-2.5 -3.2,-3.2 -0.7,-7.3 0.9,-4.6 4.1,-4.3 4.3,-4.6 6.2,-2.7 2.7,-2.1 4.1,2.1 5.9,0.5 9.4,0 1.6,-3.2 4.6,-3.2 2.1,-4.1 5,-1.8 7.1,-3 8.7,-9.8 6.2,-6.6 2.3,-5.2 6.2,-3.4 4.1,-2.7 2.3,-6.2 4.1,-1.1 1.1,-2.5 6.8,0.7 4.8,2.7 4.6,2.3 3,1.4 11.8,1.9 3.1,1 6.6,1.8 1.6,5 2.3,2.3 -0.8,11.8 -2.9,6.5 -1.9,2.4 1.3,6 1.8,2.3 2.7,1.8 3.1,0.8 2.4,-1.6 2.6,-1 2.1,2.6 0.5,1.9 2.6,2.7 4.4,1.8 1.8,4.2 3.2,8.9 3.1,2.9 2.7,5.8 3.2,4 1.3,3.5 2.4,0 1.9,-0.8 6.3,-3.2 8.7,-3.1 14.8,-3.2 5,-1.5 4.2,1.6 3.4,2.1 2.7,4 1.8,3.5 8.2,1.3 1.3,1.8 5.5,0.8 4.5,-0.6 1.1,-2.3 -3.7,-1.5 -4,-6.1 -2.7,-6.3 -0.6,-7.7 0.3,-10.2 0,-3.5 -1.9,-6.8 -1.8,-0.9 -1.1,-1.1 -4.6,-2.7 -7.8,-8.9 -7.5,-5.9 -2.3,-5.5 -2.1,-3.2 2.3,-3.9 2.7,-8 2.5,-5.2 -2.7,-4.6 -0.2,-1.4 3.7,-4.1 4.6,-3.2 0.5,-3.9 3.9,-7.7 6.1,-5.8 3.2,-3.7 2.7,-5.3 3.4,-6 1.1,-9.4 1.1,-3.9 2.6,-2.1 0.5,-1.8 2.3,0.2 1,1.6 3.4,6 6.6,6.5 5.5,5.5 5.8,5.8 2.6,3.4 7.3,3.2 5.2,2.9 1.6,0.6 1.3,-0.8 0.8,-11 2.3,-16.8 3.1,-1.1 1.9,2.7 2.6,1.3 0.2,1.8 9.5,-0.8 7.6,-3.1 13.6,-1.3 3.4,1.5 3.9,0.8 3.1,-1.1 11.6,-1.1 5.5,-0.3 3.5,7.9 2.3,5.8 4,1.9 1.5,1.6 6.8,-1 12.3,-2.7 3.9,-2.4 3.4,0.8 1.6,4.5 3.1,3.1 6.6,1.8 2.1,1.8 1.3,0.8 -2.6,3.7 -5,1.3 -0.2,1.3 4.5,1.3 5.3,1.5 8.2,1.5 3.5,1.8 1.5,1.9 2.7,1.8 1,2.6 2.3,1.6 4.4,2.6 6,2.7 6.3,1.8 6.1,-0.8 1,-2.4 2.1,2.1 6.8,1.5 1.8,2.1 7.3,0.5 12.8,3.7 8.4,2.3 9.8,0.7 6.6,3.4 3,2.5 1.6,2.3 2.1,-1.4 5,-3 2.3,-1.6 3.9,0.9 3.4,3 5.5,3.7 3.9,3.4 5.9,2.3 6.2,1.1 8.4,-0.9 3.4,-1.6 3.2,1.1 3,2.7 2.7,2.7 2.7,3.9 2.7,0.2 7.3,-3 2.5,2.5 2.5,3 3.4,3.2 0.2,1.6 -2.7,1.6 -2.1,1.6 2.1,1.8 2.5,5.2 2.1,5.9 1.8,6.2 1.6,2.7 3.7,3.7 9.1,1.6 3.2,2.3 4.3,3.2 -1.4,2.7 -3.8,2.3 -1.6,2.3 -1.3,3.1 -6.3,1.5 -2.3,-1.8 -6.1,-2.6 -1.6,-1.5 -2.9,0.3 -1.5,4.2 -1,3.4 -2.1,1.6 -1.6,0.6 -2.1,-3.9 -4,0.2 -1.6,1.1 -5.6,2.4 -3.7,6.5 -2.4,6.3 -3.4,5.5 -2.7,9.2 -1.8,5.6 0.3,6.1 1.6,-2.6 10.2,-1 2.1,1.1 2.9,1.3 2.4,-1.5 5.3,-1.9 3.5,2.3 3.7,2.6 2.4,8.9 3.9,6.3 0.6,3.1 -1.8,5.3 -0.8,2.6 1.3,1.8 2.7,5.5 3.2,2.7 6.5,2.6 1,8.4 -1.6,3.1 -3.4,1 -14.7,2.7 -11.3,6 -5.6,2.7 -6.6,7.1 -3.7,6.3 -2.3,5 -1,3.9 1.1,1.8 -0.8,2.4 -2.7,10.6 -4.5,1 -1.5,4.4 -3.5,6 0,1.8 0.6,0.8 3.5,3.7 0.2,1.3 -0.3,1.5 -2.9,6 -1.6,8.6 0,15.2 1.5,4.2 6.5,-1 9.2,-1.5 1.5,10.6 1.1,3.2 3.9,2.4 1.3,3.2 2.9,9 0.8,4.7 5.8,1.8 5.5,5.6 3.7,4 -0.3,2.3 -1.1,5.3 1.6,3.4 1.5,3.9 3.5,-0.6 1.9,-2.4 1.1,0.5 -0.8,5.6 -1,1.5 -4,6 -3.1,9.4 -3.4,3.9 -14.8,0.2 -2.3,3.2 -1.6,0.3 -2.1,4.4 -1.9,19.5 -3.1,-0.2 -3.1,-1.3 -2.9,-2.7 -6.8,-2.9 -8.2,-2.4 -2.6,-4.4 -3.5,-2.4 -9.4,-1.8 -1.5,-1.9 -2.1,-1.3 -0.6,-1.5 -2.6,-1.1 -0.8,-4.8 -3.5,-0.8 -3.9,1.3 -12.4,3.1 -3.1,2.9 -3.1,2.9 -0.8,2.1 1.1,6.6 2.6,6.1 6.6,3.5 5,3.9 2.7,-0.2 4,-2.1 9.2,1.3 3.9,1.8 2.4,2.6 1,2.3 2.4,2.3 2.4,6 0.1,8.5 -2.2,1.1 0.7,1.2 8,1.8 14.4,2.5 5.2,2.3 13.2,3.4 2.3,9.4 0,5.5 -1.1,6.2 c 0,0 0,5.9 0,7.5 0,1.6 0.9,4.6 0.9,4.6 l 3.2,6.4 1.1,2.3 -1.6,1.8 -2.5,1.8 -3.7,2.5 -5.2,2.5 -2.7,3 -3.9,2.1 -2.5,4.6 -1.4,1.6 1.1,1.6 3.4,2.7 10.7,2.7 16.7,2.5 4.6,1.1 3,-2.3 1.8,3.2 2.5,5.2 5.5,-0.2 12.6,-3.2 1.8,-11 1.8,0 2.7,1.6 2.7,3.7 7.8,0 1.1,-4.1 2.7,-2.1 6.2,-3.4 3.7,-1.6 2.5,2.1 1.1,6.6 4.1,0.9 2.5,3.2 -2.3,3.4 -2.3,4.6 1.6,8 3.2,3.2 3.7,6.6 2.7,2.5 3.1,5.8 5.1,1.3 z"/> </g> </g> <g class="region region-basilicata" transform="translate(737.3,226.2) scale(1.5,1.5)"> <g transform="translate(0,0)"> <path d="m 339.1,453.8 0.1,0.1 -1.4,2.3 -0.4,2.3 -0.1,0.8 -0,0.1 0.3,2.9 0.4,2.6 0.1,0.4 0.2,0.7 0.1,0.2 0.6,2.9 0,0.2 0,0.1 -0,0.1 -0,0.1 -0,0.1 -0,0.2 -0.2,0.6 -2.2,5.1 -0.1,0.1 -0.1,0.1 -0.3,0.5 -0.1,0.1 -0.1,0.1 -1,1 -2.3,2.8 -1.7,2 -0.2,0.2 -0.2,0.2 -0.2,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0,0.2 -0,0 -0,0.2 0,0.2 0,0.4 -0.5,1.7 -0.6,0.9 -1.6,1.9 -0.2,0.2 -0.1,0.2 -0.2,0.3 -0.1,0.2 -0,0.2 0,0.2 0.1,0.2 0.1,0.2 0.2,0.4 0.3,0.6 0.1,0.2 0,0.2 -0,0.6 -0.1,0.6 -0,0.1 -0.1,0.1 -0.1,0.3 -1,1.9 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.2,0.2 -0.2,0.1 -0.1,0.1 -0.3,0.1 -0.2,0 -0.2,0 -0.1,0 -0.1,0 -0.2,0.1 -0.4,0.2 -0.2,0.1 -0.2,0.1 -0.4,0.3 -0.2,0.2 -0.2,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -2.8,5.4 -0,0.1 0,0.1 0,0.2 0.1,0.2 0.2,0.4 2.9,3.8 0.1,0.1 0.3,0.2 1.1,0.6 2.2,1.1 -0.1,1 -1,2.3 -0.2,2.5 -0.1,1.8 -0,0.1 -0.1,0.1 -1,0.7 -0.1,0.1 -0.1,0 -0.2,0.1 -0.1,0 -0.1,-0 -0.1,-0 -1.9,-1.4 -0.1,-0.1 -0.6,-0.9 -2.4,-3.4 -2.1,-2.6 -3.5,-4.1 -3.7,-1.8 -0.1,0.1 -0.4,0.2 -0.3,0.1 -0.2,0.1 -0.2,0 -0.2,0 -4.4,0.4 -1.3,4.9e-4 -0.1,-0 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 -2.1,-1 -0.9,-0.4 -0.2,-0.1 -0.3,-0.1 -0.2,-0 -0.2,-0 -0.1,0 -5.6,1.7 -0.4,0.2 -0.3,0.2 -0.3,0.2 -0.3,0.2 -0.4,0.4 -0.1,0.1 -0.1,0.1 -0.4,0.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -1.3,0.6 -0.1,0 -0.6,0 -4.4e-4,-2.5e-4 -3.4,-0.5 -1.5,-0.5 -0.2,-0 -0.5,-0 -0.1,0 -0.3,0 -0.1,0 -0.1,0.1 -0.7,0.5 -0,0.1 0.1,0.3 0.1,0.3 0.1,0.2 0,0.1 0.6,1.1 0.4,0.7 0.1,0.2 0.1,0.2 0.1,0.2 0,0.1 0,0.1 0,0.2 -0,1.2 -0,0.6 -0.1,1.2 -0.1,0.5 -0,0.1 -0,0.1 -1.1,4.9 -0.1,0.3 -0.4,-0.1 -0.2,-0.1 -0.2,-0.1 -0.7,-0.2 -0.1,-0 -2.5,-1 -0.2,-0.1 -1.1,-0.7 -2.3,-1.6 -0.1,-0.1 -0.5,-0.8 0.1,-0.2 0.3,-0.6 0.1,-0.2 0.2,-0.3 0.1,-0.2 0.1,-0.1 3.5,-4.6 -0.6,-1.2 -0.4,-0.9 -1,-2.4 -0.1,-0.3 -0.9,-2.8 -0.1,0.1 -0.1,0.1 -0.1,0.1 -3.9,4.4 -4e-4,1.3e-4 -0.6,0.6 -0.8,6.5 -5.4,-3.3 -0.2,0.2 -2.2,2.1 -1.5,2.1 -0.1,0.1 -2.2,2.8 -0.2,0.3 -0.1,0.1 -0.1,0.1 -1,-0.9 -0.1,-0.1 -0.1,-0.5 -0.1,-0.6 -0.1,-0.2 -0.1,-0.1 -0.2,-0.1 -0.2,-0.1 -0.1,-10e-4 -3.5,0.9 -0.6,-1.6e-4 -4.1,-0.2 -0.2,-0 -0.1,-0.1 -0,-0.1 -0,-0.1 -0.1,-0.1 -0.2,-0.1 -0.1,-0 -0.2,0.1 -2.1,0.6 -0.1,0 -1.5,0.9 -0.1,0 -1.6,1.7 -0.9,1 -0.1,0.1 -0.1,0.1 -0.2,0 -1.7,0.1 -2,-0.4 -2.8,-0.6 -0.2,-0 -1.8,-0.1 -0.1,0 -0.1,0 -0.1,0.1 -0.1,0.1 -0.1,0.1 -1.3,1.3 -1.5,-4.4 -0.5,-2.6 -0.1,-0.1 -1.4,-1.8 -0.1,-0.1 -4.8,-3.1 -0.4,-3.8 0.1,-0.2 0.1,-0.2 0,-0.2 -0.1,-0.1 -1.2,-1.6 -0.1,-0.1 -1.1,-0.9 -0.7,-1.8 -1.5,-4.9 -0,-0.2 -0,-0.2 -0,-0.2 0,-0.2 0,-0.2 0.1,-0.1 3.9,-6.6 0.1,-0.1 0.1,-0.1 0.1,-0.1 0.9,-0.9 0.6,0.7 0.4,-0.2 0.3,-0.2 0.1,-0.1 0.2,-0.1 0.5,-0.4 0.1,-0.1 0.1,-0.1 0.4,-0.5 0.1,-0.1 0.1,-0.2 0.4,-0.8 0.1,-0.2 0,-0.3 -0,-0.3 -0,-0.1 -1,-2.9 0.1,-0.3 0,-0.2 -0,-0.2 -0.1,-0.1 -0.1,-0 -2.2,-1 -0.1,-0 -1,-0.1 -1,-0.1 -0.6,-0 -0.7,-0 -1.4,0 -0.1,0 -0.4,0.3 -0.1,0.1 -0.4,0.6 -0,0.1 -0.1,0.7 -0,0.7 0,0.1 0,0.1 0.1,0.1 0.1,0.1 -3.8,1.7 -4.5,1.2 -0.2,0 -0.1,-0.1 -0.1,-0.1 -0,-0.1 -0,-0.2 -0.3,-1.5 -2.8,-2 -1.4,0.2 -3.8,-1.2 -1.2,-0.6 -0.2,-0.1 -0.1,-0.1 -1.3,-0.7 -2,-0.9 -3,-0.4 -1.7,0.6 -0.1,0.2 -0.5,0.6 -0.1,0.1 -0.1,0.2 -0.1,0.5 -3.9e-4,0 -0,0.1 -3,3.4 -1.1,0.3 -0.4,0.1 -0.3,0.1 -0.1,0.1 -0.1,0.1 -0.2,0.1 -0.1,0.1 -1.6,1.6 -0.1,0 -0.1,-0.1 -0.2,-0.2 -0.1,-0.1 -0.1,-0.1 -1,-1.6 -0,-0.1 0,-0.1 0,-0.3 0.1,-0.8 -0.5,-1.6 -0.1,-0.2 -0.2,-0.2 -0.1,-0.1 -4.2,-0.8 -0.1,0 -0.1,0 -0.1,0.1 -0.1,0.1 -0.5,0.7 -0.1,0.1 -0.6,1.4 -1.5,0.2 -2.3,-2.3 -1.1,-2.3 -4,-1.3 -5.6,0.7 -2.1,0.3 -0.1,1.6 -0,0.2 -0.1,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.1 -0.3,0.2 -0.1,0.1 -0.2,0.1 -0.1,0.1 -0.1,0.1 -0.1,0 -2.3,2.8 -3.4,4.9 -0.2,0.9 -0,0.1 -0.1,0.2 -0,0.1 -0.1,0.1 -0.1,0.1 -0.3,0.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.3,0.2 -1.1,0.7 -0.2,0.1 -0.1,0 -0.3,0.1 -0.2,0 -0.8,0.3 -0.3,0.1 -0.6,0.2 -0.2,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.2,0.2 -0.1,0.1 -1.5,1.4 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0.1,0.1 -0.1,0.2 -0.2,0.3 -0.1,0.2 -0,0.1 -0,0.1 -0.1,0.2 -0,0.2 -0,0.2 -0,0.2 0,0.3 0,0.2 0,0.2 0.1,0.6 0.1,0.4 0,0.4 -0,0.1 -0.3,2.2 -1.7,6.1 -0.1,0.3 -0.1,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.1 -0.5,0.6 -0.2,0.2 -0.1,0.1 -1.5,1.1 -0.5,0.4 -0.1,0.1 -0.3,-0.7 -1,-2.6 -0.1,-0.2 -0.1,-0.2 -0,-0.1 -0.1,-0.1 -0.1,-0.2 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0 -0.1,-0 -0.1,0 0,0.1 -0.2,0.3 -0.1,0.1 -0.1,0.1 -0.2,0.1 -0.1,-0 -1,-0.6 -2.4,-3.4 -0.4,-3.3 0.2,-0.5 0.1,-0.1 0.4,-0.4 0,-0 0,-0 0.1,0 -4.7e-4,9e-5 -0.4,-0.7 -1.1,-2.8 -0.1,-0.2 0.1,-0.2 0.1,-0.1 0.1,-0.3 -0,-0.4 -0,-0.1 -3.8,-5.6 -0.9,-0.4 -0.3,-0.1 -0.1,-0.1 -0.5,-0.6 -0.8,-1 -0.2,-0.4 -0.1,-0.3 -0,-0.1 -0,-0.1 0.1,-1 0.1,-0.2 -2.6,-0.7 -7.2,-7.1 -0.1,-0.1 -0.1,-0.3 0.1,-0.7 -0.5,-0.7 -0.9,-1.6 0.1,-2.4 0.3,-2.2 0,-0.1 -0.7,-1.6 -3,-4 -0.2,-0.2 -0.4,-0.2 -0.1,-0 -0.2,-0.1 -0.1,-0 -0.1,0 -0.1,0 -0.1,0.1 -0.3,0.2 -0.1,0.1 -0.1,0 -0.1,0 -0.1,0 -3.5,-0.1 -0.2,-0.1 -0.7,-0.9 0,-0.3 0,-0.2 0,-0.1 0,-0 0.1,-0 0.4,-0.6 0.2,-0.1 7.9,-4.1 0,-0 0.1,-0 0.4,-0.1 0.3,-0 0.3,-0 0.3,0 0.1,-0.3 0,-0.3 0,-0.2 -0.1,-2.5 -0,-0.4 -0,-0.2 -1.1,-2.4 -0.2,-0.2 -1,-1.2 -0.3,-0.2 -0.5,-0.2 -4.1,-1.6 -0.5,0.1 2.9e-4,4.9e-4 -0,-0.3 0,-0.1 0,-0.1 0.1,-0.1 0.1,-0.1 0.5,-0.3 0.2,-0.1 0.4,-0.2 0.3,-0 0.3,0.1 0.2,0.2 0.2,0.1 0.2,0.1 0.3,0.1 0.4,0.1 0.3,-0.1 2.1,-0.7 0.5,-0.2 0.2,-0.1 0.3,-0.2 1.5,-0.9 1.7,-1.8 0.2,-0.4 1.5,-2.4 0.5,-1.4 0.1,-0.4 0.2,-0.4 0.3,-0.4 1.6,-1.9 2.9,-4.7 -0.4,-0.4 -0.3,-0.3 -0.2,-0.3 0,-0.8 0.1,-0.8 0.6,-4.5 0.2,-0.4 0.4,-0.2 0.5,-0.2 0.2,-0.4 0,-0.2 -0,-0.4 -0.1,-0.5 -0.1,-0.5 -0.1,-0.4 -0.1,-0.5 -0.4,-1.4 -0.2,-0.5 -0.1,-0.1 -0.3,-0.2 -0.2,-0.2 -0.9,-1.7 -0.3,-1.3 -0,-0.3 -0,-0.3 0,-0.3 0.1,-0.7 0.1,-0.3 0.2,-0.4 0.2,-0.1 0.6,-0.3 0.5,-0.3 1.3,-0.9 1.7,-1.3 0.1,-0.2 0.2,-0.3 0,-0.1 -0,-0.1 -0,-0.1 -0.5,-1.5 -0.8,-1.8 1.8,-1.8 3.7,-1.5 0.1,-0.3 0.8,-3.8 -0,-0.4 -0.4,-1 1,-1 0.5,-0.2 1,-0.2 0.4,0.2 3.4,0.2 4.6,-4 0.2,-0.2 0.2,-0.6 0.2,-0.3 2.1,-1.3 3.6,-0.4 0.5,0 0.3,0.2 0.2,0 0.2,0 0.1,0 0.1,-0 0.4,-0.1 0.1,-0.1 1.2,-1.3 0.2,-0.2 0.2,-0.4 0.2,-0.4 0.1,-0.5 -0.1,-0.1 -0.8,-0.6 -1.2,-1.1 -0.3,-0.5 -0.7,-2.2 -0.1,-0.3 0.8,-3.1 0.3,0 0.8,-0.2 0.3,-0.1 0.5,-0.3 3,-2.4 -0.1,-0.1 -0.6,-1 -0.2,-0.2 -0.4,-0.3 -0.2,-0.2 -0.2,-0.4 -0.1,-0.3 -0.1,-0.4 -9e-4,-0 -0.1,-0.3 0,-3.6 0.1,-0.5 0.1,-0.3 0.2,-0.2 1.1,-0.7 0.2,-0.1 0.4,-0.1 -2e-4,-0 -0,-0.4 -0.1,-0.2 -0.1,-0.3 -0.3,-0.4 -0.8,-1.2 -0.2,-0.2 -0.5,-0.1 -0.3,-0.1 -0.3,-0.4 -0.2,-0.4 -0.8,-1.9 -0.1,-0.5 -2.4,-1.3 -6.9,-3.5 -3.4,-0.6 -0.9,0.4 -0.4,0.1 -0.4,-0 -0.5,-0.2 -1.2,-0.7 -0.3,-0.3 -0.4,-0.4 -0.3,-0.4 -0.3,-0.4 -0.1,-0.1 -0.3,-0.3 -3.4,-4 -0.3,-0.3 -0,-0.4 0.2,-0.5 -0.4,-2 -1.6,-0.9 -0.2,-0.9 -0.2,-0.1 -0.3,-0.3 -0.3,-0.3 -2.9,-3.3 -1.2,-2 -0.2,-0.4 -0.1,-0.7 -0.1,-6.3 0.3,-2.3 0.7,-1 0.3,-0.4 0.2,-0.4 0.1,-0.3 0.2,-3.1 -0.1,-0.1 -3.4,-2.7 -4.7,-3.3 -0.5,-0.3 -0.4,-0.2 -0.2,-0.1 -1.2,-1.4 -0.5,-0.2 -1.5,-0.5 -2.6,2.4 -8e-5,-1.6e-4 -0.4,-0.3 -0.3,-0.3 -3.1,-5.7 -0.2,-0.3 -0.5,-1.4 -0.3,-1 -2.1,-0.4 -0.3,-0.2 -0.4,-0.4 -0.2,-0.3 -0.2,-0.2 -0.5,-0.7 -0.2,-0.2 -0.1,-0.3 -0.1,-0.4 -0.1,-0.3 -0.2,-0.2 -1.3,-0.9 -1,-0.7 -1.9,-1 -0.4,-0.2 -0.4,-0 -0.4,-0.1 -0.4,-0.2 -0.5,-0.3 -3.3,-1.8 -0.3,-0.3 -3.9,-2.8 -1.1,-0.7 3e-4,5.3e-4 1.6,-1 -1.6,-2.5 -1.1,-1.4 -1.5,-3.1 0.1,-0.2 0.1,-0.6 0,-0.3 -0.1,-1.1 -0.1,-0.3 -0.3,-0.2 -3.7,-3 -0.6,0.1 -0.5,0 -0.6,-0.1 -1.4,-0.3 -0.3,-0.2 -1.8,-1.4 -2.7,-2.2 -0.8,-0.4 0.2,-1.6 0,-0.4 -0.5,-1.1 -0.6,-0.7 -0.2,-0.4 -0.1,-0.3 -0.1,-0.4 0.1,-0.2 0.1,-0.2 0,-0.1 0.1,-0.1 0.1,-0.1 0.3,-0.2 0.4,-0.2 0.7,-0.4 1,-0.6 0.6,-0.5 0.7,-0.6 0.7,-0.8 0.1,-0.2 -2.1,-2.4 -1.3,-1.2 -0.6,-0.8 -0.8,-1 0.3,-0.2 -4.6e-4,3.6e-4 0.8,-0.2 0.4,-0.1 0,-0 1.6,-2.7 0.2,-0.5 0,-0.2 -2.9,-6.6 -1.7,-3.5 -0.7,-0.2 -0.6,-0.2 -0.1,-0.2 2.7,-3.6 1.4,-0.9 -2.1,-2.1 -2.6,1.1 -0.5,0.1 -0.6,0 -0.3,-0.1 -1.8,-1.5 -0.1,-0.4 0,-0.4 0,-0.5 0.1,-0.2 0.3,-0.1 0.2,-0.2 -0,-0.4 -1,-1.8 -0.1,-0.1 -0.7,-0.7 -0.2,-0.1 -0.3,-0.2 -0.6,-0.2 -0.3,-0.1 -0.4,0.1 -0.2,0.1 -0.5,0.2 -0.5,0.1 -0.4,-0 -0.9,-0.2 -1.8,-0.3 -0.3,-0.2 -0.3,-0.3 -0.1,-0.3 -0.1,-0.3 -2e-4,-0 -0,-0.4 -2e-4,-0 0,-0.3 0,-0.2 -0.1,-0.2 -1.1,-0.8 -1.6,0.2 -0.4,0.1 -0.4,0.1 -0.6,0.3 -7.1e-4,9.3e-4 -0,0 -0.4,-0.1 -0.6,-0.3 -0.1,-0.1 -0.9,-1.7 -1.2,-1.4 -1.4,-1.3 -0.4,-0.1 -2,-0.8 -0.2,-0.1 -0.1,-0.1 -0.5,-0.4 -0.4,-0.4 0.7,-0.7 3.7,-6.8 0.6,-1.6 0.1,-1.1 0.1,-0.5 0.1,-0.5 0.1,-0.7 0.1,-0.1 0.2,-0.4 0.1,-0.1 1.4,-0.5 1.4,-0.5 0.9,-0.3 0.8,-0.3 0.4,-0.2 0.6,-0.4 2.2,-1.3 2,-2 0.1,-0.1 0.9,-1.3 0.7,-3 0,-0.1 -0,-0.2 -0,-0.1 -0.1,-0.1 -0.3,-0.3 -0.1,-0.1 -0.1,-0 -0.1,-0 -0.1,-0.1 -0.2,-0.1 -0.1,-0 -3.2,0.2 -0.2,-0.1 -0,-0.1 -0,-0.1 -0,-0.1 -0.1,-0.2 -0,-0.2 -0,-0.2 -0,-0.3 0,-0.1 -0,-0.1 -0,-0.1 -0,-0.1 -0,-0.1 -0,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0.2 -0,-0.1 0,-0.1 -0,-0.1 -0.1,-0.1 -0.1,-0.1 -0,-0.1 -0,-0.1 -0.3,-0.1 -0.2,-0.1 -0.2,0.1 -0.4,0.1 -0,9e-5 -0.3,0 -0.4,-0.1 -0.3,-0.1 -0.3,-0 -0.4,-0.1 -0.4,-0.1 -0.5,0.1 -0,6.1e-4 -0.5,0 -0.3,0.1 -0.2,-0 -0.3,0.1 -0.3,-0 -0.2,-0.2 -0.1,-0.3 -0.2,-0.1 -0.3,-0.2 -0.2,0 -0.2,-0 -0.3,-0.2 -0.3,-0.2 -0.3,-0.2 -0.4,-0.1 -0.3,-0.2 -0.2,-0.2 -0.4,-0.2 -0.2,-0.1 -0.3,-0.2 -0.3,-0.2 -0.3,-0.3 -0.3,-0.4 -0.1,-0.3 -0.2,-0.3 0,-0.2 0,-0 -0.2,-0.2 -0.1,-0.2 -0,-0.3 -0.3,-0.3 -0.1,-0.1 -0.1,-0.1 -0.1,-0.4 0,-0.2 -0,-0.2 -0.1,-0.1 -0.2,-0.2 -0.3,-0.1 -0.3,0.1 -0.7,0.4 -0,0 -0.2,0 -0,9e-5 -0.2,-0.2 -0.2,-0.1 -0.3,-0.2 -0.2,-0.3 -0.3,-0.2 -0.3,-0.1 -0.3,-0 -0,-3.9e-4 -0.2,-0.1 -0.3,-0.1 -0.2,-0.1 -0.5,-0 -0,-2.2e-4 -0.2,-0.1 -0.3,-0.1 -0.3,-0.1 -0.2,-0.2 -0.2,-0.1 -0.3,-0.1 -0.1,-0 -0.3,-0.1 -0.3,-0 -0.4,-0.2 -0.1,-0.2 -0.1,-0.3 -0.2,-0.2 -0.5,-0.3 -0.2,-0.3 0,-0.4 -0.1,-0.3 -0.3,-0.3 -0.1,-0.4 -0.1,-0.3 -0.2,-0.4 -0.1,-0.5 -0.6,-0.1 -0.3,-0.2 -0.2,-0.4 -0.4,-0.2 -0.4,-0.2 -0.2,-0.3 -0.4,-0.3 -0.1,-0.4 0.2,-0.3 -0,-0.2 -0.1,-0.1 -0.2,-0.2 -0.3,-0.2 -0.2,-0.2 -0,-0.2 -0.1,-0.2 -0.2,-0.1 -0.1,-0.3 -0.1,-0.2 -0.5,-0.5 -0.8,-0.6 -1.2,-0.8 -0.4,0.1 -1,-0.1 -0,-5.1e-4 -0.4,-0 -1.5,-0.4 -0.6,-0.4 -1.5,-1.4 -0.3,-0.2 -0.4,-0.3 -0.4,-0.3 -0.3,-0.3 -0.1,-0.4 -0.1,-0.8 0.1,-0.2 0.4,-0.3 0.2,-0.4 0.1,-0.5 -0,-0.6 -0,-1.1 -0,-0.7 -0.1,-0.2 -0.1,-0 -0.5,-0.7 -0.5,-2.7 -0.2,-2.7 0,-0.2 0.3,-1.2 0.1,-0.3 1.1,-3.7 0.2,-0.3 0.2,-0.2 1.3,-1.2 0.7,0.2 -0.9,-1.3 -1,-1.5 -1.2,-1.8 -0.2,-0.2 -0.1,-0.4 0,-0.4 0.1,-0.3 1.5,-4.2 0.2,-2.4 -1.8,0.8 -0.5,0.2 -0.4,0.1 -1.4,-0.4 -0.3,-0.1 -0.6,-0.3 -0.8,-0.4 -0.4,-0.3 -0.2,-0.9 1.3,-0.8 2.3,-1.4 0.7,-0.2 0,-0.2 0.2,-1.4 0.1,-0.4 -0.5,-0.5 -0.3,-0.1 -0.7,-0.2 -0.3,-0.1 -0.3,0 -0.9,0.2 -0.4,0.1 -0.4,0.1 -0.4,0.1 -0.2,-0.1 -0.9,-1 -2,-2.3 -1.2,-1.7 -6.1e-4,-2.3e-4 -0.2,-0.2 -0.3,-0.3 -1,-0.9 -0.3,-0.2 -0.5,-0.2 -0.4,-0.1 -0.5,-0 -0.4,0.1 -0.3,0 -0.4,-0.1 -0.3,-0.3 -0.3,-0.3 -0.2,-0.3 -1,-1.5 5.8,-1.2 0.4,-0.2 0.1,-0 1.8,-0.4 0.1,-0 0.2,0.1 0.5,0.2 0.3,0.1 2.1,0.9 1.1,0.5 0.3,-0.1 0.8,-0.4 0,-0.1 0.2,-1.8 -0,-0.1 -0,-0.1 -0.4,-1.4 -0.2,-0.5 -0.4,-5.7 0.2,-1.7 0.8,-1.7 -2.8,-1.5 -0.3,-0.1 -0.2,-0 -0.5,-0.1 -0.1,-0 -0.4,-0 -1.4,0.2 -0.2,0 -0.2,0.1 -0.2,0 -0.2,0.1 -0.3,0.1 -0.2,0.3 -0.9,-5.2 0.3,-0.1 0.4,-0.2 5.5,-1 0.4,0 0,2e-4 0.2,0 0,2.2e-4 0.1,0.1 0.1,0.1 0.1,0.1 0,0.2 -0,0.4 0.8,1.3 1.6,1.8 0.1,0.1 0.1,0 0.5,0.1 0.2,0 0.5,0.1 0.3,-0 0.2,-0 2.8,-0.5 2.1,-1.5 2.3,-0.2 1.1,0 4.5,0.7 3.8,1.2 2.9,1.9 4.5,0.9 2.4,-1.3 0.2,-0.5 0,-0.3 -0.1,-0.2 -0.6,-0.9 -0.3,-0.5 -0.1,-0.1 -0.1,-0.2 -0.2,-0.7 -0.3,-2.5 -0,-0.7 0,-0.1 0.1,-0.3 0.2,-0.1 0.6,-0.3 5.7,-2.6 0.2,-0.1 0.2,-0.1 1.5,-0.4 0.4,-0.1 0.4,-0.1 0.6,-0.2 0.3,-0.1 0.1,-0.1 0.1,-0.1 0.1,-0.1 0.5,-0.4 0.1,-0.1 0.2,-0.2 3.4,-1.4 4.4,-1.2 0.2,-0.1 0.1,-0.2 0.1,-0.3 0.1,-0.2 0.1,-0.2 0.1,-0.5 -0,-0.2 -0,-0.3 -0,-0.2 -0,-0.2 0,-0.2 0.1,-0.1 0.4,-0.6 0.1,-0.1 0.1,-0.1 0.6,-0.7 0.1,-0.1 0.1,-0.1 0.2,-0.2 0.1,-0.1 0.2,-0.1 0.2,-0.1 1.4,-5.1 1.1,-4.9 -0.1,-0.2 -0.1,-0.2 -0.1,-0.2 -0,-0.2 0,-0.2 0.1,-0.3 1.7,-2.7 0.1,-0.1 0.1,-0.1 0.1,-0.1 0.2,-0.1 0.2,-0.1 0.3,-0.1 1.1,-1 1.9,-2 0.6,-0.8 0.7,-1 0.5,-0.5 0.1,-0.1 0.2,-0.4 0.1,-0.1 0,-0.1 0.1,-0.3 0,-0.1 0,-0.1 0.8,-4.1 0.9,-7 0,-0.2 -0,-0.2 -0,-0.4 -0,-0.2 -3.5,-11.6 -2.1,-4.6 -2.6,-6.4 -1.1,-1.2 0.3,-3.7 1.7,-3.9 4.7,-6.4 1.2,-0.6 1.7,-0.9 0.1,-0.1 0.2,-0.3 0.1,-0.1 0.6,-0.5 1.1,-0.6 1.9,-0.6 0.2,-0 0.3,-0 1.2,0.4 4.9,0.6 0.2,-0.1 0.2,-0.1 0.5,-0.3 1.2,-0.5 1,-0.3 0.2,-0 0.4,0 0.2,0 0,0 0.2,0 0.2,0.1 3,0.9 1.9,1.9 0.2,0.1 2.8,0.9 1.8,0.2 4.7,0.3 2.4,-0.4 1.8,1.1 0.8,0.2 11.2,-1.4 2.9,-1.5 -0.1,-0.3 -0,-0.2 -0,-0.1 0,-0.3 0,-0 0.1,-0.2 1.3,-1.3 2,-0.2 0.3,0 1.5,0.1 0.3,0 2.2,0.5 0.3,0.1 0.2,0.1 0.2,0.1 3.7,4.3 0.6,0.9 0.1,0.2 0.2,0.2 0.1,0.1 0.2,0.2 0.1,0.1 0.1,0 0.2,-0.1 0.5,-0.3 0.3,-0.2 1.1,-1 2,-1.1 0.2,-0.1 1.5,-0.4 0,-0 0.2,-0 0.3,0 0.1,0.2 0.1,0.2 -0,0.2 -0,0.2 -0.1,0.1 0.1,0.1 0.1,0.1 0.1,0 0.6,-0 0,-0 0.2,-0.1 1.5,-0.8 0.2,-0.1 0.5,-0.3 0.2,-0.2 0.1,-0.2 0.6,-1.6 1,-2.9 0.8,-3.5 0.7,-1.1 1.2,-1.2 0.1,-0.1 0.6,-0.4 0.2,-0.1 0.3,-0 1.4,-0.1 1.5,0.2 1.4,-2.2 -0,-0.3 0,-0.3 0,-0.4 0.1,-0.5 0.1,-0.3 0.1,-0.2 0.4,-0.4 0.3,-0.2 0.3,-0.2 0.3,-0.1 0.2,-0 0.6,-0 0.3,0 0.3,0.1 0.3,0.2 0.1,0.2 0,0.2 -0,0.2 -0,0.1 2.2,1 5.9,-2.2 0.1,-0.1 0.1,-0.1 0.1,-0.2 0,-0.1 0.1,-0.1 0.9,-1.6 0.1,-0.2 0,-0.1 0.1,-0.3 0.1,-0.5 0,-0.4 1.5,1.3 0.1,0 0.3,-0.1 0.3,-0.1 0.2,-0.2 0.1,-0.1 0.1,-0.1 0.3,-0.1 1.1,1.5 0.2,0.3 1.3,2 1.5,2.2 0.2,0.2 0.2,0.3 0.2,0.1 0.1,-0 1.2,-0.5 0.3,-0.3 0.2,-0.2 0.2,-0.2 0.3,-0.3 1.8,1.8 1.1,1.1 0,0 0.1,0.1 1.5,1.6 1.3,1.3 0.5,0.4 3.5,0.9 1.8,-1.9 5,1.2 1.4,2.5 0.2,0.5 0.4,1 0.1,0.3 0,0.2 -0.1,0.5 -0.2,0.4 -0.2,0.3 -0.3,0.5 -1,1.2 2,-0.1 5.1,-0.4 0.3,0.2 0.2,0.2 1.5,1.7 0.1,0.2 0.3,1.2 -0.6,1.3 -0.3,0.2 -0.4,0.3 0.7,1.7 5.3,9.8 0.1,0.1 0.1,0.1 0.1,0.1 0.6,-0.4 0.3,-0.2 1,-1.1 0.4,-0.5 0.1,-0.1 0.1,0.1 4.6,3.2 5.1,5.1 0.1,0.1 0.2,0.2 0.6,0.8 0,0.1 0,0.1 0,0.5 -0.1,2.7 -2.4,0.4 -0.8,0.3 -0.2,0.2 -0.5,0.6 -0.2,0.3 -0,0.3 -0.2,2.5 0,1.7 0.1,0.8 0.1,0.3 0.1,0.2 0.2,0.2 0.1,0.2 0.2,0.3 0.5,1.3 0.2,2.9 0,0.1 -1.6,3 -0.5,0.8 -0.7,1 -4.7,6.1 -0.1,0.1 -1.7,0.8 -1.9,0.1 -1.1,0 -3.1,0 -0.9,-0.1 -1.7,-0.3 -0,-0 -0.2,-0.1 -0.5,-0.2 -0.3,-0.1 -0.3,-0.1 1.5,5.7 0.2,0.2 0,0 1.5,1.3 0.3,0.2 4.4,1.5 2.3,0.5 0.3,0.1 2.4,1 2,1.1 0.4,0.1 0.7,0.1 1.3,0.2 3.8,1.6 2.5,1.1 1.5,0.9 1.2,0.8 0.7,0.6 0.1,0.1 0.1,0.2 0.1,0.4 0.1,0.2 0.3,0.2 2.2,0.7 2.4,0.6 1.4,0.3 0.7,0.2 1.1,0.4 2.7,1.2 0.2,0.1 0.3,0.2 1.5,1.3 1.2,1.2 4.5,5.1 1.5,1.9 0.1,-0.6 0.3,-0.5 0.1,-0.2 0.2,-0.2 0.2,-0.1 0.8,-0.2 2.3,-1.5 0.2,-0.2 0.1,-0.1 0.1,-0.2 0.1,-0.1 -0.1,-1.5 -0,-0.5 0.1,-0.5 0.5,-1.3 0.2,-0.4 0.3,-0.3 2.7,-2.3 5.2,-1.9 2.6,0.5 0.4,0.1 0.4,0.3 0.3,0.2 0.3,0.2 1.2,0.6 0.4,0.2 0.9,0.4 3.4,1.2 2.6,0.8 1.3,1.9 2.5,3.7 0.5,1.9 1.3,4.3 0.2,0.4 0.3,0.2 0.3,0.2 0.3,0.2 0.2,0.2 0.8,2.3 0.1,0.2 0,0.1 0,0.2 0,0.1 -0,0.2 -0.1,0.3 -0.2,0.2 1.7,9.7 0.1,0.4 3.6,6.5 0.2,0.1 0.2,0 -1.2,1.1 -0.1,0.1 -0.5,0.3 -0.1,0.1 -3.2,1.4 -0.2,0 -0.2,0 -0.3,0 -0.3,-0 -0.3,-0.1 -0.2,-0.1 -0.3,-0.1 -0.3,-0 -0.3,-0 -0.3,-0 -0.6,0.2 -0.3,0.1 -0.3,0.1 -5,4.2 -6.4,4.2 -0.7,0.4 -1.6,0.9 -1.1,0.6 -0.5,0.1 -1.9,0.2 -1.7,0.2 -0.1,0 -2.3,0.4 -1.5,0.2 -2.6,0.4 -0.6,0.1 -0.3,0.2 -0.3,0.2 -2.5,1.3 -0.3,0.2 -0.2,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.6 -0.1,0.3 -0.1,0.7 -0,0.3 -0,0.3 -0,0.2 0,0.4 0.1,0.4 0.3,0.8 0,0.2 0.1,0.5 0,2.1 -0.2,1.7 -0,0.1 -0.6,1.1 -0.1,0.1 -1.4,2 4.8,8 0.6,1.2 0.6,1 0.3,0.4 0.2,0.2 0.6,0.5 0.4,0.3 1.1,0.8 1.9,2.1 0.2,0.2 0.1,0.2 0.1,0.1 0.1,0.2 0.1,0.2 0,0.5 -0.1,1.4 -0.1,0.6 -0,0.5 0.1,1.2 0,0.2 0.1,0.1 0.2,0.1 0.4,0.1 -0.6,0.7 -0,0.1 -0.1,0.1 -0,0 -0.1,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.1 -0,0.1 -0.1,0.7 -0,0.7 0,0.1 0,0.2 0.1,0.6 0.1,0.3 0,0.1 0.1,0.2 0.1,0.4 0,0.2 0,0 0.1,1 0,0.2 0,0.3 -0,0.2 -0,0.2 -0.1,0.3 -0.3,0.9 -0.5,1.5 -0.1,0 -0.3,-1.1e-4 -0.2,-0.1 -1.1,-0.3 -0.9,-0.2 -0.1,-0 -0.1,0 -0.1,0 -1.7,0.7 -0.8,0.4 -0.9,0.8 -0.1,0.1 -0.1,0.1 -0.8,1 -0.7,0.9 -0.1,0.1 -0,0.1 -1.4,1.7 -2.5,2.7 -1.2,1 -0.8,0.7 -0.1,0.1 -10.4,5.1 -0.9,-0.2 -0.4,-0.1 -0.1,0 -0.2,0 -0.5,0.2 -0.2,0.1 -0.4,0.3 -0.5,0.5 -0.2,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.3 -0.1,0.3 -0.1,2.1 0,0.9 -0.5,2.1 -1.8,3.1 1.1,1.6 4.1,3.6 0.4,0.1 0.2,0.1 1.3,0.7 0.1,0.1 0.5,0.9 0.1,0.1 0.8,1.9 0,0.1 0.3,1.2 0,0.7 0,0.3 0.8,1.8 0.2,0.5 0.3,0.5 0.2,0.2 0.2,0.1 3.1,1.6 0.1,-0 0.2,-0.1 0.2,-0.1 0.2,-0.1 0.1,-0 0.2,-0 0.6,-0 0.1,0.1 1.6,1.3 0.1,0.1 1.1,1.2 0.6,0.7 0.8,1 0.5,0.8 0.1,0.2 0.1,0.1 1,0.7 0.1,0.1 1.1,0.1 0.2,-0 0.6,-0.4 -1.3,2.6 2e-4,-0 -3.7,7.3 -1,1.2 -2.2,1.7 -0.1,0 -0.5,0.2 -1.8,0.8 -2,1.1 -0.2,0.1 -1.6,1.3 1.8,1.6 3.4,4.5 0.3,0.6 3.1,5.3 1.8,2.1 0.9,1.3 0.1,0.2 0.2,0.3 1,1.9 0.1,0.3 0.1,0.2 0,0.1 0,0.2 -0,0.1 -0.9,2 -0.3,0.6 -0.3,0.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0 -0.3,0.2 -1.3,0.6 -0.1,0 -0.1,0 -0.2,-0 -0.2,-0 -0.2,-0 -0.1,-0 -0.1,0 -1.7,1.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0,0.3 0.4,1.1 4.5,6.3 3.2,3.1 0,-0.1 0.1,-0.1 0.2,-0 0.2,-0 0.4,0.1 0.2,0.1 4.9,2.2 0.1,0.1 0.1,0.5 0,0.1 0,0.3 0,0.2 -0.5,0.4 -0.2,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.3,0.3 -0.1,0.1 -0.6,0.8 -0.2,0.3 -0.1,0.2 -0.1,0.1 -0.6,1.4 -0,0.1 -0.1,0.2 -0,0.2 0,0.3 0.1,0.2 0,0.1 -0.2,1.1 -0.1,0.3 -0.1,0.2 -0.4,0.8 -0.7,1.2 -4.2,0.3 -0.6,0.4 -0.8,0.7 -0.2,0.3 -1.3,2.3 -0.1,0.2 -0,0.1 -0,0.1 0,0.2 0.2,3.8 0,0.2 0,0.3 0.1,0.2 0.1,0.2 0.6,1.2 0.1,0.1 0.2,0.2 0.2,0 0.2,0 0.2,0 0.2,0.1 0.1,0.1 0.1,0.1 0.1,0.1 0.1,0.2 0.1,0.1 0.1,0.2 0,0.2 -0,0.3 -0.1,0.9 2,0.8 5.7,5.4 4,2.3 0.2,0.1 0.1,0.1 0.1,0.1 0.6,1 0.1,0.1 0.1,0.1 0.5,1.8 -0.2,1.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0,0.2 -0,0.2 0.1,0.2 1.6,3.3 2.1,3.3 0.1,0.2 0.1,0.2 -0.8,3.6 -0.2,0.4 3.6,0 -0,0.2 0,2.2 0,0.1 0,0.2 0,0.2 0.1,0.3 0,0 0,0 0.2,0.1 0.1,0.1 0.2,0.1 0.1,0 0.3,0 0.3,0.1 0.9,0.5 0.2,0.1 0.1,0.1 0.1,0.1 0.2,0.2 0.1,0.1 0.1,0.1 1.7,2.8 0,0.1 -0,0.2 -0,0.2 -0.4,0.8 -0.1,0.1 -0.2,0 -0,-0 -4.3,-0.5 -0.1,-0 -0.3,-0.1 -0.9,3.4 0.9,3.8 0,0.1 0,0.1 0,0.1 0.2,0.2 0.6,0.5 1.3,1.2 1.1,0.6 0.1,0.1 1.3,1 0.2,0.2 0.1,0.2 0.1,0.3 1.7,6.2 0.6,3.9 -6e-4,4.4e-4 0.2,0.1 0.2,0 0.2,0 0.2,0 0.2,-0 0.3,-0 2.4,-0.3 2.8,-0.2 0.7,-0 0.9,0 4.5,0.1 0.9,-0 0.6,-0 0.3,-0 0.3,-0 0.7,-0.2 0.3,-0.1 0.2,-0.1 0.4,-0.3 0.2,-0.2 0.2,-0.3 0.1,-0.2 0.1,-0.2 0.1,-0.1 0.2,-0.2 0.3,-0.3 0.2,-0.1 0.3,-0.2 0.3,-0.2 0.2,-0.1 0.1,-0.1 0.5,-0.2 0.3,-0.1 0.2,-0 0.2,-0 0.3,0 0.7,0.2 0.4,0.1 0.2,0.1 0.6,0.3 0.2,0.1 0.2,0.1 0.4,0.1 1.3,0.4 0.4,0.1 2.9,0.6 0.4,0 0.7,0 0.4,-0 0.5,-0 0.5,-0 0.4,-0.1 1,-0.2 3.3,-0.8 0.6,-0.2 1.5,-0.6 0.4,-0.2 0.4,-0.2 0.5,-0.3 0.4,-0.4 0.3,-0.3 0.1,-0.1 0.2,-0.2 0.2,-0.3 0.2,-0.3 0.2,-0.3 0.1,-0.2 0.7,-1.6 1,-2.9 0.5,-1.4 0.1,-0.3 0.1,-0.3 0.1,-0.4 0,-0 0.1,-0.4 0.7,-1.6 0.1,-0.1 0.2,-0.3 0.4,-0.5 0.2,-0.2 0.2,-0.2 0.2,-0 0.5,-0.1 3.8,-1.2 1.5,-0.9 7.5,-0.3 -0,0.8 -0,0.6 -0,0.8 -0.1,3.3 -0.1,0.4 -1,1 -0.6,0.6 -0.2,0.1 -0.1,0 -0.6,0.7 -0.2,0.2 -0.7,0.9 1.2,2.8 1.4,1.5 0.7,1.1 0.3,0.5 -0.4,0.9 -1.3,1.2 -0.8,2.8 0.2,2.2 0.4,0.5 0,0.1 0.4,1.5 0,0.1 0,0.1 0,0.1 0,0 10e-4,0.1 -0,0.1 -0.2,0.3 -0.1,0.1 -2.1,2.2 -0.9,4.4 0.1,0.2 0,0.2 0,0.3 -0,0.4 -0,0.2 -0.5,2.1 -0.1,0.3 -0.1,0.2 -0.1,0.2 -0.6,0.7 -0.1,0.2 -0.2,0.2 -0.2,0.1 -0.2,0.1 -0.3,0.1 -0.2,0.1 -0.2,0.1 -0.2,0.2 -0.8,1 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0,0.2 0,0.3 0.4,3.4 -5.1e-4,-2e-5 -0.4,0.8 -0.1,0.2 0.8,2.1 2.7,5.5 2.5,1.5 2.8,1.9 1.3,1.2 1.9,0.1 0.3,0 0.1,0 0.1,0.1 0.2,0.3 2.6,3.3 -0.5,0.3 -0.1,0.1 -0.1,0.1 -0.5,1.1 -0,0.1 -0,0.2 0,0.2 0,0.2 0,0.2 0.1,0.3 0,0.2 0.2,0.7 0.6,1.7 -4.1,0.9 -2.9,2.2 -1.5,1.9 -2.4,1.6 -1.3,1.8 -2.4,4.4 4.1e-4,2.7e-4 1,2.1 3.1,2.6 2.4,2.6 -0.3,0.4 -2.6,3.1 -0.7,0.9 -0.3,0.4 -1.1,1.4 0.3,0.3 0.4,0.3 0.4,0.2 0.7,0.4 2.6,1.3 -1.5,3.3 -0.7,1.7 0,0.1 0.1,0 0.1,0 0.6,0 0.2,0 0.2,-0 0.2,-0 1.3,-1.8 0.1,-0.1 0.1,-0.1 3.3,-1.7 0.2,-0 0.2,0 0.1,0.1 0,0.1 -0,0.2 -0,0.2 -0.1,0.3 -0.2,0.4 -0.2,0.4 -0.4,1.1 -0,0.2 -0,0.3 0,0.1 0,0.2 0,0.5 0.1,0.6 0,0.1 0.7,2.8 0,0.1 0.1,0.1 0.1,0.2 0.1,0.2 0.2,0.3 0.1,0.1 0.5,0.6 0.6,0.3 2.1,0.9 0.9,0.4 z"/> <path d="m 207,207.1 -0.4,-0.8 -0.1,-0.3 -0.1,0.1 -0.2,0.2 -0.8,0.4 -0.1,0.1 -1.1,0.4 -0.2,0.1 -1,-0.1 -1.3,-0.2 -2,-0.9 -0.5,-0 -0.4,0 -0.6,0.1 -0.4,0.1 -0.3,0.2 -1.3,1.3 -0.2,0.3 -0.5,0.8 -0.3,0.5 -1.4,1.3 1.4,2.4 1.5,3.6 -0.1,0.1 -0.1,0.1 0.2,2 0.2,1.3 0,0.1 0,0.3 0.1,0.1 0.1,0.1 0.8,1.1 2,1 0.1,0 4.6,1.6 0.1,0 0.9,0.1 1.7,-0.5 0.2,-2.3 -0.3,-1.2 -0.1,-0.2 -0.3,-0.4 -0.4,-0.4 -0.1,-0.9 -0.4,-6.1 -0,-0.3 0,-0.4 0.2,-1.2 0,-0.3 0.4,-1.5 0,-0.2 0.3,-1.1 0,-0.5 z"/> <path d="m 289.9,127.1 -1.2,1.1 -0.1,0.1 -0.5,0.3 -0.1,0.1 -3.2,1.4 -0.2,0 -0.2,0 -0.3,0 -0.3,-0 -0.3,-0.1 -0.2,-0.1 -0.3,-0.1 -0.3,-0 -0.3,-0 -0.3,-0 -0.6,0.2 -0.3,0.1 -0.3,0.1 -5,4.2 -6.4,4.2 -0.7,0.4 -1.6,0.9 -1.1,0.6 -0.5,0.1 -1.9,0.2 -1.7,0.2 -0.1,0 -2.3,0.4 -1.5,0.2 -2.6,0.4 -0.6,0.1 -0.3,0.2 -0.3,0.2 -2.5,1.3 -0.3,0.2 -0.2,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.6 -0.1,0.3 -0.1,0.7 -0,0.3 -0,0.3 -0,0.2 0,0.4 0.1,0.4 0.3,0.8 0,0.2 0.1,0.5 0,2.1 -0.2,1.7 -0,0.1 -0.6,1.1 -0.1,0.1 -1.4,2 4.8,8 0.6,1.2 0.6,1 0.3,0.4 0.2,0.2 0.6,0.5 0.4,0.3 1.1,0.8 1.9,2.1 0.2,0.2 0.1,0.2 0.1,0.1 0.1,0.2 0.1,0.2 0,0.5 -0.1,1.4 -0.1,0.6 -0,0.5 0.1,1.2 0,0.2 0.1,0.1 0.2,0.1 0.4,0.1 -0.6,0.7 -0,0.1 -0.1,0.1 -0,0 -0.1,0.1 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.1 -0,0.1 -0.1,0.7 -0,0.7 0,0.1 0,0.2 0.1,0.6 0.1,0.3 0,0.1 0.1,0.2 0.1,0.4 0,0.2 0,0 0.1,1 0,0.2 0,0.3 -0,0.2 -0,0.2 -0.1,0.3 -0.3,0.9 -0.5,1.5 -0.1,0 -0.3,-1.1e-4 -0.2,-0.1 -1.1,-0.3 -0.9,-0.2 -0.1,-0 -0.1,0 -0.1,0 -1.7,0.7 -0.8,0.4 -0.9,0.8 -0.1,0.1 -0.1,0.1 -0.8,1 -0.7,0.9 -0.1,0.1 -0,0.1 -1.4,1.7 -2.5,2.7 -1.2,1 -0.8,0.7 -0.1,0.1 -10.4,5.1 -0.9,-0.2 -0.4,-0.1 -0.1,0 -0.2,0 -0.5,0.2 -0.2,0.1 -0.4,0.3 -0.5,0.5 -0.2,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0.1,0.3 -0.1,0.3 -0.1,2.1 0,0.9 -0.5,2.1 -1.8,3.1 1.1,1.6 4.1,3.6 0.4,0.1 0.2,0.1 1.3,0.7 0.1,0.1 0.5,0.9 0.1,0.1 0.8,1.9 0,0.1 0.3,1.2 0,0.7 0,0.3 0.8,1.8 0.2,0.5 0.3,0.5 0.2,0.2 0.2,0.1 3.1,1.6 0.1,-0 0.2,-0.1 0.2,-0.1 0.2,-0.1 0.1,-0 0.2,-0 0.6,-0 0.1,0.1 1.6,1.3 0.1,0.1 1.1,1.2 0.6,0.7 0.8,1 0.5,0.8 0.1,0.2 0.1,0.1 1,0.7 0.1,0.1 1.1,0.1 0.2,-0 0.6,-0.4 -1.3,2.6 2e-4,-0 -3.7,7.3 -1,1.2 -2.2,1.7 -0.1,0 -0.5,0.2 -1.8,0.8 -2,1.1 -0.2,0.1 -1.6,1.3 1.8,1.6 3.4,4.5 0.3,0.6 3.1,5.3 1.8,2.1 0.9,1.3 0.1,0.2 0.2,0.3 1,1.9 0.1,0.3 0.1,0.2 0,0.1 0,0.2 -0,0.1 -0.9,2 -0.3,0.6 -0.3,0.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0 -0.3,0.2 -1.3,0.6 -0.1,0 -0.1,0 -0.2,-0 -0.2,-0 -0.2,-0 -0.1,-0 -0.1,0 -1.7,1.4 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0,0.3 0.4,1.1 4.5,6.3 3.2,3.1 0,-0.1 0.1,-0.1 0.2,-0 0.2,-0 0.4,0.1 0.2,0.1 4.9,2.2 0.1,0.1 0.1,0.5 0,0.1 0,0.3 0,0.2 -0.5,0.4 -0.2,0.1 -0.1,0.1 -0.1,0.1 -0.1,0.1 -0.3,0.3 -0.1,0.1 -0.6,0.8 -0.2,0.3 -0.1,0.2 -0.1,0.1 -0.6,1.4 -0,0.1 -0.1,0.2 -0,0.2 0,0.3 0.1,0.2 0,0.1 -0.2,1.1 -0.1,0.3 -0.1,0.2 -0.4,0.8 -0.7,1.2 -4.2,0.3 -0.6,0.4 -0.8,0.7 -0.2,0.3 -1.3,2.3 -0.1,0.2 -0,0.1 -0,0.1 0,0.2 0.2,3.8 0,0.2 0,0.3 0.1,0.2 0.1,0.2 0.6,1.2 0.1,0.1 0.2,0.2 0.2,0 0.2,0 0.2,0 0.2,0.1 0.1,0.1 0.1,0.1 0.1,0.1 0.1,0.2 0.1,0.1 0.1,0.2 0,0.2 -0,0.3 -0.1,0.9 2,0.8 5.7,5.4 4,2.3 0.2,0.1 0.1,0.1 0.1,0.1 0.6,1 0.1,0.1 0.1,0.1 0.5,1.8 -0.2,1.2 -0.1,0.2 -0.1,0.2 -0.1,0.2 -0,0.2 -0,0.2 0.1,0.2 1.6,3.3 2.1,3.3 0.1,0.2 0.1,0.2 -0.8,3.6 -0.2,0.4 3.6,0 -0,0.2 0,2.2 0,0.1 0,0.2 0,0.2 0.1,0.3 0,0 0,0 0.2,0.1 0.1,0.1 0.2,0.1 0.1,0 0.3,0 0.3,0.1 0.9,0.5 0.2,0.1 0.1,0.1 0.1,0.1 0.2,0.2 0.1,0.1 0.1,0.1 1.7,2.8 0,0.1 -0,0.2 -0,0.2 -0.4,0.8 -0.1,0.1 -0.2,0 -0,-0 -4.3,-0.5 -0.1,-0 -0.3,-0.1 -0.9,3.4 0.9,3.8 0,0.1 0,0.1 0,0.1 0.2,0.2 0.6,0.5 1.3,1.2 1.1,0.6 0.1,0.1 1.3,1 0.2,0.2 0.1,0.2 0.1,0.3 1.7,6.2 0.6,3.9 -6e-4,4.4e-4 0.2,0.1 0.2,0 0.2,0 0.2,0 0.2,-0 0.3,-0 2.4,-0.3 2.8,-0.2 0.7,-0 0.9,0 4.5,0.1 0.9,-0 0.6,-0 0.3,-0 0.3,-0 0.7,-0.2 0.3,-0.1 0.2,-0.1 0.4,-0.3 0.2,-0.2 0.2,-0.3 0.1,-0.2 0.1,-0.2 0.1,-0.1 0.2,-0.2 0.3,-0.3 0.2,-0.1 0.3,-0.2 0.3,-0.2 0.2,-0.1 0.1,-0.1 0.5,-0.2 0.3,-0.1 0.2,-0 0.2,-0 0.3,0 0.7,0.2 0.4,0.1 0.2,0.1 0.6,0.3 0.2,0.1 0.2,0.1 0.4,0.1 1.3,0.4 0.4,0.1 2.9,0.6 0.4,0 0.7,0 0.4,-0 0.5,-0 0.5,-0 0.4,-0.1 1,-0.2 3.3,-0.8 0.6,-0.2 1.5,-0.6 0.4,-0.2 0.4,-0.2 0.5,-0.3 0.4,-0.4 0.3,-0.3 0.1,-0.1 0.2,-0.2 0.2,-0.3 0.2,-0.3 0.2,-0.3 0.1,-0.2 0.7,-1.6 1,-2.9 0.5,-1.4 0.1,-0.3 0.1,-0.3 0.1,-0.4 0,-0 0.1,-0.4 0.7,-1.6 0.1,-0.1 0.2,-0.3 0.4,-0.5 0.2,-0.2 0.2,-0.2 0.2,-0 0.5,-0.1 3.8,-1.2 1.5,-0.9 7.5,-0.3 -0,0.8 -0,0.6 -0,0.8 -0.1,3.3 -0.1,0.4 -1,1 -0.6,0.6 -0.2,0.1 -0.1,0 -0.6,0.7 -0.2,0.2 -0.7,0.9 1.2,2.8 1.4,1.5 0.7,1.1 0.3,0.5 -0.4,0.9 -1.3,1.2 -0.8,2.8 0.2,2.2 0.4,0.5 0,0.1 0.4,1.5 0,0.1 0,0.1 0,0.1 10e-4,0 0,0.1 -0,0.1 -0.2,0.3 -0.1,0.1 -2.1,2.2 -0.9,4.4 0.1,0.2 0,0.2 0,0.3 -0,0.4 -0,0.2 -0.5,2.1 -0.1,0.3 -0.1,0.2 -0.1,0.2 -0.6,0.7 -0.1,0.2 -0.2,0.2 -0.2,0.1 -0.2,0.1 -0.3,0.1 -0.2,0.1 -0.2,0.1 -0.2,0.2 -0.8,1 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0,0.2 0,0.3 0.4,3.4 -5.1e-4,-2e-5 -0.4,0.8 -0.1,0.2 0.8,2.1 2.7,5.5 2.5,1.5 2.8,1.9 1.3,1.2 1.9,0.1 0.3,0 0.1,0 0.1,0.1 0.2,0.3 2.6,3.3 -0.5,0.3 -0.1,0.1 -0.1,0.1 -0.5,1.1 -0,0.1 -0,0.2 0,0.2 0,0.2 0,0.2 0.1,0.3 0,0.2 0.2,0.7 0.6,1.7 -4.1,0.9 -2.9,2.2 -1.5,1.9 -2.4,1.6 -1.3,1.8 -2.4,4.4 4.1e-4,2.7e-4 1,2.1 3.1,2.6 2.4,2.6 -0.3,0.4 -2.6,3.1 -0.7,0.9 -0.3,0.4 -1.1,1.4 0.3,0.3 0.4,0.3 0.4,0.2 0.7,0.4 2.6,1.3 -1.5,3.3 -0.7,1.7 0,0.1 0.1,0 0.1,0 0.6,0 0.2,0 0.2,-0 0.2,-0 1.3,-1.8 0.1,-0.1 0.1,-0.1 3.3,-1.7 0.2,-0 0.2,0 0.1,0.1 0,0.1 -0,0.2 -0,0.2 -0.1,0.3 -0.2,0.4 -0.2,0.4 -0.4,1.1 -0,0.2 -0,0.3 0,0.1 0,0.2 0,0.5 0.1,0.6 0,0.1 0.7,2.8 0,0.1 0.1,0.1 0.1,0.2 0.1,0.2 0.2,0.3 0.1,0.1 0.5,0.6 0.6,0.3 2.1,0.9 0.9,0.4 0.7,-0.8 0.2,-2.1 0.8,-2.4 0.7,-1.7 0.5,-0.8 0.2,-0.2 0.1,-0.1 0.1,-0.2 0.7,-0.8 0.8,-1.1 0.1,-0.1 0,-0.1 0,-0.1 0.4,-1.7 -0.4,-0.7 -0.6,-1.1 -0.1,-0.1 -0,-0.2 -9e-5,-0.2 0,-0.2 0,-0.3 0.5,-3.6 0,-0.3 0.1,-0.3 0.1,-0.4 0.1,-0.2 -0.1,-3 -0.7,-1.5 -0.9,-3.2 0,-0.2 0.1,-0.4 0.1,-0.2 0.2,-0.1 1.4,-0.6 0.5,-0.2 0.4,-0.2 0.1,-0.1 0.1,-0.1 0.2,-0.4 0.1,-0.1 0.2,-0.5 0.1,-0.2 0,-0.2 0,-0.3 0,-0.5 0,-0.4 -0,-0.2 -0,-0.2 -0,-1.3 0,-2.4 0,-0.1 0.2,-0.7 0.1,0.2 0.2,0.3 3.8,6.3 0.2,-0 0.3,-0.1 0.2,-0.1 0.5,-0.3 0.2,-0.1 0.2,-0.2 0.2,-0.2 0.7,-0.4 0.5,-0.3 0.2,-0.1 2.1,-0.9 0.2,-0.1 0.1,-0.1 0.1,-0 3.8,0.2 2.1,0.1 0.3,0.1 1.6,0.9 0.2,0.1 1.1,0.7 0.8,0.6 0.2,0.2 0.2,0.2 0.2,0.1 0.2,0.1 0.2,0.1 0.2,0.1 2,0.5 0.4,0.1 0.8,-0.4 0.1,-0.1 1.7,-1.6 3.8,0.5 4.8,4.4 0.2,-0 0.1,-0 0.4,-0.2 1.7,-1.2 0.1,-0.1 0.2,-0.2 0.5,-0.5 1.2,-0.6 3.5,-1.4 2.3,-0.6 0.2,0 0.2,0.1 0.2,0.1 0.5,0.4 0.1,0.1 0.1,0.1 0.1,0.1 0.1,0.2 0.5,0.2 1,0.2 0.2,0 0.1,-0 2.3,-1.5 1.7,-1.2 0.6,-0 1.3,0.1 1.1,0.2 0.1,0 0.2,0.1 0.1,0 0.1,0 0.2,0.1 0.2,0.1 0.4,0.2 0.6,0.3 0.6,0.2 0.2,0.1 0.1,0 2.2,0.2 0.2,-0 0.2,-0.1 0.8,-0.4 0.8,-0.4 0.1,-0.1 1.2,-0.4 0.2,-0 0.2,0.1 1.7,0.8 0.3,0.1 3.9,3.3 1.2,1.2 0.4,0.4 0.8,-0.8 4.8,-4.5 0.3,-0.5 7.2,-5.8 0.6,-0.8 1.1,-1.6 0.8,-1.7 1,-2.2 0.9,-2 1.4,-2.8 0.4,-0.6 0.7,-1.1 2.2,-3.3 1.5,-2.3 2,-3 1.7,-2.5 1.6,-2.6 0.4,-0.6 0.3,-1.9 3.6,-12.8 0.5,-1.2 1,-2 6.1,-11.7 0.3,-0.5 0.3,-0.1 -0,-0.5 0,-0 0.4,-1 1.8,-4.2 0.2,-0.5 0.7,-1.2 0.4,-0.7 0,-0.1 4.6,-6.6 2.7,-3.5 2.6,-3.8 1.5,-2.5 0,-0.1 1.2,-1.6 6.8,-10.2 0.2,-0.4 0.2,-0.3 0.1,-0.3 0.2,-0.3 0.4,-0.7 1.3,-2.4 3.7,-6.8 -0.1,-0.3 -1.8,-0.8 -3.9,-1.2 -4.1,-3.1 -3.9,-3.8 -1.7,-2.1 -2.9,-3.6 -0,-0.2 -0.1,-1.5 -0,-2.1 0.1,-0.5 0.3,-0.5 0,-0.3 -0.1,-0.7 -0.2,-0.4 -1.5,-3.2 -0.2,-0.3 -0.2,-0.3 -0.2,-0.2 -0,-0 -1.5,-1 -0.3,-0.1 -1.5,-0.7 -3,-1 -0.1,0 -0.1,0.1 -0.1,0.1 -0.1,0.3 -0,0.2 -0,0.3 -1.2,0.1 -3.9,-0.2 -1.9,-0.1 -1.4,-0.6 0.1,-0.1 0.4,-1.5 -5.8e-4,-0.1 -1,-1.1 -0.1,-0 -0.1,0.1 -1.1,2.2 -0.1,0.1 -0.3,0.1 -0.3,0.1 -0.1,0 -0.1,0 -0.5,0 -0.3,-0.1 -2.6,-1.4 -4.8,-4.7 -0.1,-0.3 -0.2,-0.7 0.2,-0.4 2.1,-3.4 1.5,-2.2 0.7,-1.2 0.7,-1.2 0.4,-1 0,-0.5 -0.1,-1.2 -0.3,-1.7 -0.4,-0.2 -0.4,0 -0.4,-0 -0.4,-0.1 -1.8,-0.6 -0.3,-0.2 -0.3,-0.3 -2.4,-3.7 0,-0.1 0,-0.2 1.3,-2.4 1,-1.3 0.3,-0.3 0.1,-0.3 -0.2,-0.4 -1.2,-1.6 -1.3,-1.6 -0.4,-0.5 -1.2,-1.1 -0.2,-0.2 -0.3,-0.1 -0.4,-0 -0.4,-0.4 -0.3,-0.4 -0.1,-2 0,-0.4 0.7,-3 0.6,-1.8 0.5,-1.2 0.2,-0.5 0.1,-0.4 1.3,-4.1 -0.2,-2.1 -1.3,-2.3 5.2,-3.6 -0.5,-0 -0.1,-0 -0.1,-0.1 -0.1,-0.1 -0.5,-0.3 -3.6,-5.5 -0.1,-0.2 -0.2,-1.2 -0.5,-4.9 -0,-0 -0,-0.4 -0,-0.4 0.1,-0.3 0.1,-0.6 0.1,-0.6 0.5,-1.7 0.3,-0.7 0.9,-2.9 1.7,-6.4 1.4,-5.6 0.1,-1.2 0.4,-3.3 -2.1,-0.4 -1.1,-0.1 -0.5,0.1 -6,-5.3 -0,-0.2 0.1,-0.2 0.1,-0.1 0.3,-0.4 0.1,-0.2 2,-2.7 0.1,0.1 1.3,1.3 -0,0.4 -0.1,0.4 0.1,0.2 3,-2 1.7,-1.2 0.5,-0.4 -1.6,-0.9 -2.9,-1.8 -10.4,-6.5 -0.2,-0.1 -0.7,-0.5 -0.5,-0.3 -0.3,-0.2 -0.3,-0.3 -0.7,-0.9 -0.5,-0.7 -1.6,-2.4 -0.4,3.6 -0.2,1.4 -2.8,0.2 -0.5,-0.4 -0.6,-0.4 0.7,-1.2 0.4,-0.5 0.1,-0.5 -0.1,-0.2 -4.6,-3 -1.8,-1 -4.4,0.1 -1.5,0.2 -2,0.4 -3.2,-1 -0,-3.8e-4 -2.9,-1.8 -1.1,-1.7 -3,-0.4 -0.4,0.2 -1.3,1.6 -1.1,2 -0,0.2 0,0.3 0.2,0.4 0.4,0.7 0.1,0.1 0.2,0.2 0.1,0.1 1,0.7 0.8,1.2 0.6,1.1 0.1,0.1 0.1,0.2 -1.8,2.1 -1.4,-0.1 -0.1,-0 -1.2,-1.1 -1,-2 -0,-0.2 0,-0.1 0.1,-0.2 0.1,-0.2 0.1,-0.3 0.1,-0.2 0,-0.2 -0,-0.2 -0.1,-0.2 -0.9,-2.4 -0.9,-0.9 -0.3,-0.3 -0.6,-0.1 -2.3,0.5 -0.5,0.2 -2.1,1.4 -0.3,0.4 -0.4,0.6 -0.1,0.2 -0.1,0.2 -0.8,1.8 0,0.2 0.4,0 0.3,0 0.3,0.1 2,1 0.1,0.2 1,6.6 -0.2,0 -0.6,0.1 -0.9,0.1 -2.8,-3 -6.8,-8.8 -2.1,-3.3 -0.3,-0.4 -1.6,1.7 -0.2,0.3 -0.8,1.6 -0.7,1.4 -1.3,2.4 -0.3,0.6 -1.5,2.4 -0.3,0.3 -4.5,4.6 -0.7,0.7 -6.8,5.2 -2,0.9 -0.3,0.2 -0.3,0.3 -0.6,0.7 -0.3,0.4 -0.2,0.3 -3.3,1.2 -2,0 -4.3,-2.3 -0.2,-0.2 -0.2,-0.2 -0.1,-0.3 -0.1,-0.3 -0.1,-0.4 -0.2,-0.8 0.1,-0.5 -0.1,-0.2 -3.5,-7.2 -0.2,-0.3 -0.2,-0.3 -1.4,-1.5 -0.3,-0.2 -1.8,-1.1 -2.6,-1.5 -0.5,-0.3 -0.5,-0.3 -4.9,-3.2 -4.6,-6 -4.3,-5.8 -0.4,-0.6 -0.4,-0.6 -1,-0.8 -3.5,-2.5 -0.5,-0.4 -0.2,-0.2 -0.6,-0.4 -2.4,-1.4 -1.1,-0.6 -4.1,-4 -0.3,-0.6 -1.3,-2.3 -0.2,-0.3 -1.5,-1.2 -1.4,-1 -0.4,-0.3 -0.4,-0.3 -0.3,-0.3 -0.1,-0.2 -0.4,-1.9 -0.8,-2.2 -0,-0 -0.2,-0.1 -0.3,-0.2 -0.1,-0 -2.1,-1.6 z"/> <path d="m 417.7,162.8 0.2,-0.7 -0,-0.2 -0.2,-0.2 -3.3,-1.4 -0.1,-0 -0.3,1 -0.1,0.3 -0.1,0.3 -0,0.3 0.4,0.2 0.3,0.1 1.7,0.7 0.4,0.1 1.1,-0.4 z"/> </g> </g></svg>
+      <div class="map-label" id="mapLabel"></div>
+    </div>
+    <div class="map-legend reveal">
+      <div><b class="cnt" data-to="22">0</b><span>comuni raggiunti</span></div>
+      <div><b class="cnt" data-to="2">0</b><span>regioni</span></div>
+      <div><b class="cnt" data-to="20" data-suffix="+">0</b><span>anni di attività</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTI ================= -->
+<section class="sec sec-tight" id="eventi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Calendario</span>
+      <h2>Prossimi eventi</h2>
+      <p>Il cartellone 2026 è in aggiornamento.</p>
+    </div>
+    <div class="ev-panel reveal">
+      <div class="l">
+        <h3>Il calendario sta arrivando</h3>
+        <p>Stiamo preparando il calendario degli eventi con date, luoghi e artisti. Torna presto per scoprire dove sarà Azzurra Spettacoli.</p>
+        <span class="ev-soon">Prossimamente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATTI ================= -->
+<section class="sec" id="contatti">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Parliamone</span>
+      <h2>Contatti</h2>
+      <p>Raccontaci il tuo evento: ti ricontattiamo con la proposta di cast più adatta.</p>
+    </div>
+    <form class="form-card reveal" id="contactForm">
+      <div class="form-row">
+        <div class="field"><label for="nome">Nome e cognome</label><input id="nome" name="nome" type="text" required placeholder="Il tuo nome"></div>
+        <div class="field"><label for="ente">Ente / Organizzazione</label><input id="ente" name="ente" type="text" placeholder="Comune, pro loco, azienda…"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="nome@email.it"></div>
+        <div class="field"><label for="tel">Telefono</label><input id="tel" name="tel" type="tel" placeholder="Facoltativo"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="tipo">Tipo di evento</label>
+          <select id="tipo" name="tipo">
+            <option>Concerto / serata musicale</option>
+            <option>Festa patronale</option>
+            <option>Evento culturale</option>
+            <option>Serata di gala</option>
+            <option>Evento promozionale / aziendale</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="field"><label for="data">Data indicativa</label><input id="data" name="data" type="text" placeholder="Es. estate 2026"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="luogo">Luogo</label><input id="luogo" name="luogo" type="text" placeholder="Comune / provincia"></div>
+        <div class="field"><label for="artista">Artista d'interesse</label><input id="artista" name="artista" type="text" placeholder="Facoltativo"></div>
+      </div>
+      <div class="field"><label for="msg">Messaggio</label><textarea id="msg" name="msg" placeholder="Raccontaci la tua idea e il pubblico previsto…"></textarea></div>
+      <div class="form-submit"><button type="submit" class="btn btn-yellow">Invia richiesta</button></div>
+      <div class="form-note">Compilando il form aprirai una mail precompilata verso Azzurra Spettacoli.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= MODAL ARTISTA ================= -->
+<div class="modal" id="artistModal" role="dialog" aria-modal="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Chiudi">&times;</button>
+    <div class="modal-top">
+      <div class="modal-photo" id="mPhoto"><img id="mImg" src="" alt=""><span class="fb" id="mFb"></span></div>
+      <div>
+        <span class="modal-role" id="mRole"></span>
+        <h3 id="mName"></h3>
+        <span class="modal-excl">Esclusiva 2026</span>
+        <p class="modal-bio" id="mBio"></p>
+        <div class="modal-links" id="mLinks"></div>
+      </div>
+    </div>
+    <div class="modal-cta">
+      <p>Vuoi <strong id="mCtaName"></strong> al tuo evento in <strong>Campania o Basilicata</strong>?</p>
+      <a href="#contatti" class="btn btn-yellow" id="mCtaBtn">Richiedi questo artista</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-lock">
+          <img src="assets/mark-a.png" alt="Azzurra Spettacoli">
+          <span class="t"><span class="a">AZZURRA<br>SPETTACOLI</span><span class="b">PER GENTE FELICE</span></span>
+        </div>
+        <p class="foot-about">Da oltre 20 anni nel settore dello spettacolo dal vivo: organizzazione e realizzazione di eventi e concerti in esclusiva in Campania e Basilicata.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/AzzurraSpettacoli" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 8.5H13V7c0-.7.5-1 .9-1H15.5V3.2L13.4 3.2C10.9 3.2 10 5 10 6.8v1.7H8v2.9h2V21h3v-9.6h2.2l.3-2.9z"/></svg></a>
+          <a href="https://www.instagram.com/azzurraspettacoli/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg></a>
+          <a href="mailto:info@azzurraspettacoli.net" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Contatti</h4>
+        <ul>
+          <li><address><span class="lbl">Sede</span>Via Federico Pezzella, 43<br>81055 Santa Maria Capua Vetere (CE)</address></li>
+          <li><a href="tel:+390823845930"><span class="lbl">Telefono</span>+39 0823 845930</a></li>
+          <li><a href="mailto:info@azzurraspettacoli.net"><span class="lbl">Email</span>info@azzurraspettacoli.net</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="#artisti">Cast 2026</a></li>
+          <li><a href="#servizi">Servizi</a></li>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#clienti">Chi ci ha scelto</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span id="year"></span>
+      <span>Sito creato da Carmen Nuzzo</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ARTISTI = [{"name":"Alessio","slug":"alessio","role":"cantante","bio":"Voce di punta della scena neomelodica napoletana, attivo dai primi anni Duemila con un repertorio di ballate sentimentali molto seguito dal pubblico giovane.","format":false,"spotify":"https://open.spotify.com/search/Alessio","instagram":"https://www.instagram.com/explore/search/keyword/?q=Alessio","facebook":"https://www.facebook.com/search/top?q=Alessio"},{"name":"Andrea Sannino","slug":"andrea-sannino","role":"cantautore","bio":"Cantautore napoletano, noto soprattutto per «Abbracciame», brano diventato un inno popolare della città e ripreso in numerose occasioni collettive.","format":false,"spotify":"https://open.spotify.com/search/Andrea%20Sannino","instagram":"https://www.instagram.com/explore/search/keyword/?q=Andrea%20Sannino","facebook":"https://www.facebook.com/search/top?q=Andrea%20Sannino"},{"name":"Après la Classe","slug":"apres-la-classe","role":"band","bio":"Gruppo salentino che dagli anni Novanta mescola reggae, ska, rock e ritmi della tradizione del Sud, con una forte identità da band da palco.","format":false,"spotify":"https://open.spotify.com/search/Apr%C3%A8s%20la%20Classe","instagram":"https://www.instagram.com/explore/search/keyword/?q=Apr%C3%A8s%20la%20Classe","facebook":"https://www.facebook.com/search/top?q=Apr%C3%A8s%20la%20Classe"},{"name":"Beat 90's","slug":"beat-90s","role":"live show","bio":"Live show dedicato ai tormentoni dance e pop degli anni Novanta, pensato per le piazze e le serate danzanti.","format":true,"spotify":"https://open.spotify.com/search/Beat%2090%27s","instagram":"https://www.instagram.com/explore/search/keyword/?q=Beat%2090%27s","facebook":"https://www.facebook.com/search/top?q=Beat%2090%27s"},{"name":"Bianca Atzei","slug":"bianca-atzei","role":"cantante","bio":"Cantante milanese affermatasi nel circuito pop italiano e più volte presente al Festival di Sanremo, con un repertorio melodico e intenso.","format":false,"spotify":"https://open.spotify.com/search/Bianca%20Atzei","instagram":"https://www.instagram.com/explore/search/keyword/?q=Bianca%20Atzei","facebook":"https://www.facebook.com/search/top?q=Bianca%20Atzei"},{"name":"Chiara Galiazzo","slug":"chiara-galiazzo","role":"cantante","bio":"Vincitrice della sesta edizione di X Factor, ha costruito un percorso pop d'autore con diverse partecipazioni al Festival di Sanremo.","format":false,"spotify":"https://open.spotify.com/search/Chiara%20Galiazzo","instagram":"https://www.instagram.com/explore/search/keyword/?q=Chiara%20Galiazzo","facebook":"https://www.facebook.com/search/top?q=Chiara%20Galiazzo"},{"name":"Ciro Rigione","slug":"ciro-rigione","role":"cantante","bio":"Interprete della scena partenopea contemporanea, unisce sonorità neomelodiche e produzioni pop attuali.","format":false,"spotify":"https://open.spotify.com/search/Ciro%20Rigione","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ciro%20Rigione","facebook":"https://www.facebook.com/search/top?q=Ciro%20Rigione"},{"name":"Collage","slug":"collage","role":"band","bio":"Storico gruppo italiano attivo dagli anni Settanta, celebre per brani come «Tu mi rubi l'anima», ancora oggi molto richiesto nel circuito live.","format":true,"spotify":"https://open.spotify.com/search/Collage","instagram":"https://www.instagram.com/explore/search/keyword/?q=Collage","facebook":"https://www.facebook.com/search/top?q=Collage"},{"name":"Danilo Sacco","slug":"danilo-sacco","role":"cantante","bio":"Per oltre vent'anni voce dei Nomadi, porta dal vivo un repertorio rock d'autore tra brani storici e produzioni soliste.","format":false,"spotify":"https://open.spotify.com/search/Danilo%20Sacco","instagram":"https://www.instagram.com/explore/search/keyword/?q=Danilo%20Sacco","facebook":"https://www.facebook.com/search/top?q=Danilo%20Sacco"},{"name":"Dolcenere","slug":"dolcenere","role":"cantautrice","bio":"Cantautrice dalla scrittura intensa e riconoscibile, con una proposta live che alterna intimità e forza espressiva.","format":false,"spotify":"https://open.spotify.com/search/Dolcenere","instagram":"https://www.instagram.com/explore/search/keyword/?q=Dolcenere","facebook":"https://www.facebook.com/search/top?q=Dolcenere"},{"name":"Eugenio Finardi","slug":"eugenio-finardi","role":"cantautore","bio":"Tra i protagonisti del cantautorato italiano, autore di brani simbolo come «Musica ribelle» e «Extraterrestre».","format":false,"spotify":"https://open.spotify.com/search/Eugenio%20Finardi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Eugenio%20Finardi","facebook":"https://www.facebook.com/search/top?q=Eugenio%20Finardi"},{"name":"Fausto Leali","slug":"fausto-leali","role":"cantante","bio":"Una delle voci più riconoscibili della musica italiana, interprete di classici come «A chi» e vincitore di Sanremo con «Ti lascerò».","format":false,"spotify":"https://open.spotify.com/search/Fausto%20Leali","instagram":"https://www.instagram.com/explore/search/keyword/?q=Fausto%20Leali","facebook":"https://www.facebook.com/search/top?q=Fausto%20Leali"},{"name":"Filippo Graziani","slug":"filippo-graziani","role":"cantautore","bio":"Cantautore che porta in scena anche l'eredità artistica del padre Ivan Graziani, tra chitarre elettriche e racconto d'autore.","format":false,"spotify":"https://open.spotify.com/search/Filippo%20Graziani","instagram":"https://www.instagram.com/explore/search/keyword/?q=Filippo%20Graziani","facebook":"https://www.facebook.com/search/top?q=Filippo%20Graziani"},{"name":"Fiordaliso","slug":"fiordaliso","role":"cantante","bio":"Interprete pop italiana affermatasi negli anni Ottanta con brani come «Non voglio mica la luna», tuttora molto presente nel live.","format":false,"spotify":"https://open.spotify.com/search/Fiordaliso","instagram":"https://www.instagram.com/explore/search/keyword/?q=Fiordaliso","facebook":"https://www.facebook.com/search/top?q=Fiordaliso"},{"name":"Franco Ricciardi","slug":"franco-ricciardi","role":"cantante","bio":"Artista napoletano capace di attraversare neomelodico, pop e sonorità urban, protagonista anche di importanti colonne sonore.","format":false,"spotify":"https://open.spotify.com/search/Franco%20Ricciardi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Franco%20Ricciardi","facebook":"https://www.facebook.com/search/top?q=Franco%20Ricciardi"},{"name":"Gabriele Esposito","slug":"gabriele-esposito","role":"cantante","bio":"Giovane interprete della nuova scena napoletana, con un repertorio che guarda al pop contemporaneo.","format":false,"spotify":"https://open.spotify.com/search/Gabriele%20Esposito","instagram":"https://www.instagram.com/explore/search/keyword/?q=Gabriele%20Esposito","facebook":"https://www.facebook.com/search/top?q=Gabriele%20Esposito"},{"name":"Gianluca Capozzi","slug":"gianluca-capozzi","role":"cantante","bio":"Tra i nomi più solidi della canzone napoletana contemporanea, con una lunga carriera discografica e live.","format":false,"spotify":"https://open.spotify.com/search/Gianluca%20Capozzi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Gianluca%20Capozzi","facebook":"https://www.facebook.com/search/top?q=Gianluca%20Capozzi"},{"name":"Gianni Fiorellino","slug":"gianni-fiorellino","role":"cantante","bio":"Cantante e polistrumentista napoletano, unisce tradizione melodica partenopea e arrangiamenti orchestrali nei suoi spettacoli.","format":false,"spotify":"https://open.spotify.com/search/Gianni%20Fiorellino","instagram":"https://www.instagram.com/explore/search/keyword/?q=Gianni%20Fiorellino","facebook":"https://www.facebook.com/search/top?q=Gianni%20Fiorellino"},{"name":"Gigi Finizio","slug":"gigi-finizio","role":"cantante","bio":"Voce storica della canzone napoletana moderna, con un repertorio di successi che attraversa più generazioni.","format":false,"spotify":"https://open.spotify.com/search/Gigi%20Finizio","instagram":"https://www.instagram.com/explore/search/keyword/?q=Gigi%20Finizio","facebook":"https://www.facebook.com/search/top?q=Gigi%20Finizio"},{"name":"Gigi Soriani","slug":"gigi-soriani","role":"cantante","bio":"Interprete e showman, propone spettacoli di intrattenimento musicale pensati per il pubblico delle piazze.","format":false,"spotify":"https://open.spotify.com/search/Gigi%20Soriani","instagram":"https://www.instagram.com/explore/search/keyword/?q=Gigi%20Soriani","facebook":"https://www.facebook.com/search/top?q=Gigi%20Soriani"},{"name":"Il Giardino dei Semplici","slug":"il-giardino-dei-semplici","role":"band","bio":"Gruppo napoletano attivo dagli anni Settanta, celebre per «Tu ca nun chiagne» e altri brani entrati nel repertorio popolare.","format":true,"spotify":"https://open.spotify.com/search/Il%20Giardino%20dei%20Semplici","instagram":"https://www.instagram.com/explore/search/keyword/?q=Il%20Giardino%20dei%20Semplici","facebook":"https://www.facebook.com/search/top?q=Il%20Giardino%20dei%20Semplici"},{"name":"Irene Grandi","slug":"irene-grandi","role":"cantante","bio":"Tra le voci femminili più riconoscibili del pop rock italiano, con successi come «Bruci la città» e una lunga carriera dal vivo.","format":false,"spotify":"https://open.spotify.com/search/Irene%20Grandi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Irene%20Grandi","facebook":"https://www.facebook.com/search/top?q=Irene%20Grandi"},{"name":"Ivan Granatino","slug":"ivan-granatino","role":"cantante","bio":"Artista napoletano che mescola rap, pop e melodia partenopea, con numerose collaborazioni nella scena urban italiana.","format":false,"spotify":"https://open.spotify.com/search/Ivan%20Granatino","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ivan%20Granatino","facebook":"https://www.facebook.com/search/top?q=Ivan%20Granatino"},{"name":"Ivana Spagna","slug":"ivana-spagna","role":"cantante","bio":"Icona della dance italiana esportata nel mondo con «Easy Lady» e «Call Me», poi affermata anche nel pop d'autore.","format":false,"spotify":"https://open.spotify.com/search/Ivana%20Spagna","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ivana%20Spagna","facebook":"https://www.facebook.com/search/top?q=Ivana%20Spagna"},{"name":"LDA e Aka7even","slug":"lda-e-aka7even","role":"cantanti","bio":"Due tra i nomi più seguiti della nuova generazione pop italiana, entrambi lanciati da Amici e protagonisti del Festival di Sanremo.","format":false,"spotify":"https://open.spotify.com/search/LDA%20e%20Aka7even","instagram":"https://www.instagram.com/explore/search/keyword/?q=LDA%20e%20Aka7even","facebook":"https://www.facebook.com/search/top?q=LDA%20e%20Aka7even"},{"name":"Luca Sepe","slug":"luca-sepe","role":"showman","bio":"Showman e conduttore napoletano, porta in scena uno spettacolo che alterna musica, comicità e racconto popolare.","format":false,"spotify":"https://open.spotify.com/search/Luca%20Sepe","instagram":"https://www.instagram.com/explore/search/keyword/?q=Luca%20Sepe","facebook":"https://www.facebook.com/search/top?q=Luca%20Sepe"},{"name":"Luisa Corna","slug":"luisa-corna","role":"cantante","bio":"Cantante e conduttrice, propone un repertorio che spazia dal pop italiano allo swing e agli standard internazionali.","format":false,"spotify":"https://open.spotify.com/search/Luisa%20Corna","instagram":"https://www.instagram.com/explore/search/keyword/?q=Luisa%20Corna","facebook":"https://www.facebook.com/search/top?q=Luisa%20Corna"},{"name":"Marco Carta","slug":"marco-carta","role":"cantante","bio":"Vincitore di Amici e del Festival di Sanremo, ha costruito una carriera pop con un forte seguito dal vivo.","format":false,"spotify":"https://open.spotify.com/search/Marco%20Carta","instagram":"https://www.instagram.com/explore/search/keyword/?q=Marco%20Carta","facebook":"https://www.facebook.com/search/top?q=Marco%20Carta"},{"name":"Maria Nazionale","slug":"maria-nazionale","role":"cantante","bio":"Interprete napoletana di grande intensità, affermata anche come attrice, custode di un repertorio tra tradizione e contemporaneo.","format":false,"spotify":"https://open.spotify.com/search/Maria%20Nazionale","instagram":"https://www.instagram.com/explore/search/keyword/?q=Maria%20Nazionale","facebook":"https://www.facebook.com/search/top?q=Maria%20Nazionale"},{"name":"Marsica","slug":"marsica","role":"cantautrice","bio":"Voce della nuova scena cantautorale italiana, con una scrittura diretta e una proposta live essenziale.","format":false,"spotify":"https://open.spotify.com/search/Marsica","instagram":"https://www.instagram.com/explore/search/keyword/?q=Marsica","facebook":"https://www.facebook.com/search/top?q=Marsica"},{"name":"Matia Bazar","slug":"matia-bazar","role":"band","bio":"Storica band italiana dalla sperimentazione sonora raffinata, con successi come «Ti sento» e una lunga carriera internazionale.","format":false,"spotify":"https://open.spotify.com/search/Matia%20Bazar","instagram":"https://www.instagram.com/explore/search/keyword/?q=Matia%20Bazar","facebook":"https://www.facebook.com/search/top?q=Matia%20Bazar"},{"name":"Mavi","slug":"mavi","role":"cantante","bio":"Interprete della nuova scena partenopea, con un repertorio pop dal taglio contemporaneo.","format":false,"spotify":"https://open.spotify.com/search/Mavi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Mavi","facebook":"https://www.facebook.com/search/top?q=Mavi"},{"name":"Neomelodic Night","slug":"neomelodic-night","role":"live show","bio":"Serata-evento dedicata al meglio della scena neomelodica napoletana, con più artisti sullo stesso palco.","format":true,"spotify":"https://open.spotify.com/search/Neomelodic%20Night","instagram":"https://www.instagram.com/explore/search/keyword/?q=Neomelodic%20Night","facebook":"https://www.facebook.com/search/top?q=Neomelodic%20Night"},{"name":"Nicola Siciliano","slug":"nicola-siciliano","role":"cantante","bio":"Artista napoletano della scena urban contemporanea, tra rap, pop e sonorità melodiche.","format":false,"spotify":"https://open.spotify.com/search/Nicola%20Siciliano","instagram":"https://www.instagram.com/explore/search/keyword/?q=Nicola%20Siciliano","facebook":"https://www.facebook.com/search/top?q=Nicola%20Siciliano"},{"name":"Nina Zilli","slug":"nina-zilli","role":"cantante","bio":"Voce dal timbro soul e retrò, affermata con «50mila» e protagonista di Sanremo e dell'Eurovision.","format":false,"spotify":"https://open.spotify.com/search/Nina%20Zilli","instagram":"https://www.instagram.com/explore/search/keyword/?q=Nina%20Zilli","facebook":"https://www.facebook.com/search/top?q=Nina%20Zilli"},{"name":"Nostalgia Anni 90","slug":"nostalgia-anni-90","role":"live show","bio":"Lo show che riporta in piazza i tormentoni, i balli e l'immaginario degli anni Novanta.","format":true,"spotify":"https://open.spotify.com/search/Nostalgia%20Anni%2090","instagram":"https://www.instagram.com/explore/search/keyword/?q=Nostalgia%20Anni%2090","facebook":"https://www.facebook.com/search/top?q=Nostalgia%20Anni%2090"},{"name":"Orietta Berti","slug":"orietta-berti","role":"cantante","bio":"Icona della canzone italiana con oltre sessant'anni di carriera, tornata protagonista assoluta anche presso il pubblico più giovane.","format":false,"spotify":"https://open.spotify.com/search/Orietta%20Berti","instagram":"https://www.instagram.com/explore/search/keyword/?q=Orietta%20Berti","facebook":"https://www.facebook.com/search/top?q=Orietta%20Berti"},{"name":"Paolo Belli","slug":"paolo-belli","role":"showman","bio":"Cantante, direttore d'orchestra e showman televisivo, porta in scena uno spettacolo swing coinvolgente con la sua Big Band.","format":false,"spotify":"https://open.spotify.com/search/Paolo%20Belli","instagram":"https://www.instagram.com/explore/search/keyword/?q=Paolo%20Belli","facebook":"https://www.facebook.com/search/top?q=Paolo%20Belli"},{"name":"Patrizio","slug":"patrizio","role":"cantante","bio":"Interprete della scena melodica napoletana, con un repertorio pensato per il pubblico delle feste di piazza.","format":false,"spotify":"https://open.spotify.com/search/Patrizio","instagram":"https://www.instagram.com/explore/search/keyword/?q=Patrizio","facebook":"https://www.facebook.com/search/top?q=Patrizio"},{"name":"Raoul & Swing Orchestra","slug":"raoul-swing-orchestra","role":"orchestra","bio":"Spettacolo di swing dal vivo con orchestra, tra standard internazionali e grandi classici italiani riarrangiati.","format":true,"spotify":"https://open.spotify.com/search/Raoul%20%26%20Swing%20Orchestra","instagram":"https://www.instagram.com/explore/search/keyword/?q=Raoul%20%26%20Swing%20Orchestra","facebook":"https://www.facebook.com/search/top?q=Raoul%20%26%20Swing%20Orchestra"},{"name":"Ricchi e Poveri","slug":"ricchi-e-poveri","role":"band","bio":"Uno dei gruppi italiani più amati al mondo, con successi come «Sarà perché ti amo» e «Mamma Maria» tradotti in più lingue.","format":false,"spotify":"https://open.spotify.com/search/Ricchi%20e%20Poveri","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ricchi%20e%20Poveri","facebook":"https://www.facebook.com/search/top?q=Ricchi%20e%20Poveri"},{"name":"Rico Femiano","slug":"rico-femiano","role":"cantante","bio":"Interprete napoletano dal repertorio melodico, attivo nel circuito degli eventi di piazza.","format":false,"spotify":"https://open.spotify.com/search/Rico%20Femiano","instagram":"https://www.instagram.com/explore/search/keyword/?q=Rico%20Femiano","facebook":"https://www.facebook.com/search/top?q=Rico%20Femiano"},{"name":"Rita Pavone","slug":"rita-pavone","role":"cantante","bio":"Artista simbolo della musica italiana, dal successo internazionale degli anni Sessanta fino al ritorno a Sanremo.","format":false,"spotify":"https://open.spotify.com/search/Rita%20Pavone","instagram":"https://www.instagram.com/explore/search/keyword/?q=Rita%20Pavone","facebook":"https://www.facebook.com/search/top?q=Rita%20Pavone"},{"name":"Ritorno Bambino di Luca Sepe","slug":"ritorno-bambino-di-luca-sepe","role":"spettacolo","bio":"Spettacolo teatrale e musicale firmato da Luca Sepe, tra ricordi d'infanzia, ironia e canzone napoletana.","format":true,"spotify":"https://open.spotify.com/search/Ritorno%20Bambino%20di%20Luca%20Sepe","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ritorno%20Bambino%20di%20Luca%20Sepe","facebook":"https://www.facebook.com/search/top?q=Ritorno%20Bambino%20di%20Luca%20Sepe"},{"name":"Roberto Vecchioni","slug":"roberto-vecchioni","role":"cantautore","bio":"Maestro del cantautorato italiano, vincitore di Sanremo con «Chiamami ancora amore», unisce musica, poesia e racconto.","format":false,"spotify":"https://open.spotify.com/search/Roberto%20Vecchioni","instagram":"https://www.instagram.com/explore/search/keyword/?q=Roberto%20Vecchioni","facebook":"https://www.facebook.com/search/top?q=Roberto%20Vecchioni"},{"name":"Ron","slug":"ron","role":"cantautore","bio":"Cantautore dalla carriera cinquantennale, voce di «Una città per cantare» e interprete raffinato della canzone d'autore.","format":false,"spotify":"https://open.spotify.com/search/Ron","instagram":"https://www.instagram.com/explore/search/keyword/?q=Ron","facebook":"https://www.facebook.com/search/top?q=Ron"},{"name":"Rosario Miraggio","slug":"rosario-miraggio","role":"cantante","bio":"Tra i protagonisti della canzone napoletana contemporanea, con un pubblico molto affezionato nel live.","format":false,"spotify":"https://open.spotify.com/search/Rosario%20Miraggio","instagram":"https://www.instagram.com/explore/search/keyword/?q=Rosario%20Miraggio","facebook":"https://www.facebook.com/search/top?q=Rosario%20Miraggio"},{"name":"Shade","slug":"shade","role":"rapper","bio":"Rapper e autore torinese, noto per il gioco di parole e per i tormentoni estivi entrati nelle classifiche italiane.","format":false,"spotify":"https://open.spotify.com/search/Shade","instagram":"https://www.instagram.com/explore/search/keyword/?q=Shade","facebook":"https://www.facebook.com/search/top?q=Shade"},{"name":"Silvia Mezzanotte","slug":"silvia-mezzanotte","role":"cantante","bio":"Voce dei Matia Bazar per anni, vincitrice di Sanremo con «Messaggio d'amore», interprete dalla grande estensione vocale.","format":false,"spotify":"https://open.spotify.com/search/Silvia%20Mezzanotte","instagram":"https://www.instagram.com/explore/search/keyword/?q=Silvia%20Mezzanotte","facebook":"https://www.facebook.com/search/top?q=Silvia%20Mezzanotte"},{"name":"Simone Cristicchi","slug":"simone-cristicchi","role":"cantautore","bio":"Cantautore e uomo di teatro, vincitore di Sanremo con «Ti regalerò una rosa», tra canzone civile e narrazione.","format":false,"spotify":"https://open.spotify.com/search/Simone%20Cristicchi","instagram":"https://www.instagram.com/explore/search/keyword/?q=Simone%20Cristicchi","facebook":"https://www.facebook.com/search/top?q=Simone%20Cristicchi"},{"name":"Sud Sound System","slug":"sud-sound-system","role":"band","bio":"Pionieri del reggae e della dancehall in salentino, da oltre trent'anni una delle realtà live più riconoscibili del Sud.","format":false,"spotify":"https://open.spotify.com/search/Sud%20Sound%20System","instagram":"https://www.instagram.com/explore/search/keyword/?q=Sud%20Sound%20System","facebook":"https://www.facebook.com/search/top?q=Sud%20Sound%20System"},{"name":"Super Hit 80's","slug":"super-hit-80s","role":"live show","bio":"Lo show che celebra i grandi successi degli anni Ottanta, italiani e internazionali.","format":true,"spotify":"https://open.spotify.com/search/Super%20Hit%2080%27s","instagram":"https://www.instagram.com/explore/search/keyword/?q=Super%20Hit%2080%27s","facebook":"https://www.facebook.com/search/top?q=Super%20Hit%2080%27s"},{"name":"Tiromancino","slug":"tiromancino","role":"band","bio":"Band guidata da Federico Zampaglione, tra pop d'autore e atmosfere cinematografiche, con brani come «Per me è importante».","format":false,"spotify":"https://open.spotify.com/search/Tiromancino","instagram":"https://www.instagram.com/explore/search/keyword/?q=Tiromancino","facebook":"https://www.facebook.com/search/top?q=Tiromancino"},{"name":"Tony Tammaro","slug":"tony-tammaro","role":"cantante","bio":"Inventore del «tamarro pop», mescola comicità e musica raccontando con ironia il costume napoletano.","format":false,"spotify":"https://open.spotify.com/search/Tony%20Tammaro","instagram":"https://www.instagram.com/explore/search/keyword/?q=Tony%20Tammaro","facebook":"https://www.facebook.com/search/top?q=Tony%20Tammaro"},{"name":"Veronica Simioli","slug":"veronica-simioli","role":"cantante","bio":"Interprete dalla vocalità versatile, attiva tra pop italiano e repertorio melodico.","format":false,"spotify":"https://open.spotify.com/search/Veronica%20Simioli","instagram":"https://www.instagram.com/explore/search/keyword/?q=Veronica%20Simioli","facebook":"https://www.facebook.com/search/top?q=Veronica%20Simioli"},{"name":"We Can Dance con Dino Piacenti","slug":"we-can-dance-con-dino-piacenti","role":"live show","bio":"Serata dance condotta da Dino Piacenti, tra hit da discoteca e coinvolgimento del pubblico.","format":true,"spotify":"https://open.spotify.com/search/We%20Can%20Dance%20con%20Dino%20Piacenti","instagram":"https://www.instagram.com/explore/search/keyword/?q=We%20Can%20Dance%20con%20Dino%20Piacenti","facebook":"https://www.facebook.com/search/top?q=We%20Can%20Dance%20con%20Dino%20Piacenti"}];
+const COMUNI  = [{"nome":"Cancello ed Arnone","prov":"CE","regione":"Campania","lon":14.0333,"lat":41.05},{"nome":"Santa Maria Capua Vetere","prov":"CE","regione":"Campania","lon":14.2531,"lat":41.0819},{"nome":"Caserta","prov":"CE","regione":"Campania","lon":14.333,"lat":41.0722},{"nome":"Aversa","prov":"CE","regione":"Campania","lon":14.2069,"lat":40.9714},{"nome":"Maddaloni","prov":"CE","regione":"Campania","lon":14.3833,"lat":41.0333},{"nome":"Napoli","prov":"NA","regione":"Campania","lon":14.2681,"lat":40.8518},{"nome":"Pozzuoli","prov":"NA","regione":"Campania","lon":14.1214,"lat":40.8444},{"nome":"Torre del Greco","prov":"NA","regione":"Campania","lon":14.367,"lat":40.789},{"nome":"Castellammare di Stabia","prov":"NA","regione":"Campania","lon":14.4833,"lat":40.7},{"nome":"Benevento","prov":"BN","regione":"Campania","lon":14.7826,"lat":41.1299},{"nome":"Telese Terme","prov":"BN","regione":"Campania","lon":14.5333,"lat":41.2167},{"nome":"Avellino","prov":"AV","regione":"Campania","lon":14.7881,"lat":40.9146},{"nome":"Ariano Irpino","prov":"AV","regione":"Campania","lon":15.0889,"lat":41.1528},{"nome":"Salerno","prov":"SA","regione":"Campania","lon":14.7681,"lat":40.6824},{"nome":"Battipaglia","prov":"SA","regione":"Campania","lon":14.9833,"lat":40.6},{"nome":"Agropoli","prov":"SA","regione":"Campania","lon":14.9931,"lat":40.35},{"nome":"Vallo della Lucania","prov":"SA","regione":"Campania","lon":15.2667,"lat":40.2333},{"nome":"Potenza","prov":"PZ","regione":"Basilicata","lon":15.8056,"lat":40.6395},{"nome":"Melfi","prov":"PZ","regione":"Basilicata","lon":15.65,"lat":41.0},{"nome":"Lauria","prov":"PZ","regione":"Basilicata","lon":15.8333,"lat":40.05},{"nome":"Matera","prov":"MT","regione":"Basilicata","lon":16.6011,"lat":40.6664},{"nome":"Policoro","prov":"MT","regione":"Basilicata","lon":16.6778,"lat":40.2119}];
+const MAPGEO  = {"W":1461.5,"H":1000.0,"geo":[13.7626,16.871,39.8955,41.5079]};
+
+document.getElementById('year').textContent='© '+new Date().getFullYear()+' Azzurra Spettacoli. Tutti i diritti riservati.';
+
+/* ---------- nav ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+const burger=document.getElementById('burger'),mobile=document.getElementById('mobile');
+burger.addEventListener('click',()=>{mobile.classList.toggle('open');burger.classList.toggle('x');});
+mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');burger.classList.remove('x');}));
+const navlinks=document.querySelectorAll('.navlink');
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+  navlinks.forEach(l=>l.classList.remove('active'));
+  const c=document.querySelector('.navlink[href="#'+e.target.id+'"]'); if(c)c.classList.add('active');
+}}),{rootMargin:'-45% 0px -45% 0px'}).observe;
+document.querySelectorAll('section[id]').forEach(s=>{
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+    navlinks.forEach(l=>l.classList.remove('active'));
+    const c=document.querySelector('.navlink[href="#'+e.target.id+'"]'); if(c)c.classList.add('active');
+  }}),{rootMargin:'-45% 0px -45% 0px'}).observe(s);
+});
+
+/* ---------- reveal + righe di testo ---------- */
+const rObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rObs.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal,.reveal-line').forEach(el=>rObs.observe(el));
+
+/* ---------- numeri che contano ---------- */
+function animateCount(el){
+  const to=parseFloat(el.dataset.to), suf=el.dataset.suffix||'', dur=1500, t0=performance.now();
+  function step(t){
+    const p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(to*e)+suf;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const cObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cObs.unobserve(e.target);}}),{threshold:.6});
+document.querySelectorAll('.cnt').forEach(el=>cObs.observe(el));
+
+/* ---------- accordion ---------- */
+document.querySelectorAll('.acc-head').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement, panel=item.querySelector('.acc-panel'), open=item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-panel').style.maxHeight=null;});
+    if(!open){item.classList.add('open');panel.style.maxHeight=panel.scrollHeight+'px';}
+  });
+});
+(()=>{const f=document.querySelector('.acc-item');if(f){f.classList.add('open');const p=f.querySelector('.acc-panel');p.style.maxHeight=p.scrollHeight+'px';}})();
+
+/* ---------- ARTISTI: griglia + modal ---------- */
+const GRID=document.getElementById('artistGrid');
+const MORE=document.getElementById('moreBtn');
+const NORES=document.getElementById('noResult');
+const INITIAL=5;
+let expanded=false, filter='';
+
+function initials(n){return n.replace(/[&]/g,'').split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+
+function buildCards(){
+  GRID.innerHTML=ARTISTI.map((a,i)=>`
+    <button class="artist-card" data-i="${i}" data-name="${a.name.toLowerCase()}">
+      <span class="card-media">
+        <img loading="lazy" src="artisti/${a.slug}.jpg" alt="${a.name}"
+             onerror="this.classList.add('no-img');this.parentElement.classList.add('placeholder');">
+        <span class="card-fallback">${initials(a.name)}</span>
+        <span class="card-badge">Esclusiva 2026</span>
+      </span>
+      <span class="card-body">
+        <h3>${a.name}</h3>
+        <span class="card-role">${a.role}</span>
+      </span>
+    </button>`).join('');
+}
+function applyView(){
+  const cards=[...GRID.querySelectorAll('.artist-card')];
+  let shown=0;
+  cards.forEach(c=>{
+    const match=!filter || c.dataset.name.includes(filter);
+    const within = expanded || filter ? true : shown<INITIAL;
+    if(match && within){c.classList.remove('hidden');shown++;}
+    else c.classList.add('hidden');
+  });
+  NORES.style.display=(filter && shown===0)?'block':'none';
+  MORE.parentElement.style.display = filter ? 'none' : '';
+  MORE.innerHTML = expanded
+    ? 'Mostra meno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    : 'Scopri gli artisti <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+buildCards(); applyView();
+
+MORE.addEventListener('click',()=>{
+  expanded=!expanded;
+  const before=[...GRID.querySelectorAll('.artist-card:not(.hidden)')].length;
+  applyView();
+  if(expanded){
+    const cards=[...GRID.querySelectorAll('.artist-card:not(.hidden)')].slice(before);
+    cards.forEach((c,i)=>{c.classList.add('revealing');c.style.animationDelay=(i%12)*0.045+'s';
+      c.addEventListener('animationend',()=>{c.classList.remove('revealing');c.style.animationDelay='';},{once:true});});
+  }else{
+    document.getElementById('artisti').scrollIntoView({behavior:'smooth'});
+  }
+});
+document.getElementById('artistSearch').addEventListener('input',function(){
+  filter=this.value.trim().toLowerCase(); applyView();
+});
+
+/* modal */
+const MODAL=document.getElementById('artistModal');
+function openArtist(i){
+  const a=ARTISTI[i];
+  document.getElementById('mRole').textContent=a.role;
+  document.getElementById('mName').textContent=a.name;
+  document.getElementById('mCtaName').textContent=a.name;
+  document.getElementById('mBio').textContent=a.bio || 'Artista del cast in esclusiva Azzurra Spettacoli per la stagione 2026.';
+  const ph=document.getElementById('mPhoto'), img=document.getElementById('mImg');
+  ph.classList.remove('placeholder'); img.classList.remove('no-img');
+  document.getElementById('mFb').textContent=initials(a.name);
+  img.onerror=()=>{img.classList.add('no-img');ph.classList.add('placeholder');};
+  img.src='artisti/'+a.slug+'.jpg'; img.alt=a.name;
+  const L=document.getElementById('mLinks'); L.innerHTML='';
+  const mk=(href,label,svg,cls)=>`<a class="mlink ${cls||''}" href="${href}" target="_blank" rel="noopener">${svg}${label}</a>`;
+  if(a.spotify) L.innerHTML+=mk(a.spotify,'Spotify','<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7.5 9.5c3-.8 6.2-.5 8.8 1M8 12.4c2.5-.6 5-.4 7.2.9M8.6 15.2c2-.5 3.9-.3 5.6.7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>','sp');
+  if(a.instagram) L.innerHTML+=mk(a.instagram,'Instagram','<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg>');
+  if(a.facebook) L.innerHTML+=mk(a.facebook,'Facebook','<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 8.5H13V7c0-.7.5-1 .9-1H15.5V3.2L13.4 3.2C10.9 3.2 10 5 10 6.8v1.7H8v2.9h2V21h3v-9.6h2.2l.3-2.9z"/></svg>');
+  document.getElementById('mCtaBtn').onclick=e=>{
+    e.preventDefault(); closeModal();
+    const f=document.getElementById('artista'); if(f) f.value=a.name;
+    document.getElementById('contatti').scrollIntoView({behavior:'smooth'});
+  };
+  MODAL.classList.add('open'); document.body.style.overflow='hidden';
+  history.replaceState(null,'','#artista-'+a.slug);
+}
+function closeModal(){MODAL.classList.remove('open');document.body.style.overflow='';
+  if(location.hash.startsWith('#artista-')) history.replaceState(null,'','#artisti');}
+GRID.addEventListener('click',e=>{const c=e.target.closest('.artist-card'); if(c) openArtist(+c.dataset.i);});
+MODAL.addEventListener('click',e=>{if(e.target.hasAttribute('data-close')) closeModal();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&MODAL.classList.contains('open'))closeModal();});
+/* deep link */
+(()=>{const h=location.hash; if(h.startsWith('#artista-')){
+  const i=ARTISTI.findIndex(a=>a.slug===h.slice(9)); if(i>=0) setTimeout(()=>{expanded=true;applyView();openArtist(i);},400);}})();
+
+/* ---------- CHI SIAMO: colonne parallax ---------- */
+(()=>{
+  const imgs=['gallery/truck-hero.jpg','gallery/stage-90.jpg','gallery/truck-piazza.jpg',
+              'gallery/truck-side.jpg','gallery/truck-carpet.jpg','gallery/studio.jpg'];
+  const tracks=[...document.querySelectorAll('.px-track')];
+  tracks.forEach((t,ci)=>{
+    let html='';
+    for(let r=0;r<3;r++){ imgs.forEach((src,i)=>{ html+=`<img loading="lazy" src="${imgs[(i+ci*2)%imgs.length]}" alt="">`; }); }
+    t.innerHTML=html;
+  });
+  const sec=document.getElementById('chi-siamo');
+  let ticking=false;
+  function upd(){
+    const r=sec.getBoundingClientRect();
+    if(r.bottom<-200||r.top>innerHeight+200){ticking=false;return;}
+    const prog=(innerHeight-r.top)/(innerHeight+r.height);
+    tracks.forEach(t=>{
+      const sp=parseFloat(t.dataset.speed);
+      t.style.transform='translate3d(0,'+(prog*sp*t.scrollHeight)+'px,0)';
+    });
+    ticking=false;
+  }
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd); upd();
+})();
+
+/* ---------- MAPPA CLIENTI ---------- */
+(()=>{
+  const svg=document.getElementById('mapSvg'); if(!svg) return;
+  const [LON0,LON1,LAT0,LAT1]=MAPGEO.geo, W=MAPGEO.W, H=MAPGEO.H;
+  const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.setAttribute('class','dots');
+  COMUNI.forEach((c,i)=>{
+    const x=(c.lon-LON0)/(LON1-LON0)*W, y=(LAT1-c.lat)/(LAT1-LAT0)*H;
+    const gr=document.createElementNS('http://www.w3.org/2000/svg','g');
+    gr.setAttribute('class','dot'); gr.dataset.nome=c.nome; gr.dataset.prov=c.prov;
+    const halo=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    halo.setAttribute('class','halo'); halo.setAttribute('cx',x); halo.setAttribute('cy',y); halo.setAttribute('r',7);
+    halo.style.animationDelay=(0.6+i*0.08)+'s';
+    const core=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    core.setAttribute('class','core'); core.setAttribute('cx',x); core.setAttribute('cy',y); core.setAttribute('r',7);
+    core.style.animationDelay=(0.6+i*0.08)+'s';
+    const hit=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    hit.setAttribute('cx',x); hit.setAttribute('cy',y); hit.setAttribute('r',22); hit.setAttribute('fill','transparent');
+    gr.append(halo,core,hit); g.appendChild(gr);
+  });
+  svg.appendChild(g);
+
+  const wrap=document.getElementById('mapWrap'), label=document.getElementById('mapLabel');
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)wrap.classList.add('in');}),{threshold:.25}).observe(wrap);
+  g.addEventListener('mouseover',e=>{
+    const d=e.target.closest('.dot'); if(!d) return;
+    label.innerHTML=d.dataset.nome+'<small>'+d.dataset.prov+'</small>';
+    const r=d.getBoundingClientRect(), w=wrap.getBoundingClientRect();
+    label.style.left=(r.left-w.left+r.width/2)+'px';
+    label.style.top=(r.top-w.top)+'px';
+    label.classList.add('show');
+  });
+  g.addEventListener('mouseout',e=>{if(e.target.closest('.dot'))label.classList.remove('show');});
+})();
+
+/* ---------- form ---------- */
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault(); const f=e.target;
+  const body=['Nome: '+f.nome.value,'Ente: '+f.ente.value,'Email: '+f.email.value,
+    'Telefono: '+f.tel.value,'Tipo evento: '+f.tipo.value,'Data: '+f.data.value,
+    'Luogo: '+f.luogo.value,'Artista: '+f.artista.value,'','Messaggio:',f.msg.value].join('\n');
+  location.href='mailto:info@azzurraspettacoli.net?subject='+encodeURIComponent('Richiesta evento - '+f.nome.value)+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
