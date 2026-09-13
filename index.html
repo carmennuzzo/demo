@@ -171,20 +171,9 @@ h1.hero-title .accent{color:var(--gold);}
 .chi-photo img{width:100%;height:100%;object-fit:cover;}
 .chi-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(9,20,35,.4));}
 
-/* ============ CHI CI HA SCELTO ============ */
-#scelto{background:var(--navy);}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;}
-.gal-item{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--navy-2);}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
-.gal-item:hover img{transform:scale(1.06);}
-.gal-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(9,20,35,.6));opacity:0;transition:opacity .3s;}
-.gal-item:hover::after{opacity:1;}
-.gal-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;color:var(--white);font-size:13.5px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;}
-.gal-item:hover .gal-cap{opacity:1;transform:none;}
-.g-wide{grid-column:span 2;}
-.g-tall{grid-row:span 2;}
-@media(max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}.g-tall{grid-row:span 1;}}
-@media(max-width:560px){.gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:130px;}}
+/* ============ CLIENTI ============ */
+#clienti{background:var(--navy);}
+
 
 /* ============ EVENTI ============ */
 #eventi{background:linear-gradient(180deg,#12294a,#1b3d68 50%,#12294a);}
@@ -299,14 +288,14 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
   <div class="wrap hero-in">
     <span class="eyebrow seq s1">Esclusiva Campania &amp; Basilicata · 2026</span>
     <h1 class="hero-title seq s2">Il live che accende<br>il <span class="accent">territorio</span></h1>
-    <p class="hero-sub seq s3">Da oltre 20 anni Azzurra Spettacoli organizza e realizza eventi e concerti dal vivo con un cast in esclusiva di oltre 50 artisti. Grande musica italiana, format d'intrattenimento e serate di piazza, dal palco alla comunicazione.</p>
+    <p class="hero-sub seq s3">Da oltre 20 anni Azzurra Spettacoli organizza e realizza eventi e concerti dal vivo con un cast in esclusiva di oltre 100+ artisti. Grande musica italiana, format d'intrattenimento e serate di piazza, dal palco alla comunicazione.</p>
     <div class="hero-cta seq s4">
       <a href="#artisti" class="btn btn-gold">Il cast 2026 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#contatti" class="btn btn-line">Organizza un evento</a>
     </div>
     <div class="hero-strip seq s5">
       <div><b>20+</b><span>anni nel settore</span></div>
-      <div><b>56+</b><span>artisti in esclusiva</span></div>
+      <div><b>100+</b><span>artisti in esclusiva</span></div>
       <div><b>2</b><span>regioni servite</span></div>
     </div>
   </div>
@@ -339,7 +328,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/alessio.jpg" alt="Alessio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">A</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Alessio</h3>
@@ -350,7 +338,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/andrea-sannino.jpg" alt="Andrea Sannino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">AS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Andrea Sannino</h3>
@@ -361,7 +348,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/apres-la-classe.jpg" alt="Après la Classe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">AL</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Après la Classe</h3>
@@ -372,7 +358,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/beat-90s.jpg" alt="Beat 90's" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">B9</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Beat 90's</h3>
@@ -383,7 +368,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/bianca-atzei.jpg" alt="Bianca Atzei" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">BA</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Bianca Atzei</h3>
@@ -393,9 +377,7 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
       <article class="artist-card" data-name="chiara galiazzo">
         <div class="card-media">
           <img loading="lazy" src="artisti/chiara-galiazzo.jpg" alt="Chiara Galiazzo" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
-          <span class="card-fallback" aria-hidden="true">CG</span>
-          <span class="card-badge">Esclusiva 2026</span>
-        </div>
+          <span class="card-fallback" aria-hidden="true">CG</span>        </div>
         <div class="card-body">
           <h3>Chiara Galiazzo</h3>
     
@@ -405,7 +387,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ciro-rigione.jpg" alt="Ciro Rigione" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">CR</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ciro Rigione</h3>
@@ -416,7 +397,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/collage.jpg" alt="Collage" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">C</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Collage</h3>
@@ -426,9 +406,7 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
       <article class="artist-card" data-name="danilo sacco">
         <div class="card-media">
           <img loading="lazy" src="artisti/danilo-sacco.jpg" alt="Danilo Sacco" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
-          <span class="card-fallback" aria-hidden="true">DS</span>
-          <span class="card-badge">Esclusiva 2026</span>
-        </div>
+          <span class="card-fallback" aria-hidden="true">DS</span>        </div>
         <div class="card-body">
           <h3>Danilo Sacco</h3>
     
@@ -438,7 +416,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/dolcenere.jpg" alt="Dolcenere" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">D</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Dolcenere</h3>
@@ -449,7 +426,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/eugenio-finardi.jpg" alt="Eugenio Finardi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">EF</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Eugenio Finardi</h3>
@@ -460,7 +436,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/fausto-leali.jpg" alt="Fausto Leali" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">FL</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Fausto Leali</h3>
@@ -471,7 +446,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/filippo-graziani.jpg" alt="Filippo Graziani" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">FG</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Filippo Graziani</h3>
@@ -482,7 +456,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/fiordaliso.jpg" alt="Fiordaliso" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">F</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Fiordaliso</h3>
@@ -493,7 +466,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/franco-ricciardi.jpg" alt="Franco Ricciardi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">FR</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Franco Ricciardi</h3>
@@ -504,7 +476,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/gabriele-esposito.jpg" alt="Gabriele Esposito" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">GE</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Gabriele Esposito</h3>
@@ -515,7 +486,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/gianluca-capozzi.jpg" alt="Gianluca Capozzi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">GC</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Gianluca Capozzi</h3>
@@ -526,7 +496,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/gianni-fiorellino.jpg" alt="Gianni Fiorellino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">GF</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Gianni Fiorellino</h3>
@@ -537,7 +506,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/gigi-finizio.jpg" alt="Gigi Finizio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">GF</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Gigi Finizio</h3>
@@ -548,7 +516,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/gigi-soriani.jpg" alt="Gigi Soriani" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">GS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Gigi Soriani</h3>
@@ -559,7 +526,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/il-giardino-dei-semplici.jpg" alt="Il Giardino dei Semplici" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">IG</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Il Giardino dei Semplici</h3>
@@ -570,7 +536,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/irene-grandi.jpg" alt="Irene Grandi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">IG</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Irene Grandi</h3>
@@ -581,7 +546,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ivan-granatino.jpg" alt="Ivan Granatino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">IG</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ivan Granatino</h3>
@@ -592,7 +556,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ivana-spagna.jpg" alt="Ivana Spagna" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">IS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ivana Spagna</h3>
@@ -603,7 +566,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/lda-e-aka7even.jpg" alt="LDA e Aka7even" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">LE</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>LDA e Aka7even</h3>
@@ -614,7 +576,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/luca-sepe.jpg" alt="Luca Sepe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">LS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Luca Sepe</h3>
@@ -625,7 +586,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/luisa-corna.jpg" alt="Luisa Corna" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">LC</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Luisa Corna</h3>
@@ -636,7 +596,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/marco-carta.jpg" alt="Marco Carta" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">MC</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Marco Carta</h3>
@@ -647,7 +606,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/maria-nazionale.jpg" alt="Maria Nazionale" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">MN</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Maria Nazionale</h3>
@@ -658,7 +616,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/marsica.jpg" alt="Marsica" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">M</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Marsica</h3>
@@ -669,7 +626,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/mattia-bazar.jpg" alt="Mattia Bazar" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">MB</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Mattia Bazar</h3>
@@ -680,7 +636,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/mavi.jpg" alt="Mavi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">M</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Mavi</h3>
@@ -691,7 +646,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/neomelodic-night.jpg" alt="Neomelodic Night" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">NN</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Neomelodic Night</h3>
@@ -702,7 +656,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/nicola-siciliano.jpg" alt="Nicola Siciliano" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">NS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Nicola Siciliano</h3>
@@ -713,7 +666,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/nina-zilli.jpg" alt="Nina Zilli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">NZ</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Nina Zilli</h3>
@@ -724,7 +676,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/nostalgia-anni-90.jpg" alt="Nostalgia Anni 90" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">NA</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Nostalgia Anni 90</h3>
@@ -735,7 +686,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/orietta-berti.jpg" alt="Orietta Berti" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">OB</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Orietta Berti</h3>
@@ -746,7 +696,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/paolo-belli.jpg" alt="Paolo Belli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">PB</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Paolo Belli</h3>
@@ -757,7 +706,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/patrizio.jpg" alt="Patrizio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">P</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Patrizio</h3>
@@ -768,7 +716,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/raoul-swing-orchestra.jpg" alt="Raoul & Swing Orchestra" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Raoul & Swing Orchestra</h3>
@@ -779,7 +726,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ricchi-e-poveri.jpg" alt="Ricchi e Poveri" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RE</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ricchi e Poveri</h3>
@@ -790,7 +736,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/rico-femiano.jpg" alt="Rico Femiano" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RF</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Rico Femiano</h3>
@@ -801,7 +746,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/rita-pavone.jpg" alt="Rita Pavone" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RP</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Rita Pavone</h3>
@@ -812,7 +756,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ritorno-bambino-di-luca-sepe.jpg" alt="Ritorno Bambino di Luca Sepe" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RB</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ritorno Bambino di Luca Sepe</h3>
@@ -823,7 +766,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/roberto-vecchioni.jpg" alt="Roberto Vecchioni" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RV</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Roberto Vecchioni</h3>
@@ -834,7 +776,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/ron.jpg" alt="Ron" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">R</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Ron</h3>
@@ -845,7 +786,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/rosario-miraggio.jpg" alt="Rosario Miraggio" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">RM</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Rosario Miraggio</h3>
@@ -856,7 +796,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/shade.jpg" alt="Shade" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">S</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Shade</h3>
@@ -867,7 +806,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/silvia-mezzanotte.jpg" alt="Silvia Mezzanotte" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">SM</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Silvia Mezzanotte</h3>
@@ -878,7 +816,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/simone-cristicchi.jpg" alt="Simone Cristicchi" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">SC</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Simone Cristicchi</h3>
@@ -889,7 +826,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/sud-sound-system.jpg" alt="Sud Sound System" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">SS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Sud Sound System</h3>
@@ -900,7 +836,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/super-hit-80s.jpg" alt="Super Hit 80's" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">SH</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Super Hit 80's</h3>
@@ -911,7 +846,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/tiromancino.jpg" alt="Tiromancino" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">T</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Tiromancino</h3>
@@ -922,7 +856,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/tony-tammaro.jpg" alt="Tony Tammaro" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">TT</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Tony Tammaro</h3>
@@ -933,7 +866,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/veronica-simioli.jpg" alt="Veronica Simioli" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">VS</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>Veronica Simioli</h3>
@@ -944,7 +876,6 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
         <div class="card-media">
           <img loading="lazy" src="artisti/we-can-dance-con-dino-piacenti.jpg" alt="We Can Dance con Dino Piacenti" onerror="this.classList.add('no-img'); this.parentElement.classList.add('placeholder');">
           <span class="card-fallback" aria-hidden="true">WC</span>
-          <span class="card-badge">Esclusiva 2026</span>
         </div>
         <div class="card-body">
           <h3>We Can Dance con Dino Piacenti</h3>
@@ -1131,7 +1062,7 @@ footer{background:#0b1a30;padding:64px 0 30px;border-top:1px solid var(--line);t
           <li><a href="#artisti">Cast 2026</a></li>
           <li><a href="#servizi">Servizi</a></li>
           <li><a href="#chi-siamo">Chi siamo</a></li>
-          <li><a href="#scelto">Chi ci ha scelto</a></li>
+          <li><a href="#clienti">Clienti</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
       </div>
