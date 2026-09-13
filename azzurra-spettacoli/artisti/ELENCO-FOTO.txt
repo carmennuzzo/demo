@@ -1,0 +1,50 @@
+ELENCO NOMI-FILE PER LE FOTO ARTISTI
+Metti in questa cartella le foto con questi nomi esatti (formato .jpg).
+Dove manca la foto, nel sito compaiono le iniziali dell'artista.
+
+alessio.jpg  →  Alessio
+andrea-sannino.jpg  →  Andrea Sannino
+apres-la-classe.jpg  →  Après la Classe
+beat-90s.jpg  →  Beat 90's
+bianca-atzei.jpg  →  Bianca Atzei
+chiara-galiazzo.jpg  →  Chiara Galiazzo
+ciro-rigione.jpg  →  Ciro Rigione
+collage.jpg  →  Collage
+danilo-sacco.jpg  →  Danilo Sacco
+dolcenere.jpg  →  Dolcenere
+eugenio-finardi.jpg  →  Eugenio Finardi
+fausto-leali.jpg  →  Fausto Leali
+filippo-graziani.jpg  →  Filippo Graziani
+fiordaliso.jpg  →  Fiordaliso
+gabriele-esposito.jpg  →  Gabriele Esposito
+gianluca-capozzi.jpg  →  Gianluca Capozzi
+gianni-fiorellino.jpg  →  Gianni Fiorellino
+gigi-soriani.jpg  →  Gigi Soriani
+il-giardino-dei-semplici.jpg  →  Il Giardino dei Semplici
+irene-grandi.jpg  →  Irene Grandi
+ivan-granatino.jpg  →  Ivan Granatino
+ivana-spagna.jpg  →  Ivana Spagna
+luca-sepe.jpg  →  Luca Sepe
+luisa-corna.jpg  →  Luisa Corna
+marco-carta.jpg  →  Marco Carta
+maria-nazionale.jpg  →  Maria Nazionale
+marsica.jpg  →  Marsica
+mattia-bazar.jpg  →  Mattia Bazar
+mavi.jpg  →  Mavi
+neomelodic-night.jpg  →  Neomelodic Night
+nicola-siciliano.jpg  →  Nicola Siciliano
+nostalgia-anni-90.jpg  →  Nostalgia Anni 90
+orietta-berti.jpg  →  Orietta Berti
+paolo-belli.jpg  →  Paolo Belli
+patrizio.jpg  →  Patrizio
+rico-femiano.jpg  →  Rico Femiano
+rita-pavone.jpg  →  Rita Pavone
+ritorno-bambino-di-luca-sepe.jpg  →  Ritorno Bambino di Luca Sepe
+rosario-miraggio.jpg  →  Rosario Miraggio
+shade.jpg  →  Shade
+silvia-mezzanotte.jpg  →  Silvia Mezzanotte
+sud-sound-system.jpg  →  Sud Sound System
+super-hit-80s.jpg  →  Super Hit 80's
+tony-tammaro.jpg  →  Tony Tammaro
+veronica-simioli.jpg  →  Veronica Simioli
+we-can-dance-con-dino-piacenti.jpg  →  We Can Dance con Dino Piacenti
